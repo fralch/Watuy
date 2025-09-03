@@ -203,7 +203,7 @@ export default function FiltroList({ filtros, auth, onEditar, onEliminar, filtro
                                     <label key={opcion.id_opcion} className="flex items-center space-x-2 cursor-pointer group">
                                         <input
                                             type="checkbox"
-                                            className="form-checkbox h-4 w-4 text-[#1e3a8a] rounded focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 transition-all duration-200"
+                                            className="form-checkbox h-4 w-4 text-[#006ba0] rounded focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 transition-all duration-200"
                                             checked={Array.isArray(filtrosSeleccionados[filtro.id_filtro]) && filtrosSeleccionados[filtro.id_filtro].includes(opcion.id_opcion)}
                                             onChange={(e) => {
                                                 const currentSelected = filtrosSeleccionados[filtro.id_filtro] || [];
@@ -243,7 +243,7 @@ export default function FiltroList({ filtros, auth, onEditar, onEliminar, filtro
                                         <input
                                             type="radio"
                                             name={`filtro-${filtro.id_filtro}`}
-                                            className="form-radio h-4 w-4 text-[#1e3a8a] focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 transition-all duration-200"
+                                            className="form-radio h-4 w-4 text-[#006ba0] focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 transition-all duration-200"
                                             checked={filtrosSeleccionados[filtro.id_filtro] === opcion.id_opcion || false}
                                             onChange={() => {
                                                 setFiltrosSeleccionados({

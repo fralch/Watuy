@@ -67,7 +67,7 @@ const AdminProducts = () => {
                 <button
                     ref={menuButtonRef}
                     className={`fixed top-4 left-4 z-20 text-white p-2 rounded-md shadow-md md:hidden transition-colors duration-300 ${
-                        isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'
+                        isDarkMode ? 'bg-primary-600 hover:bg-primary-700' : 'bg-primary-500 hover:bg-primary-600'
                     }`}
                     onClick={() => setSidebarVisible(!sidebarVisible)}
                 >
@@ -101,19 +101,19 @@ const AdminProducts = () => {
                     transition-all duration-300 fixed md:static w-64 p-4 h-screen z-10 border-r ${
                         isDarkMode 
                             ? 'bg-gray-800 border-gray-700' 
-                            : 'bg-blue-50 border-blue-200'
+                            : 'bg-primary-50 border-primary-200'
                     }`}
                 >
                     <div className="mb-8">
                         <Link href="/"> 
                             <img
-                                src="/img/watuy-logo.png"
+                                src="/img/LOGO-WATUY.png"
                                 alt="Logo"
                                 className="mb-4 w-3/5 mx-auto"
                             />
                         </Link>
                         <h2 className={`text-xl font-bold text-center transition-colors duration-300 ${
-                            isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                            isDarkMode ? 'text-primary-400' : 'text-primary-600'
                         }`}>
                             Panel de Administración
                         </h2>
@@ -122,7 +122,7 @@ const AdminProducts = () => {
                         <Link
                             href="/crear"
                             className={`w-full text-center block py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                isDarkMode ? 'bg-gray-700 text-blue-400 hover:bg-gray-600' : 'bg-blue-200 text-blue-600 hover:bg-blue-300'
+                                isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
                             }`}
                         >
                             Crear Producto
@@ -130,7 +130,7 @@ const AdminProducts = () => {
                         <Link
                             href="/crear"
                             className={`w-full text-center block py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                isDarkMode ? 'bg-gray-700 text-blue-400 hover:bg-gray-600' : 'bg-blue-200 text-blue-600 hover:bg-blue-300'
+                                isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
                             }`}
                         >
                             Crear Categoria
@@ -138,7 +138,7 @@ const AdminProducts = () => {
                         <Link
                             href="/crear"
                             className={`w-full text-center block py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                isDarkMode ? 'bg-gray-700 text-blue-400 hover:bg-gray-600' : 'bg-blue-200 text-blue-600 hover:bg-blue-300'
+                                isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
                             }`}
                         >
                             Crear Subcategoria
@@ -146,7 +146,7 @@ const AdminProducts = () => {
                         <Link
                             href="/crear"
                             className={`w-full text-center block py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                isDarkMode ? 'bg-gray-700 text-blue-400 hover:bg-gray-600' : 'bg-blue-200 text-blue-600 hover:bg-blue-300'
+                                isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
                             }`}
                         >
                             Crear Marca
@@ -154,7 +154,7 @@ const AdminProducts = () => {
                         <Link
                             href="/crear"
                             className={`w-full text-center block py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                isDarkMode ? 'bg-gray-700 text-blue-400 hover:bg-gray-600' : 'bg-blue-200 text-blue-600 hover:bg-blue-300'
+                                isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
                             }`}
                         >
                             Mover Subcategorías
@@ -162,8 +162,8 @@ const AdminProducts = () => {
                         <button
                             className={`w-full py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
                                 activeButton === 'productos_todos'
-                                    ? (isDarkMode ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white')
-                                    : (isDarkMode ? 'bg-gray-700 text-blue-400 hover:bg-gray-600' : 'bg-blue-200 text-blue-600 hover:bg-blue-300')
+                                    ? (isDarkMode ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-primary-500 hover:bg-primary-600 text-white')
+                : (isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300')
                             }`}
                         >
                             Ver Productos

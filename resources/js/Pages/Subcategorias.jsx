@@ -700,7 +700,7 @@ export default function Subcategoria({ productos: productosIniciales, marcas }) 
                                 {auth.user && !mostrarFormularioFiltro && (
                                     <button
                                         onClick={() => setMostrarFormularioFiltro(true)}
-                                        className={`py-1 px-2 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-[#1e3a8a] hover:bg-blue-700'} text-white rounded transition-colors duration-200 text-sm`}
+                                        className={`py-1 px-2 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-[#006ba0] hover:bg-blue-700'} text-white rounded transition-colors duration-200 text-sm`}
                                     >
                                         + Filtro
                                     </button>
@@ -759,7 +759,7 @@ export default function Subcategoria({ productos: productosIniciales, marcas }) 
                                     Resetear
                                 </button>
                                 <button 
-                                    className={`${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-[#1e3a8a] hover:bg-[#1e3a8a]/80'} text-white py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200`} 
+                                    className={`${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-[#006ba0] hover:bg-[#006ba0]/80'} text-white py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200`} 
                                     onClick={filtrarPorPrecio}
                                 >
                                     Aplicar
@@ -857,8 +857,8 @@ export default function Subcategoria({ productos: productosIniciales, marcas }) 
                                                 onClick={buscarProductosFiltrados}
                                                 className={`w-full py-3 px-4 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 mt-6 ${
                                                     isDarkMode 
-                                                        ? 'bg-[#1e3a8a] hover:bg-blue-700 text-white shadow-lg' 
-                                                        : 'bg-[#1e3a8a] hover:bg-blue-600 text-white shadow-md'
+                                                        ? 'bg-[#006ba0] hover:bg-blue-700 text-white shadow-lg' 
+                                                        : 'bg-[#006ba0] hover:bg-blue-600 text-white shadow-md'
                                                 }`}
                                             >
                                                 Buscar productos

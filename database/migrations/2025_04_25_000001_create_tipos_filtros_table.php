@@ -8,18 +8,22 @@ return new class extends Migration
 {
     public function up(): void
     {
-        // Tabla principal de filtros
-        Schema::create('filtros', function (Blueprint $table) {
-            $table->bigIncrements('id_filtro');
-            $table->string('nombre', 100);
-            $table->string('slug', 100)->unique(); // Para URLs amigables y JSON key
-            $table->enum('tipo_input', ['range', 'checkbox', 'select', 'radio']);
-            $table->string('unidad', 20)->nullable(); // Para rangos: cm, kg, $, etc.
-            $table->text('descripcion')->nullable(); // Ayuda para el usuario
-            $table->integer('orden')->default(0);
-            $table->boolean('activo')->default(true);
-            $table->boolean('obligatorio')->default(false); // Si es requerido al crear producto
-            $table->timestamps();
+        // Modificar tabla existente de filtros
+        Schema::table('filtros', function (Blueprint $table) {
+            // Cambiar id a id_filtro
+            $table->renameColumn('id', 'id_filtro');
+            // Cambiar name a nombre
+            $table->renameColumn('name', 'nombre');
+            // Modificar longitud de nombre
+            $table->string('nombre', 100)->change();
+            // Agregar nuevas columnas
+            $table->string('slug', 100)->unique()->after('nombre'); // Para URLs amigables y JSON key
+            $table->enum('tipo_input', ['range', 'checkbox', 'select', 'radio'])->after('slug');
+            $table->string('unidad', 20)->nullable()->after('tipo_input'); // Para rangos: cm, kg, $, etc.
+            $table->text('descripcion')->nullable()->after('unidad'); // Ayuda para el usuario
+            $table->integer('orden')->default(0)->after('descripcion');
+            $table->boolean('activo')->default(true)->after('orden');
+            // obligatorio ya existe, solo lo movemos
             
             $table->index(['activo', 'orden']);
         });
@@ -60,6 +64,13 @@ return new class extends Migration
     {
         Schema::dropIfExists('subcategoria_filtros');
         Schema::dropIfExists('opciones_filtros');
-        Schema::dropIfExists('filtros');
+        
+        // Revertir cambios en tabla filtros
+        Schema::table('filtros', function (Blueprint $table) {
+            $table->dropIndex(['activo', 'orden']);
+            $table->dropColumn(['slug', 'tipo_input', 'unidad', 'descripcion', 'orden', 'activo']);
+            $table->renameColumn('id_filtro', 'id');
+            $table->renameColumn('nombre', 'name');
+        });
     }
 };

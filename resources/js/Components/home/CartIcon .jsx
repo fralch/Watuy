@@ -222,7 +222,7 @@ const CartIcon = () => {
           >
             <div
               style={{
-                background: "#1e3a8a",
+                background: "#006ba0",
                 padding: "12px 24px",
                 color: "#ffffff",
                 position: "relative",
@@ -633,7 +633,7 @@ const CartIcon = () => {
                         background:
                           cart.length === 0
                             ? "linear-gradient(135deg,rgba(100,116,139,0.5) 0%,rgba(71,85,105,0.6) 100%)"
-                            : "linear-gradient(to bottom,#1e3a8a,#1e3a8a)",
+                            : "linear-gradient(to bottom,#006ba0,#006ba0)",
                         color:
                           cart.length === 0
                             ? isDarkMode

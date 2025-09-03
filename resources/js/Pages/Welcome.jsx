@@ -85,8 +85,8 @@ export default function Welcome() {
                                         onClick={() => setShowUserMenu(!showUserMenu)}
                                         className={`p-3 rounded-full shadow-lg transition-all ${
                                             isDarkMode
-                                                ? "bg-[#1e3a8a] hover:bg-gray-700"
-                                                : "bg-[#1e3a8a] hover:bg-gray-600"
+                                                ? "bg-[#006ba0] hover:bg-gray-700"
+                                                : "bg-[#006ba0] hover:bg-gray-600"
                                         } text-white`}
                                     >
                                         <FiUser size={20} />

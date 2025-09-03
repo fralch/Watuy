@@ -196,7 +196,7 @@ const ContactPage = () => {
       {/* Contenido Principal */}
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
+        <section className="bg-[#006ba0] text-white py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               WATUY

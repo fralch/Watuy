@@ -96,7 +96,7 @@ const CategoryCard = React.memo(({ title, items, categoryId, categoryImages }) =
   }, [imagePaths.length, isVisible]);
 
   // Memoizar valores calculados
-  const placeholderImage = useMemo(() => '/img/watuy-logo.jpg', []);
+  const placeholderImage = useMemo(() => '/img/LOGO-WATUY.png', []);
   
   const currentImage = useMemo(() => {
     if (imagePaths.length > 0) {

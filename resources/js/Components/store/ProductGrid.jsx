@@ -6,7 +6,7 @@ import { useCurrency } from '../../storage/CurrencyContext';
 import { useCompare } from '../../hooks/useCompare';
 
 const URL_API = import.meta.env.VITE_API_URL;
-const FALLBACK_IMAGE = '/img/logo2.jpg';
+const FALLBACK_IMAGE = '/img/LOGO-WATUY.png';
 const IMAGE_TIMEOUT = 3000; // 3 segundos timeout para imágenes
 
 // Currency formatting function moved to CurrencyContext
@@ -368,7 +368,7 @@ const ProductGrid = ({ products: initialProducts }) => {
         }`}>
           <div className="text-center">
             <div className={`animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 mx-auto mb-4 ${
-              isDarkMode ? 'border-blue-400' : 'border-blue-500'
+              isDarkMode ? 'border-primary-400' : 'border-primary-500'
             }`}></div>
             <p className={`text-sm ${
               isDarkMode ? 'text-gray-400' : 'text-gray-600'
@@ -401,8 +401,8 @@ const ProductGrid = ({ products: initialProducts }) => {
               onClick={() => fetchProducts(1)}
               className={`px-6 py-3 rounded-lg font-medium transition-colors duration-200 ${
                 isDarkMode 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  ? 'bg-primary-600 hover:bg-primary-700 text-white'
+                    : 'bg-primary-600 hover:bg-primary-700 text-white'
               }`}
             >
               Reintentar
@@ -441,7 +441,7 @@ const ProductGrid = ({ products: initialProducts }) => {
                   className={`px-3 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 ${
                     currentPage === 1
                       ? (isDarkMode ? 'bg-gray-700 cursor-not-allowed text-gray-400' : 'bg-gray-300 cursor-not-allowed text-gray-500')
-                      : (isDarkMode ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white')
+                      : (isDarkMode ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-primary-600 hover:bg-primary-700 text-white')
                   }`}
                   aria-label="Previous Page"
                 >
@@ -462,7 +462,7 @@ const ProductGrid = ({ products: initialProducts }) => {
                       disabled={loading}
                       className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 ${
                         currentPage === pageNumber 
-                          ? (isDarkMode ? 'bg-blue-600 text-white font-bold' : 'bg-blue-600 text-white font-bold')
+                          ? (isDarkMode ? 'bg-primary-600 text-white font-bold' : 'bg-primary-600 text-white font-bold')
                           : (isDarkMode ? 'bg-gray-700 hover:bg-gray-600 text-gray-200 disabled:bg-gray-800' : 'bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100')
                       }`}
                       aria-label={`Page ${pageNumber}`}
@@ -481,7 +481,7 @@ const ProductGrid = ({ products: initialProducts }) => {
                   className={`px-3 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 ${
                     currentPage === totalPages || loading
                       ? (isDarkMode ? 'bg-gray-700 cursor-not-allowed text-gray-400' : 'bg-gray-300 cursor-not-allowed text-gray-500')
-                      : (isDarkMode ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white')
+                      : (isDarkMode ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-primary-600 hover:bg-primary-700 text-white')
                   }`}
                   aria-label="Next Page"
                 >

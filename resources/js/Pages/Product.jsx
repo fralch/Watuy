@@ -845,7 +845,7 @@ const ProductPage = ({ producto }) => {
                                 {auth.user && (
                                     <button
                                         onClick={() => toggleEditMode('especificaciones_tecnicas')}
-                                        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                        className="mt-4 px-4 py-2 bg-primary-500 text-white rounded hover:bg-primary-600"
                                     >
                                         {productData.especificaciones_tecnicas ? 'Editar' : 'Agregar'} especificaciones técnicas
                                     </button>
@@ -906,7 +906,7 @@ const ProductPage = ({ producto }) => {
                                         {auth.user && (
                                             <button
                                                 onClick={() => toggleEditMode('envio')}
-                                                className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                                className="mt-2 px-4 py-2 bg-primary-500 text-white rounded hover:bg-primary-600"
                                             >
                                                 Editar contenido de envío
                                             </button>
@@ -951,7 +951,7 @@ const ProductPage = ({ producto }) => {
                                         <p>No hay información sobre el contenido de envío.</p>
                                         <button
                                             onClick={() => toggleEditMode('envio')}
-                                            className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                            className="mt-2 px-4 py-2 bg-primary-500 text-white rounded hover:bg-primary-600"
                                         >
                                             Agregar contenido de envío
                                         </button>
@@ -971,7 +971,7 @@ const ProductPage = ({ producto }) => {
                                         <label className="block text-sm font-medium text-gray-700 mb-2">
                                             Información de Soporte Técnico
                                         </label>
-                                        <div className="mb-3 text-sm text-blue-600 bg-blue-50 p-3 rounded">
+                                        <div className="mb-3 text-sm text-primary-600 bg-primary-50 p-3 rounded">
                                             <strong>💡 Consejos:</strong>
                                             <ul className="mt-1 ml-4 space-y-1">
                                                 <li>• Puedes pegar texto con asteriscos (*) - se convertirán a viñetas (•)</li>
@@ -981,7 +981,7 @@ const ProductPage = ({ producto }) => {
                                         </div>
                                         
                                         <textarea
-                                            className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full p-3 border rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                                             value={tempInputs.soporte_tecnico || ''}
                                             onChange={(e) => handleInputChange('soporte_tecnico', e.target.value)}
                                             onPaste={(e) => handlePaste(e, 'soporte_tecnico')}
@@ -1066,7 +1066,7 @@ const ProductPage = ({ producto }) => {
                                                     }));
                                                     toggleEditMode('soporte_tecnico');
                                                 }}
-                                                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-200"
+                                                className="mt-4 px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors duration-200"
                                             >
                                                 Editar Soporte
                                             </button>
@@ -1082,7 +1082,7 @@ const ProductPage = ({ producto }) => {
                                             Información de Soporte Técnico
                                         </label>
                                         <textarea
-                                            className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full p-3 border rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                                             value={tempInputs.soporte_tecnico || ''}
                                             onChange={(e) => handleInputChange('soporte_tecnico', e.target.value)}
                                             onPaste={(e) => handlePaste(e, 'soporte_tecnico')}
@@ -1122,7 +1122,7 @@ const ProductPage = ({ producto }) => {
                                                     }));
                                                     toggleEditMode('soporte_tecnico');
                                                 }}
-                                                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                                                className="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600"
                                             >
                                                 ➕ Agregar
                                             </button>
@@ -1310,7 +1310,7 @@ const ProductPage = ({ producto }) => {
                 <div className="flex items-center flex-wrap gap-1 px-4 md:px-6 py-3 ">
                     <Link 
                         href={`/categorias/${categoriaCurrent.id_categoria}`} 
-                        className={`hover:text-blue-600 transition-colors duration-200 text-base md:text-lg font-medium ${
+                        className={`hover:text-primary-600 transition-colors duration-200 text-base md:text-lg font-medium ${
                             isDarkMode ? 'text-gray-300' : 'text-gray-600'
                         }`}
                     >
@@ -1321,7 +1321,7 @@ const ProductPage = ({ producto }) => {
                     }`}>/</span>
                     <Link 
                         href={`/subcategoria/${producto.id_subcategoria}`}
-                        className={`hover:text-blue-600 transition-colors duration-200 text-base md:text-lg font-medium ${
+                        className={`hover:text-primary-600 transition-colors duration-200 text-base md:text-lg font-medium ${
                             isDarkMode ? 'text-gray-100' : 'text-gray-800'
                         }`}
                     >
@@ -1962,12 +1962,12 @@ const ProductPage = ({ producto }) => {
                                                         {/* Área de imagen con fondo adaptable */}
                                                         <div className={`h-40 overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
                                                             <img 
-                                                                src={product.image ? product.image : '/img/watuy-logo.jpg'}
+                                                                src={product.image ? product.image : '/img/LOGO-WATUY.png'}
                                                                 alt={product.title} 
                                                                 className="w-full h-full object-contain p-4"
                                                                 onError={(e) => {
-                                                                    if (e.target.src !== '/img/watuy-logo.jpg') {
-                                    e.target.src = '/img/watuy-logo.jpg';
+                                                                    if (e.target.src !== '/img/LOGO-WATUY.png') {
+                                    e.target.src = '/img/LOGO-WATUY.png';
                                                                     }
                                                                 }}
                                                             />

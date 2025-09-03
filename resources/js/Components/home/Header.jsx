@@ -119,7 +119,7 @@ const Header = () => {
                 <a href="/" className="mr-auto w-1/5 flex-shrink-0 pr-4 ml-10">
                     <img
                         className="w-full object-contain"
-                        src="/img/watuy-logo.jpg"
+                        src="/img/LOGO-WATUY.png"
                         alt="Watuy Logo"
                     />
                 </a>
@@ -343,7 +343,7 @@ const Header = () => {
                     <a href="/" className="flex-shrink-0 w-32">
                         <img
                             className="w-full object-contain"
-                            src="/img/watuy-logo.jpg"
+                            src="/img/LOGO-WATUY.png"
                             alt="Watuy Logo"
                         />
                     </a>
@@ -423,10 +423,10 @@ const Header = () => {
                         }`}>
                             <div className="flex items-center space-x-3">
                                 <div className={`p-2 rounded-full ${
-                                    isDarkMode ? 'bg-blue-900/30' : 'bg-blue-50'
+                                    isDarkMode ? 'bg-primary-900/30' : 'bg-primary-50'
                                 }`}>
                                     <svg className={`w-5 h-5 ${
-                                        isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                                        isDarkMode ? 'text-primary-400' : 'text-primary-600'
                                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
@@ -457,8 +457,8 @@ const Header = () => {
                                 isDarkMode ? 'bg-gray-700' : 'bg-gray-50'
                             } rounded-xl border-2 transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-500/20 ${
                                 isDarkMode 
-                                    ? 'border-gray-600 focus-within:border-blue-500' 
-                                    : 'border-gray-200 focus-within:border-blue-400'
+                                    ? 'border-gray-600 focus-within:border-primary-500'
+                        : 'border-gray-200 focus-within:border-primary-400'
                             }`}>
                                 <input
                                     className={`w-full bg-transparent py-4 pl-5 pr-12 text-base font-medium outline-none ${
@@ -482,7 +482,7 @@ const Header = () => {
                                 />
                                 <div className={`absolute right-4 top-1/2 transform -translate-y-1/2 ${
                                     isDarkMode ? 'text-gray-400' : 'text-gray-500'
-                                } group-focus-within:text-blue-500 transition-colors duration-200`}>
+                                } group-focus-within:text-primary-500 transition-colors duration-200`}>
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
@@ -500,7 +500,7 @@ const Header = () => {
                                         <div className="flex items-center justify-center py-8">
                                             <div className="flex items-center space-x-3">
                                                 <div className={`animate-spin rounded-full h-5 w-5 border-2 border-t-transparent ${
-                                                    isDarkMode ? 'border-blue-400' : 'border-blue-500'
+                                                    isDarkMode ? 'border-primary-400' : 'border-primary-500'
                                                 }`}></div>
                                                 <span className={`text-sm font-medium ${
                                                     isDarkMode ? 'text-gray-300' : 'text-gray-600'
@@ -550,8 +550,8 @@ const Header = () => {
                                                                 {product.marca && (
                                                                     <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium ${
                                                                         isDarkMode 
-                                                                            ? 'bg-blue-900/30 text-blue-300' 
-                                                                            : 'bg-blue-50 text-blue-600'
+                                                                            ? 'bg-primary-900/30 text-primary-300'
+                                        : 'bg-primary-50 text-primary-600'
                                                                     }`}>
                                                                         {product.marca.nombre}
                                                                     </span>

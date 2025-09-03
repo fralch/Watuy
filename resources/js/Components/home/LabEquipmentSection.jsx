@@ -64,7 +64,7 @@ const LabEquipmentSection = () => {
     return (
         <section className="flex flex-col lg:flex-row relative w-full">
             {/* Text + Navigation */}
-            <div className="bg-[#0c2249] w-full lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col gap-4 mt-6 md:mt-8 lg:mt-10 text-white relative z-0">
+            <div className="bg-[#006ba0] w-full lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col gap-4 mt-6 md:mt-8 lg:mt-10 text-white relative z-0">
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-bold pt-4 md:pt-8 lg:pt-12">
                     Equipos de laboratorio
                 </h3>

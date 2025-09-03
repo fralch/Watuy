@@ -1,0 +1,21 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo -->
+  <rect width="200" height="80" fill="white"/>
+  
+  <!-- Símbolo W estilizado en azul -->
+  <g transform="translate(10, 10)">
+    <!-- Formas geométricas que forman la W -->
+    <path d="M0 10 L15 50 L25 20 L35 50 L50 10 L40 10 L30 35 L25 25 L20 35 L10 10 Z" fill="#1e40af" stroke="#1e40af" stroke-width="2"/>
+    <path d="M5 5 L20 45 L30 15 L40 45 L55 5 L45 5 L35 30 L30 20 L25 30 L15 5 Z" fill="#3b82f6" opacity="0.7"/>
+  </g>
+  
+  <!-- Texto WATUY -->
+  <g transform="translate(80, 25)">
+    <text x="0" y="25" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1f2937">
+      WATUY
+    </text>
+  </g>
+  
+  <!-- Línea decorativa -->
+  <line x1="80" y1="55" x2="180" y2="55" stroke="#3b82f6" stroke-width="3"/>
+</svg>

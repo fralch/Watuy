@@ -43,7 +43,7 @@ const GallerySection = ({ galleryImages, isDarkMode }) => {
     <section className={`py-16 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-200`}>
       <div className="container mx-auto px-4">
         <h2 className={`text-3xl font-bold text-center mb-12 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
-          Nuestras Instalaciones
+          Nuestros Talleres y Equipos
         </h2>
         
         {/* Controles de navegación superiores */}
@@ -89,7 +89,7 @@ const GallerySection = ({ galleryImages, isDarkMode }) => {
             >
               <img 
                 src={image} 
-                alt={`Instalación ${currentPage * imagesPerPage + index + 1}`}
+                alt={`Taller y maquinaria ${currentPage * imagesPerPage + index + 1}`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -153,29 +153,29 @@ const ContactPage = () => {
   };
 
   const galleryImages = [
-    // Imágenes de instalaciones - Actualizar con las imágenes de Watuy
-    '/img/gallery/instalacion-1.jpg',
-    '/img/gallery/instalacion-2.jpg',
-    '/img/gallery/instalacion-3.jpg',
-    '/img/gallery/instalacion-4.jpg',
-    '/img/gallery/instalacion-5.jpg',
-    '/img/gallery/instalacion-6.jpg'
+    // Imágenes de talleres y maquinaria - Actualizar con las imágenes de Watuy
+    '/img/gallery/taller-1.jpg',
+    '/img/gallery/taller-2.jpg',
+    '/img/gallery/maquinaria-1.jpg',
+    '/img/gallery/maquinaria-2.jpg',
+    '/img/gallery/reparacion-1.jpg',
+    '/img/gallery/reparacion-2.jpg'
   ];
 
   const services = [
     {
-      title: "Venta de Equipos",
-      description: "Amplia gama de equipos de laboratorio de las mejores marcas del mercado",
+      title: "Reparación Especializada",
+      description: "Reparación integral de excavadoras, bulldozers, grúas y toda maquinaria pesada",
       icon: <Star className="w-6 h-6" />
     },
     {
-      title: "Mantenimiento",
-      description: "Servicio preventivo y correctivo 24/7 para garantizar el funcionamiento óptimo",
+      title: "Mantenimiento Preventivo",
+      description: "Servicio preventivo y correctivo 24/7 para maximizar la vida útil de sus equipos",
       icon: <CheckCircle className="w-6 h-6" />
     },
     {
-      title: "Calibración",
-      description: "Calibración acreditada según normas internacionales con resultados precisos",
+      title: "Servicio en Campo",
+      description: "Atención técnica directa en obra con unidades móviles completamente equipadas",
       icon: <Award className="w-6 h-6" />
     }
   ];
@@ -202,7 +202,7 @@ const ContactPage = () => {
               WATUY
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Su socio para la venta, mantenimiento y calibración de equipos de laboratorio
+              Su socio confiable para la reparación y mantenimiento de maquinaria pesada
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
               <div className="flex items-center">
@@ -211,7 +211,7 @@ const ContactPage = () => {
               </div>
               <div className="flex items-center">
                 <Award className="w-6 h-6 mr-2" />
-                <span>Calibración acreditada</span>
+                <span>Servicio especializado</span>
               </div>
             </div>
           </div>
@@ -223,8 +223,8 @@ const ContactPage = () => {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  Megaequipamiento es una empresa perteneciente al Grupo EQUINLAB SAC, líder en la venta, 
-                  mantenimiento y calibración de equipos de laboratorio en Perú.
+                  WATUY es una empresa líder en la reparación, mantenimiento y servicio técnico 
+                  de maquinaria pesada para construcción, minería y agricultura en Perú.
                 </p>
               </div>
 
@@ -241,11 +241,11 @@ const ContactPage = () => {
               <div className={`prose max-w-none ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 <p className="text-lg leading-relaxed mb-6">
                   Con un equipo de más de 20 años de experiencia en el sector, nos dedicamos a ofrecer 
-                  a nuestros clientes las mejores soluciones para sus necesidades de laboratorio.
+                  a nuestros clientes las mejores soluciones para el mantenimiento de su maquinaria pesada.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Nuestro equipo de expertos está formado por ingenieros y técnicos altamente cualificados, 
-                  que están en constante formación para mantenerse al día de las últimas novedades del sector.
+                  Nuestro equipo de expertos está formado por ingenieros mecánicos y técnicos especializados, 
+                  capacitados en las últimas tecnologías de diagnóstico y reparación de maquinaria pesada.
                 </p>
               </div>
             </div>
@@ -322,14 +322,14 @@ const ContactPage = () => {
                   <div className="text-blue-600 mb-4">
                     <Star className="w-12 h-12" />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Venta de equipos de laboratorio</h3>
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Reparación de maquinaria pesada</h3>
                   <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    En Watuy ofrecemos una amplia gama de equipos de laboratorio de las mejores marcas del mercado. 
-                    Contamos con equipos para todos los laboratorios, desde los más básicos hasta los más avanzados.
+                    En Watuy ofrecemos servicios especializados de reparación para todo tipo de maquinaria pesada. 
+                    Trabajamos con excavadoras, bulldozers, grúas, cargadores frontales y equipos de construcción.
                   </p>
                   <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>
-                    Nuestros equipos están diseñados para satisfacer las necesidades de los laboratorios más exigentes. 
-                    Ofrecen un rendimiento óptimo, una gran durabilidad y facilidad de uso.
+                    Nuestros servicios están diseñados para devolver a sus equipos el máximo rendimiento. 
+                    Garantizamos reparaciones duraderas con repuestos originales y de alta calidad.
                   </p>
                 </div>
 
@@ -337,15 +337,15 @@ const ContactPage = () => {
                   <div className="text-green-600 mb-4">
                     <CheckCircle className="w-12 h-12" />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Mantenimiento de equipos de laboratorio</h3>
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Mantenimiento de maquinaria pesada</h3>
                   <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    En Watuy llevamos a cabo el mantenimiento preventivo y correctivo de equipos de laboratorio de todo tipo.
+                    En Watuy llevamos a cabo el mantenimiento preventivo y correctivo de maquinaria pesada de todo tipo.
                   </p>
                   <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    Nuestro servicio de mantenimiento preventivo está diseñado para evitar averías y garantizar el correcto funcionamiento de sus equipos.
+                    Nuestro servicio de mantenimiento preventivo está diseñado para evitar averías costosas y maximizar la vida útil de sus equipos.
                   </p>
                   <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>
-                    Nuestro servicio de mantenimiento correctivo está disponible las 24 horas del día, los 7 días de la semana.
+                    Nuestro servicio de emergencia está disponible las 24 horas del día, los 7 días de la semana para atender cualquier falla crítica.
                   </p>
                 </div>
 
@@ -353,14 +353,14 @@ const ContactPage = () => {
                   <div className="text-purple-600 mb-4">
                     <Award className="w-12 h-12" />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Laboratorio de Calibración</h3>
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Servicio Técnico Especializado</h3>
                   <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    En Watuy llevamos a cabo la calibración de equipos de laboratorio de todo tipo, 
-                    según las normas internacionales.
+                    En Watuy contamos con técnicos especializados en diagnóstico y reparación de sistemas hidráulicos, 
+                    motores diesel, transmisiones y sistemas eléctricos.
                   </p>
                   <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>
-                    Nuestro servicio de calibración está acreditado nacional e internacionalmente, 
-                    lo que garantiza que nuestros resultados son precisos y confiables.
+                    Nuestro equipo técnico está certificado por las principales marcas de maquinaria pesada, 
+                    lo que garantiza servicios de la más alta calidad y confiabilidad.
                   </p>
                 </div>
               </div>

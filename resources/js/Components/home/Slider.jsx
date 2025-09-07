@@ -49,7 +49,7 @@ const Slider = () => {
                     }}
                 >
                     <iframe
-                        src="https://www.youtube.com/embed/F8pMhuLK7nE?mute=1&autoplay=1&loop=1&playlist=F8pMhuLK7nE&vq=hd1080&controls=0&modestbranding=1&showinfo=0&rel=0"
+                        src="https://www.youtube.com/embed/w24XPPxUaCc?si=UmyjorWaThe472SV"
                         title="YouTube video"
                         style={{ 
                             width: "100%", 
@@ -120,7 +120,7 @@ const Slider = () => {
                             marginTop: -20,
                         }}
                     >
-                        Laboratorio
+                        Maquinaria Pesada
                     </h2>
                     <h2
                         style={{
@@ -192,7 +192,7 @@ const Slider = () => {
                             lineHeight: "1.2",
                         }}
                     >
-                        Equipos de Laboratorio
+                        Maquinaria Pesada
                     </h2>
                     <h3
                         style={{
@@ -230,7 +230,7 @@ const Slider = () => {
             {/* Slide con imagen */}
             <SwiperSlide>
                 <img
-                    src="img/slider-img1.webp"
+                    src="img/maquinapesada1.png"
                     alt="Imagen 1"
                     style={{
                         width: "100%",
@@ -284,7 +284,7 @@ const Slider = () => {
                             marginTop: -20,
                         }}
                     >
-                        Laboratorio
+                        Maquinaria Pesada
                     </h2>
                     <h2
                         style={{
@@ -405,7 +405,7 @@ const Slider = () => {
                     }}
                 >
                     <img
-                        src="img/slider-img2.webp"
+                        src="img/maquinapesada2.png"
                         alt="Imagen 2"
                         style={{
                             width: "100%",

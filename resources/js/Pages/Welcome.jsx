@@ -180,9 +180,7 @@ export default function Welcome() {
                             <Sectores />
                         </ErrorBoundary>
 
-                        <ErrorBoundary>
-                            <Categorias_cuadrado />
-                        </ErrorBoundary>
+                        
 
                         <ErrorBoundary>
                             <BrandSection />

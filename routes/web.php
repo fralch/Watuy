@@ -31,6 +31,9 @@ Route::get('/subcategoria/{id}/{marca_id?}', [ProductoController::class, 'subCat
 Route::get('/producto/{id}', [ProductoController::class, 'ProductView'])->name('producto.view');
 Route::get('/marcas/{id}', [ProductoController::class, 'ProductViewByMarca'])->name('marcas.view');
 Route::get('/contacto', function () { return Inertia::render('Contacto'); })->name('contacto.view');
+Route::get('/servicios-reparacion', function () { return Inertia::render('ServiciosReparacion'); })->name('servicios-reparacion.view');
+Route::get('/alquiler-equipos', function () { return Inertia::render('AlquilerEquipos'); })->name('alquiler-equipos.view');
+Route::get('/ventas-equipos', function () { return Inertia::render('VentasEquipos'); })->name('ventas-equipos.view');
 Route::get('/crear', function () { return Inertia::render('Crear');})->name('crear.view')->middleware('auth');
 Route::get('/admin/products', [ProductoController::class, 'productsAdminView'])->name('admin.products.index')->middleware('auth');
 

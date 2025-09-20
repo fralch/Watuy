@@ -52,8 +52,8 @@ const Menu = ({ toggleMenu }) => {
                         <a
                             href="/"
                             className={`mx-1 flex h-10 cursor-pointer items-center rounded px-4 leading-10 no-underline transition-colors duration-100 hover:no-underline ${
-                                isDarkMode 
-                                    ? 'text-gray-200 hover:bg-gray-700' 
+                                isDarkMode
+                                    ? 'text-gray-200 hover:bg-gray-700'
                                     : 'text-black hover:bg-gray-100'
                             }`}
                         >
@@ -63,12 +63,31 @@ const Menu = ({ toggleMenu }) => {
                                 </svg>
                             </span>
                             <span>Inicio</span>
-                            <span className="ml-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d={mdiChevronDown} />
-                                </svg>
-                            </span>
                         </a>
+                    </li>
+                    <li className="relative hidden md:block w-full md:w-auto mb-2 md:mb-0">
+                        <Link
+                            href="/servicios-reparacion"
+                            className="mx-1 flex h-10 cursor-pointer items-center rounded px-4 leading-10 no-underline transition-colors duration-100 hover:no-underline bg-black text-white hover:bg-gray-800"
+                        >
+                            <span className="text-sm font-medium">SERVICIOS DE REPARACIÓN</span>
+                        </Link>
+                    </li>
+                    <li className="relative hidden md:block w-full md:w-auto mb-2 md:mb-0">
+                        <Link
+                            href="/alquiler-equipos"
+                            className="mx-1 flex h-10 cursor-pointer items-center rounded px-4 leading-10 no-underline transition-colors duration-100 hover:no-underline bg-black text-white hover:bg-gray-800"
+                        >
+                            <span className="text-sm font-medium">ALQUILER DE EQUIPOS</span>
+                        </Link>
+                    </li>
+                    <li className="relative hidden md:block w-full md:w-auto mb-2 md:mb-0">
+                        <Link
+                            href="/ventas-equipos"
+                            className="mx-1 flex h-10 cursor-pointer items-center rounded px-4 leading-10 no-underline transition-colors duration-100 hover:no-underline bg-black text-white hover:bg-gray-800"
+                        >
+                            <span className="text-sm font-medium">VENTAS DE EQUIPOS</span>
+                        </Link>
                     </li>
                     {auth.user && (
                         <li className="relative hidden md:block w-full md:w-auto mb-2 md:mb-0">
@@ -90,21 +109,12 @@ const Menu = ({ toggleMenu }) => {
                         </li>
                     )}
                     <li className="relative hidden md:block w-full md:w-auto mb-2 md:mb-0">
-                        <a
+                        <Link
                             href="/contacto"
-                            className={`mx-1 flex h-10 cursor-pointer items-center rounded px-4 leading-10 no-underline transition-colors duration-100 hover:no-underline ${
-                                isDarkMode 
-                                    ? 'text-gray-200 hover:bg-gray-700' 
-                                    : 'text-black hover:bg-gray-100'
-                            }`}
+                            className="mx-1 flex h-10 cursor-pointer items-center rounded px-4 leading-10 no-underline transition-colors duration-100 hover:no-underline bg-black text-white hover:bg-gray-800"
                         >
-                            <span className="mr-3 text-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d={mdiWidgetsOutline} />
-                                </svg>
-                            </span>
-                            <span>Contactenos</span>
-                        </a>
+                            <span className="text-sm font-medium">CONTÁCTENOS</span>
+                        </Link>
                     </li>
                 </ul>
                 <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto mt-5 md:mt-0">

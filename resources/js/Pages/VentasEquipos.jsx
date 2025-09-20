@@ -123,8 +123,8 @@ export default function VentasEquipos() {
                                     href="/login"
                                     className={`flex items-center gap-2 px-4 py-3 rounded-full shadow-lg transition-all ${
                                         isDarkMode
-                                            ? "bg-blue-600 hover:bg-blue-700"
-                                            : "bg-blue-500 hover:bg-blue-600"
+                                            ? "bg-[#006ba0] hover:bg-[#004d73]"
+                                            : "bg-[#006ba0] hover:bg-[#004d73]"
                                     } text-white text-sm font-medium`}
                                 >
                                     <FiLogIn size={18} />
@@ -149,7 +149,7 @@ export default function VentasEquipos() {
                     <main className="mt-0 w-full">
                         {/* Hero Section */}
                         <div className={`relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden ${
-                            isDarkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-blue-600 to-blue-800'
+                            isDarkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-[#006ba0] to-[#004d73]'
                         } shadow-2xl`}>
                             <div className="absolute inset-0 bg-black opacity-20"></div>
                             <div className="relative max-w-7xl mx-auto text-center">
@@ -161,7 +161,7 @@ export default function VentasEquipos() {
                                     <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
                                         Venta de Maquinaria Pesada
                                     </h1>
-                                    <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                                    <p className="text-xl md:text-2xl text-[#006ba0]/70 mb-8 max-w-3xl mx-auto">
                                         Maquinaria industrial nueva y usada certificada. Excavadoras, bulldozers, cargadores y más equipos para construcción y minería.
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -175,7 +175,7 @@ export default function VentasEquipos() {
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                            className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
                                         >
                                             Solicitar Cotización
                                         </motion.button>
@@ -213,12 +213,12 @@ export default function VentasEquipos() {
                                         }`}
                                     >
                                         <div className="text-center mb-6">
-                                            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                             <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                                 </svg>
                                             </div>
-                                            <div className="text-3xl font-bold text-orange-500 mb-2">$85,000</div>
+                                             <div className="text-3xl font-bold text-[#006ba0] mb-2">$85,000</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -237,9 +237,9 @@ export default function VentasEquipos() {
                                                 <span className="font-semibold text-green-500">Excelente</span>
                                             </div>
                                         </div>
-                                        <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
-                                            Ver Detalles
-                                        </button>
+                                             <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                                 Ver Detalles
+                                             </button>
                                     </motion.div>
 
                                     <motion.div
@@ -249,12 +249,12 @@ export default function VentasEquipos() {
                                         }`}
                                     >
                                         <div className="text-center mb-6">
-                                            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                                 </svg>
                                             </div>
-                                            <div className="text-3xl font-bold text-blue-500 mb-2">$120,000</div>
+                                            <div className="text-3xl font-bold text-[#006ba0] mb-2">$120,000</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -273,7 +273,7 @@ export default function VentasEquipos() {
                                                 <span className="font-semibold text-green-500">Excelente</span>
                                             </div>
                                         </div>
-                                        <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                        <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
                                             Ver Detalles
                                         </button>
                                     </motion.div>
@@ -290,7 +290,7 @@ export default function VentasEquipos() {
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                                                 </svg>
                                             </div>
-                                            <div className="text-3xl font-bold text-green-500 mb-2">$65,000</div>
+                                             <div className="text-3xl font-bold text-[#006ba0] mb-2">$65,000</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -309,9 +309,9 @@ export default function VentasEquipos() {
                                                 <span className="font-semibold text-green-500">Nuevo</span>
                                             </div>
                                         </div>
-                                        <button className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
-                                            Ver Detalles
-                                        </button>
+                                             <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                                 Ver Detalles
+                                             </button>
                                     </motion.div>
                                 </div>
 
@@ -333,7 +333,7 @@ export default function VentasEquipos() {
                                             className="text-center group"
                                         >
                                             <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
-                                                isDarkMode ? 'bg-blue-600 group-hover:bg-blue-500' : 'bg-blue-500 group-hover:bg-blue-600'
+                                                isDarkMode ? 'bg-[#006ba0] group-hover:bg-[#004d73]' : 'bg-[#006ba0] group-hover:bg-[#004d73]'
                                             }`}>
                                                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -374,9 +374,9 @@ export default function VentasEquipos() {
                                             whileHover={{ scale: 1.05 }}
                                             className="text-center group"
                                         >
-                                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
-                                                isDarkMode ? 'bg-orange-600 group-hover:bg-orange-500' : 'bg-orange-500 group-hover:bg-orange-600'
-                                            }`}>
+                                             <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
+                                                 isDarkMode ? 'bg-[#006ba0] group-hover:bg-[#004d73]' : 'bg-[#006ba0] group-hover:bg-[#004d73]'
+                                             }`}>
                                                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                 </svg>
@@ -503,7 +503,7 @@ export default function VentasEquipos() {
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8 }}
-                                    className="text-center bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl p-12 text-white shadow-2xl"
+                                     className="text-center bg-gradient-to-r from-[#006ba0] to-[#004d73] rounded-2xl p-12 text-white shadow-2xl"
                                 >
                                     <h2 className="text-4xl font-bold mb-6">¿Necesitas Asesoría?</h2>
                                     <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -513,7 +513,7 @@ export default function VentasEquipos() {
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                             className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
                                         >
                                             📞 Llamar Ahora
                                         </motion.button>

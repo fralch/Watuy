@@ -148,207 +148,408 @@ export default function AlquilerEquipos() {
 
                     <main className="mt-0 w-full">
                         {/* Hero Section */}
-                        <div className={`py-16 px-4 sm:px-6 lg:px-8 ${
-                            isDarkMode ? 'bg-gray-800' : 'bg-white'
-                        } shadow-lg`}>
-                            <div className="max-w-7xl mx-auto text-center">
-                                <h1 className={`text-4xl md:text-5xl font-bold mb-6 ${
-                                    isDarkMode ? 'text-white' : 'text-gray-900'
-                                }`}>Alquiler de Equipos</h1>
-                                <p className={`text-xl md:text-2xl ${
-                                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                                }`}>
-                                    Equipos de laboratorio de alta calidad disponibles para alquiler
-                                </p>
+                        <div className={`relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden ${
+                            isDarkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-green-600 to-green-800'
+                        } shadow-2xl`}>
+                            <div className="absolute inset-0 bg-black opacity-20"></div>
+                            <div className="relative max-w-7xl mx-auto text-center">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                >
+                                    <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+                                        Alquiler de Maquinaria Pesada
+                                    </h1>
+                                    <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">
+                                        Equipos certificados y mantenidos para construcción, minería e industria. Desde excavadoras hasta grúas industriales
+                                    </p>
+                                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                        >
+                                            📋 Ver Catálogo Completo
+                                        </motion.button>
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                        >
+                                            📞 Cotización Inmediata
+                                        </motion.button>
+                                    </div>
+                                </motion.div>
                             </div>
                         </div>
 
                         {/* Services Section */}
-                        <div className={`py-16 px-4 sm:px-6 lg:px-8 ${
-                            isDarkMode ? 'bg-gray-900' : 'bg-gray-100'
+                        <div className={`py-20 px-4 sm:px-6 lg:px-8 ${
+                            isDarkMode ? 'bg-gray-900' : 'bg-gray-50'
                         }`}>
                             <div className="max-w-7xl mx-auto">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-center mb-16"
+                                >
+                                    <h2 className={`text-4xl font-bold mb-6 ${
+                                        isDarkMode ? 'text-white' : 'text-gray-900'
+                                    }`}>Modalidades de Alquiler</h2>
+                                    <p className={`text-xl ${
+                                        isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                    } max-w-2xl mx-auto`}>
+                                        Flexibilidad total para adaptarnos a tus necesidades específicas de proyecto
+                                    </p>
+                                </motion.div>
+
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                                    <div className={`p-8 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 ${
-                                        isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
-                                    }`}>
+                                    <motion.div
+                                        whileHover={{ y: -10, scale: 1.02 }}
+                                        className={`group p-8 rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl ${
+                                            isDarkMode ? 'bg-gray-800 border border-gray-700 hover:border-blue-500' : 'bg-white border border-gray-200 hover:border-blue-400'
+                                        }`}
+                                    >
                                         <div className="text-center mb-6">
-                                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
-                                                isDarkMode ? 'bg-blue-600' : 'bg-blue-500'
-                                            }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                 </svg>
                                             </div>
+                                            <div className="text-2xl font-bold text-blue-500 mb-2">⏱️</div>
                                         </div>
-                                        <h3 className={`text-xl font-bold mb-4 text-center ${
+                                        <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
-                                        }`}>Alquiler a Corto Plazo</h3>
-                                        <p className={`text-center leading-relaxed ${
-                                            isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                                        }`}>
-                                            Ideal para proyectos específicos, desde días hasta semanas. Equipos listos para usar.
-                                        </p>
-                                    </div>
-
-                                    <div className={`p-8 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 ${
-                                        isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
-                                    }`}>
-                                        <div className="text-center mb-6">
-                                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
-                                                isDarkMode ? 'bg-green-600' : 'bg-green-500'
-                                            }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                                </svg>
+                                        }`}>Alquiler por Día</h3>
+                                        <div className="space-y-3 mb-6">
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Excavadoras:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$450/día</span>
+                                            </div>
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Bulldozers:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$380/día</span>
+                                            </div>
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Cargadores:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$320/día</span>
                                             </div>
                                         </div>
-                                        <h3 className={`text-xl font-bold mb-4 text-center ${
-                                            isDarkMode ? 'text-white' : 'text-gray-900'
-                                        }`}>Alquiler a Largo Plazo</h3>
-                                        <p className={`text-center leading-relaxed ${
-                                            isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                                        }`}>
-                                            Soluciones económicas para necesidades prolongadas con tarifas preferenciales.
-                                        </p>
-                                    </div>
+                                        <div className="text-center">
+                                            <div className="text-sm text-green-500 mb-3">Mínimo 3 días • Incluye operador</div>
+                                            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                                Reservar Ahora
+                                            </button>
+                                        </div>
+                                    </motion.div>
 
-                                    <div className={`p-8 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 ${
-                                        isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
-                                    }`}>
+                                    <motion.div
+                                        whileHover={{ y: -10, scale: 1.02 }}
+                                        className={`group p-8 rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl ${
+                                            isDarkMode ? 'bg-gray-800 border border-gray-700 hover:border-green-500' : 'bg-white border border-gray-200 hover:border-green-400'
+                                        }`}
+                                    >
                                         <div className="text-center mb-6">
-                                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
-                                                isDarkMode ? 'bg-purple-600' : 'bg-purple-500'
-                                            }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                </svg>
+                                            </div>
+                                            <div className="text-2xl font-bold text-green-500 mb-2">📅</div>
+                                        </div>
+                                        <h3 className={`text-2xl font-bold mb-4 text-center ${
+                                            isDarkMode ? 'text-white' : 'text-gray-900'
+                                        }`}>Alquiler Mensual</h3>
+                                        <div className="space-y-3 mb-6">
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Excavadoras:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$8,500/mes</span>
+                                            </div>
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Bulldozers:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$7,200/mes</span>
+                                            </div>
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Cargadores:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$6,100/mes</span>
+                                            </div>
+                                        </div>
+                                        <div className="text-center">
+                                            <div className="text-sm text-green-500 mb-3">Descuento 25% • Mantenimiento incluido</div>
+                                            <button className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                                Cotizar Mensual
+                                            </button>
+                                        </div>
+                                    </motion.div>
+
+                                    <motion.div
+                                        whileHover={{ y: -10, scale: 1.02 }}
+                                        className={`group p-8 rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl ${
+                                            isDarkMode ? 'bg-gray-800 border border-gray-700 hover:border-purple-500' : 'bg-white border border-gray-200 hover:border-purple-400'
+                                        }`}
+                                    >
+                                        <div className="text-center mb-6">
+                                            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                                 </svg>
                                             </div>
+                                            <div className="text-2xl font-bold text-purple-500 mb-2">🚀</div>
                                         </div>
-                                        <h3 className={`text-xl font-bold mb-4 text-center ${
+                                        <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
-                                        }`}>Equipos Especializados</h3>
-                                        <p className={`text-center leading-relaxed ${
-                                            isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                                        }`}>
-                                            Equipos de alta gama y especializados para investigación y análisis avanzados.
-                                        </p>
-                                    </div>
+                                        }`}>Proyectos Especiales</h3>
+                                        <div className="space-y-3 mb-6">
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Grúas torre:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$1,200/día</span>
+                                            </div>
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Excavadoras largas:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$650/día</span>
+                                            </div>
+                                            <div className="flex justify-between items-center">
+                                                <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Equipos mineros:</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Consultar</span>
+                                            </div>
+                                        </div>
+                                        <div className="text-center">
+                                            <div className="text-sm text-green-500 mb-3">Proyectos personalizados • Equipos especializados</div>
+                                            <button className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                                Consultar Proyecto
+                                            </button>
+                                        </div>
+                                    </motion.div>
                                 </div>
 
                                 {/* Advantages Section */}
-                                <div className={`p-10 rounded-xl shadow-xl mb-16 transition-colors duration-300 ${
-                                    isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
-                                }`}>
-                                    <h2 className={`text-3xl font-bold mb-8 text-center ${
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className={`p-12 rounded-2xl shadow-2xl mb-16 transition-colors duration-300 ${
+                                        isDarkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700' : 'bg-gradient-to-br from-white to-gray-50 border border-gray-200'
+                                    }`}
+                                >
+                                    <h2 className={`text-4xl font-bold mb-12 text-center ${
                                         isDarkMode ? 'text-white' : 'text-gray-900'
-                                    }`}>Ventajas del Alquiler</h2>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                        <ul className="space-y-4">
-                                            <li className="flex items-center">
-                                                <div className={`w-3 h-3 rounded-full mr-4 ${
-                                                    isDarkMode ? 'bg-green-400' : 'bg-green-500'
-                                                }`}></div>
-                                                <span className={`text-lg ${
-                                                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                                                }`}>Sin inversión inicial elevada</span>
-                                            </li>
-                                            <li className="flex items-center">
-                                                <div className={`w-3 h-3 rounded-full mr-4 ${
-                                                    isDarkMode ? 'bg-green-400' : 'bg-green-500'
-                                                }`}></div>
-                                                <span className={`text-lg ${
-                                                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                                                }`}>Mantenimiento incluido</span>
-                                            </li>
-                                            <li className="flex items-center">
-                                                <div className={`w-3 h-3 rounded-full mr-4 ${
-                                                    isDarkMode ? 'bg-green-400' : 'bg-green-500'
-                                                }`}></div>
-                                                <span className={`text-lg ${
-                                                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                                                }`}>Flexibilidad en duración</span>
-                                            </li>
-                                        </ul>
-                                        <ul className="space-y-4">
-                                            <li className="flex items-center">
-                                                <div className={`w-3 h-3 rounded-full mr-4 ${
-                                                    isDarkMode ? 'bg-green-400' : 'bg-green-500'
-                                                }`}></div>
-                                                <span className={`text-lg ${
-                                                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                                                }`}>Equipos siempre actualizados</span>
-                                            </li>
-                                            <li className="flex items-center">
-                                                <div className={`w-3 h-3 rounded-full mr-4 ${
-                                                    isDarkMode ? 'bg-green-400' : 'bg-green-500'
-                                                }`}></div>
-                                                <span className={`text-lg ${
-                                                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                                                }`}>Soporte técnico 24/7</span>
-                                            </li>
-                                            <li className="flex items-center">
-                                                <div className={`w-3 h-3 rounded-full mr-4 ${
-                                                    isDarkMode ? 'bg-green-400' : 'bg-green-500'
-                                                }`}></div>
-                                                <span className={`text-lg ${
-                                                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                                                }`}>Opción de compra al final</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                    }`}>¿Por qué elegir nuestro alquiler?</h2>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                        <motion.div
+                                            whileHover={{ scale: 1.05 }}
+                                            className="text-center group"
+                                        >
+                                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
+                                                isDarkMode ? 'bg-green-600 group-hover:bg-green-500' : 'bg-green-500 group-hover:bg-green-600'
+                                            }`}>
+                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                            </div>
+                                            <h3 className={`text-xl font-bold mb-3 ${
+                                                isDarkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>Sin Inversión Inicial</h3>
+                                            <p className={`text-sm leading-relaxed ${
+                                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                            }`}>
+                                                Evita grandes inversiones iniciales. Solo pagas por el tiempo que utilizas el equipo
+                                            </p>
+                                        </motion.div>
 
-                                {/* Categories Section */}
-                                <div className={`p-10 rounded-xl shadow-xl transition-colors duration-300 ${
-                                    isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
-                                }`}>
-                                    <h2 className={`text-3xl font-bold mb-8 text-center ${
+                                        <motion.div
+                                            whileHover={{ scale: 1.05 }}
+                                            className="text-center group"
+                                        >
+                                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
+                                                isDarkMode ? 'bg-blue-600 group-hover:bg-blue-500' : 'bg-blue-500 group-hover:bg-blue-600'
+                                            }`}>
+                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                                </svg>
+                                            </div>
+                                            <h3 className={`text-xl font-bold mb-3 ${
+                                                isDarkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>Mantenimiento Incluido</h3>
+                                            <p className={`text-sm leading-relaxed ${
+                                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                            }`}>
+                                                Todos los equipos incluyen mantenimiento preventivo y correctivo durante el alquiler
+                                            </p>
+                                        </motion.div>
+
+                                        <motion.div
+                                            whileHover={{ scale: 1.05 }}
+                                            className="text-center group"
+                                        >
+                                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
+                                                isDarkMode ? 'bg-orange-600 group-hover:bg-orange-500' : 'bg-orange-500 group-hover:bg-orange-600'
+                                            }`}>
+                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                                </svg>
+                                            </div>
+                                            <h3 className={`text-xl font-bold mb-3 ${
+                                                isDarkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>Entrega Inmediata</h3>
+                                            <p className={`text-sm leading-relaxed ${
+                                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                            }`}>
+                                                Equipos disponibles para entrega en menos de 24 horas en la mayoría de los casos
+                                            </p>
+                                        </motion.div>
+
+                                        <motion.div
+                                            whileHover={{ scale: 1.05 }}
+                                            className="text-center group"
+                                        >
+                                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
+                                                isDarkMode ? 'bg-purple-600 group-hover:bg-purple-500' : 'bg-purple-500 group-hover:bg-purple-600'
+                                            }`}>
+                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                            </div>
+                                            <h3 className={`text-xl font-bold mb-3 ${
+                                                isDarkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>Operadores Certificados</h3>
+                                            <p className={`text-sm leading-relaxed ${
+                                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                            }`}>
+                                                Incluye operadores profesionales certificados con amplia experiencia en el rubro
+                                            </p>
+                                        </motion.div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Equipment Categories Section */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className={`p-12 rounded-2xl shadow-2xl mb-16 ${
+                                        isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
+                                    }`}
+                                >
+                                    <h2 className={`text-4xl font-bold mb-12 text-center ${
                                         isDarkMode ? 'text-white' : 'text-gray-900'
-                                    }`}>Categorías Disponibles</h2>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                        <div className={`text-center p-6 border-2 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 ${
-                                            isDarkMode ? 'border-gray-600 hover:border-blue-500' : 'border-gray-200 hover:border-blue-400'
-                                        }`}>
-                                            <h4 className={`font-bold mb-2 ${
+                                    }`}>Categorías de Equipos Disponibles</h2>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                        <motion.div
+                                            whileHover={{ scale: 1.05, y: -5 }}
+                                            className={`group text-center p-8 border-2 rounded-2xl transition-all duration-500 hover:shadow-2xl ${
+                                                isDarkMode ? 'border-gray-600 hover:border-orange-500 bg-gray-700' : 'border-gray-200 hover:border-orange-400 bg-gray-50'
+                                            }`}
+                                        >
+                                            <div className="text-4xl mb-4">🚜</div>
+                                            <h4 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
-                                            }`}>Microscopios</h4>
-                                            <p className={`text-sm ${
-                                                isDarkMode ? 'text-gray-400' : 'text-gray-500'
-                                            }`}>Ópticos y electrónicos</p>
+                                            }`}>Excavadoras</h4>
+                                            <p className={`text-sm mb-4 ${
+                                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                            }`}>Desde 20 hasta 50 toneladas. Ideales para movimientos de tierra y demolición</p>
+                                            <div className="text-lg font-bold text-orange-500 mb-3">$450 - $850/día</div>
+                                            <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                                Ver Modelos
+                                            </button>
+                                        </motion.div>
+
+                                        <motion.div
+                                            whileHover={{ scale: 1.05, y: -5 }}
+                                            className={`group text-center p-8 border-2 rounded-2xl transition-all duration-500 hover:shadow-2xl ${
+                                                isDarkMode ? 'border-gray-600 hover:border-blue-500 bg-gray-700' : 'border-gray-200 hover:border-blue-400 bg-gray-50'
+                                            }`}
+                                        >
+                                            <div className="text-4xl mb-4">🏗️</div>
+                                            <h4 className={`text-xl font-bold mb-3 ${
+                                                isDarkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>Bulldozers</h4>
+                                            <p className={`text-sm mb-4 ${
+                                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                            }`}>Potentes máquinas para nivelación y movimientos de tierra en grandes volúmenes</p>
+                                            <div className="text-lg font-bold text-blue-500 mb-3">$380 - $650/día</div>
+                                            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                                Ver Modelos
+                                            </button>
+                                        </motion.div>
+
+                                        <motion.div
+                                            whileHover={{ scale: 1.05, y: -5 }}
+                                            className={`group text-center p-8 border-2 rounded-2xl transition-all duration-500 hover:shadow-2xl ${
+                                                isDarkMode ? 'border-gray-600 hover:border-green-500 bg-gray-700' : 'border-gray-200 hover:border-green-400 bg-gray-50'
+                                            }`}
+                                        >
+                                            <div className="text-4xl mb-4">🛠️</div>
+                                            <h4 className={`text-xl font-bold mb-3 ${
+                                                isDarkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>Cargadores Frontales</h4>
+                                            <p className={`text-sm mb-4 ${
+                                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                            }`}>Para carga y transporte de materiales. Alta eficiencia en espacios reducidos</p>
+                                            <div className="text-lg font-bold text-green-500 mb-3">$320 - $550/día</div>
+                                            <button className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                                Ver Modelos
+                                            </button>
+                                        </motion.div>
+
+                                        <motion.div
+                                            whileHover={{ scale: 1.05, y: -5 }}
+                                            className={`group text-center p-8 border-2 rounded-2xl transition-all duration-500 hover:shadow-2xl ${
+                                                isDarkMode ? 'border-gray-600 hover:border-purple-500 bg-gray-700' : 'border-gray-200 hover:border-purple-400 bg-gray-50'
+                                            }`}
+                                        >
+                                            <div className="text-4xl mb-4">🏗️</div>
+                                            <h4 className={`text-xl font-bold mb-3 ${
+                                                isDarkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>Equipos Especializados</h4>
+                                            <p className={`text-sm mb-4 ${
+                                                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                                            }`}>Grúas, compactadores, martillos hidráulicos y equipos para minería</p>
+                                            <div className="text-lg font-bold text-purple-500 mb-3">Consultar precios</div>
+                                            <button className="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                                Consultar
+                                            </button>
+                                        </motion.div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Calculator Section */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-center bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl p-12 text-white shadow-2xl mb-16"
+                                >
+                                    <h2 className="text-4xl font-bold mb-6">Calcula tu Presupuesto</h2>
+                                    <p className="text-xl mb-8 max-w-3xl mx-auto">
+                                        Obtén una estimación precisa del costo de alquiler según tus necesidades específicas
+                                    </p>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                        <div className="bg-white bg-opacity-10 rounded-lg p-6">
+                                            <div className="text-2xl mb-2">📅</div>
+                                            <div className="text-lg font-bold mb-2">Duración del Proyecto</div>
+                                            <div className="text-green-100">Desde 1 día hasta varios meses</div>
                                         </div>
-                                        <div className={`text-center p-6 border-2 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 ${
-                                            isDarkMode ? 'border-gray-600 hover:border-blue-500' : 'border-gray-200 hover:border-blue-400'
-                                        }`}>
-                                            <h4 className={`font-bold mb-2 ${
-                                                isDarkMode ? 'text-white' : 'text-gray-900'
-                                            }`}>Balanzas</h4>
-                                            <p className={`text-sm ${
-                                                isDarkMode ? 'text-gray-400' : 'text-gray-500'
-                                            }`}>Analíticas y precision</p>
+                                        <div className="bg-white bg-opacity-10 rounded-lg p-6">
+                                            <div className="text-2xl mb-2">⚙️</div>
+                                            <div className="text-lg font-bold mb-2">Tipo de Equipo</div>
+                                            <div className="text-green-100">Más de 50 modelos disponibles</div>
                                         </div>
-                                        <div className={`text-center p-6 border-2 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 ${
-                                            isDarkMode ? 'border-gray-600 hover:border-blue-500' : 'border-gray-200 hover:border-blue-400'
-                                        }`}>
-                                            <h4 className={`font-bold mb-2 ${
-                                                isDarkMode ? 'text-white' : 'text-gray-900'
-                                            }`}>Espectrómetros</h4>
-                                            <p className={`text-sm ${
-                                                isDarkMode ? 'text-gray-400' : 'text-gray-500'
-                                            }`}>UV-Vis, IR, MS</p>
-                                        </div>
-                                        <div className={`text-center p-6 border-2 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 ${
-                                            isDarkMode ? 'border-gray-600 hover:border-blue-500' : 'border-gray-200 hover:border-blue-400'
-                                        }`}>
-                                            <h4 className={`font-bold mb-2 ${
-                                                isDarkMode ? 'text-white' : 'text-gray-900'
-                                            }`}>Centrífugas</h4>
-                                            <p className={`text-sm ${
-                                                isDarkMode ? 'text-gray-400' : 'text-gray-500'
-                                            }`}>Refrigeradas y normales</p>
+                                        <div className="bg-white bg-opacity-10 rounded-lg p-6">
+                                            <div className="text-2xl mb-2">📍</div>
+                                            <div className="text-lg font-bold mb-2">Ubicación</div>
+                                            <div className="text-green-100">Entrega a todo el país</div>
                                         </div>
                                     </div>
-                                </div>
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                    >
+                                        🧮 Calcular Presupuesto
+                                    </motion.button>
+                                </motion.div>
                             </div>
                         </div>
                     </main>

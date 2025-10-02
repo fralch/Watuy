@@ -1962,12 +1962,13 @@ const ProductPage = ({ producto }) => {
                                                         {/* Área de imagen con fondo adaptable */}
                                                         <div className={`h-40 overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
                                                             <img 
-                                                                src={product.image ? product.image : '/img/LOGO-WATUY.png'}
+                                                                src={product.image ? product.image : (isDarkMode ? '/img/LOGO-WATUY-white.png' : '/img/LOGO-WATUY.png')}
                                                                 alt={product.title} 
                                                                 className="w-full h-full object-contain p-4"
                                                                 onError={(e) => {
-                                                                    if (e.target.src !== '/img/LOGO-WATUY.png') {
-                                    e.target.src = '/img/LOGO-WATUY.png';
+                                                                    const fallbackImage = isDarkMode ? '/img/LOGO-WATUY-white.png' : '/img/LOGO-WATUY.png';
+                                                                    if (e.target.src !== fallbackImage) {
+                                                                        e.target.src = fallbackImage;
                                                                     }
                                                                 }}
                                                             />

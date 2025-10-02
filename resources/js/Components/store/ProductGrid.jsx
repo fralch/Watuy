@@ -64,9 +64,10 @@ const useImageLoader = (src, fallbackSrc = FALLBACK_IMAGE) => {
 };
 
 // Componente optimizado para imágenes
-const OptimizedImage = React.memo(({ src, alt, className, style, fallbackSrc = FALLBACK_IMAGE }) => {
-  const { imageSrc, isLoaded } = useImageLoader(src, fallbackSrc);
+const OptimizedImage = React.memo(({ src, alt, className, style, fallbackSrc }) => {
   const { isDarkMode } = useTheme();
+  const defaultFallback = isDarkMode ? '/img/LOGO-WATUY-white.png' : '/img/LOGO-WATUY.png';
+  const { imageSrc, isLoaded } = useImageLoader(src, fallbackSrc || defaultFallback);
 
   if (!isLoaded) {
     return (

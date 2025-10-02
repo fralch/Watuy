@@ -96,7 +96,7 @@ const CategoryCard = React.memo(({ title, items, categoryId, categoryImages }) =
   }, [imagePaths.length, isVisible]);
 
   // Memoizar valores calculados
-  const placeholderImage = useMemo(() => '/img/LOGO-WATUY.png', []);
+  const placeholderImage = useMemo(() => isDarkMode ? '/img/LOGO-WATUY-white.png' : '/img/LOGO-WATUY.png', [isDarkMode]);
   
   const currentImage = useMemo(() => {
     if (imagePaths.length > 0) {

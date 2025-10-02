@@ -119,7 +119,7 @@ const Header = () => {
                 <a href="/" className="mr-auto w-1/5 flex-shrink-0 pr-4 ml-10">
                     <img
                         className="w-full object-contain"
-                        src="/img/LOGO-WATUY.png"
+                        src={isDarkMode ? "/img/LOGO-WATUY-white.png" : "/img/LOGO-WATUY.png"}
                         alt="Watuy Logo"
                     />
                 </a>
@@ -343,7 +343,7 @@ const Header = () => {
                     <a href="/" className="flex-shrink-0 w-32">
                         <img
                             className="w-full object-contain"
-                            src="/img/LOGO-WATUY.png"
+                            src={isDarkMode ? "/img/LOGO-WATUY-white.png" : "/img/LOGO-WATUY.png"}
                             alt="Watuy Logo"
                         />
                     </a>

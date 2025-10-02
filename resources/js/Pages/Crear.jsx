@@ -178,7 +178,7 @@ const CrearProducto = () => {
                     <div className="mb-8">
                         <Link href="/"> 
                             <img
-                                src="/img/LOGO-WATUY.png"
+                                src={isDarkMode ? "/img/LOGO-WATUY-white.png" : "/img/LOGO-WATUY.png"}
                                 alt="Logo"
                                 className="mb-4 w-3/5 mx-auto"
                             />

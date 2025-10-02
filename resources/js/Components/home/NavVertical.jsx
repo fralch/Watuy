@@ -71,8 +71,8 @@ const NavVertical = ({ isOpen, onClose }) => {
           <div className="flex items-center justify-between p-4">
             <img
               className="w-1/2 object-contain"
-              src="/img/LOGO-WATUY.png"
-                        alt="Watuy Logo"
+              src={isDarkMode ? "/img/LOGO-WATUY-white.png" : "/img/LOGO-WATUY.png"}
+              alt="Watuy Logo"
             />
             <button
               onClick={onClose}

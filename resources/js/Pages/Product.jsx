@@ -2,7 +2,6 @@ import { Head, usePage, router, Link } from "@inertiajs/react";
 import React, { useState, useEffect, useContext, useCallback } from "react";
 import Header from "../Components/home/Header";
 import Menu from "../Components/home/Menu";
-import NavVertical from "../Components/home/NavVertical";
 import ZoomImage from "../Components/store/ZoomImage";
 import ImageGallery from "../Components/store/ImageGallery";
 import Footer from "../Components/home/Footer";
@@ -76,7 +75,6 @@ const ProductPage = ({ producto }) => {
         fetchCategoryData();
     }, [producto.id_subcategoria]);
     const { auth } = usePage().props;
-    const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('descripcion');
     const [showModal, setShowModal] = useState(false);
     const [modalType, setModalType] = useState(null);
@@ -210,10 +208,6 @@ const ProductPage = ({ producto }) => {
             console.error('Error adding to cart:', error);
         }
     }, [dispatch, productData]);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
 
     const handleOpenModal = (type) => {
         setModalType(type);
@@ -456,7 +450,6 @@ const ProductPage = ({ producto }) => {
             }
         }, 50);
     };
-
 
     const handleSaveFeatures = async (jsonData) => {
         try {
@@ -1304,8 +1297,7 @@ const ProductPage = ({ producto }) => {
                 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
             </Head>
             <Header />
-            <Menu toggleMenu={toggleMenu} className="mt-10" />
-            <NavVertical isOpen={isOpen} onClose={toggleMenu} />
+            <Menu className="mt-10" />
             {categoriaCurrent && subcategoriaCurrent && (
                 <div className="flex items-center flex-wrap gap-1 px-4 md:px-6 py-3 ">
                     <Link 

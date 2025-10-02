@@ -2,7 +2,6 @@ import { Head, usePage, Link, router } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import { FiLogIn, FiUser, FiLogOut } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import NavVertical from "@/Components/home/NavVertical";
 import Menu from "@/Components/home/Menu";
 import Footer from "@/Components/home/Footer";
 import Header from "@/Components/home/Header";
@@ -13,7 +12,6 @@ import UserProfileModal from "@/Components/UserProfileModal";
 export default function VentasEquipos() {
     const { auth } = usePage().props;
     const { isDarkMode } = useTheme();
-    const [isOpen, setIsOpen] = useState(false);
     const [showUserMenu, setShowUserMenu] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
 
@@ -35,10 +33,6 @@ export default function VentasEquipos() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
     const toggleUserMenu = () => {
         setShowUserMenu(!showUserMenu);
     };
@@ -52,8 +46,6 @@ export default function VentasEquipos() {
         setShowProfileModal(false);
     };
 
-    const shouldHideButton = isOpen;
-
     return (
         <>
             <Head title="Ventas de Equipos - MegaEquipamiento" />
@@ -62,7 +54,6 @@ export default function VentasEquipos() {
                 <Header />
 
                 <AnimatePresence>
-                    {!shouldHideButton && (
                         <motion.div
                             id="user-menu-button"
                             className="fixed bottom-5 left-5 z-50"
@@ -132,7 +123,6 @@ export default function VentasEquipos() {
                                 </Link>
                             )}
                         </motion.div>
-                    )}
                 </AnimatePresence>
 
                 <div
@@ -141,11 +131,7 @@ export default function VentasEquipos() {
                     } transition-colors duration-300`}
                     style={{ marginTop: "-20px" }}
                 >
-                    <Menu toggleMenu={toggleMenu} />
-                    <ErrorBoundary>
-                        <NavVertical isOpen={isOpen} onClose={toggleMenu} />
-                    </ErrorBoundary>
-
+                    <Menu />
                     <main className="mt-0 w-full">
                         {/* Hero Section */}
                         <div className={`relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden ${

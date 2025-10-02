@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useTheme } from "../storage/ThemeContext";
 import Header from "../Components/home/Header";
 import Menu from "../Components/home/Menu";
-import NavVertical from "../Components/home/NavVertical";
 import ProductGrid from "../Components/store/ProductGrid";
 import Footer from "../Components/home/Footer";
 import FiltroForm from "../Components/filtros/FiltroForm";
@@ -125,7 +124,6 @@ export default function Subcategoria({ productos: productosIniciales, marcas }) 
     const { isDarkMode } = useTheme();
     
     // Estados principales
-    const [isOpen, setIsOpen] = useState(false);
     const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false);
     const [mostrarProductos, setMostrarProductos] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -515,8 +513,6 @@ export default function Subcategoria({ productos: productosIniciales, marcas }) 
         setActiveCategory(categoriaNombre);
     };
 
-    const toggleMenu = () => setIsOpen(!isOpen);
-
     const handleMostrarProductos = async () => {
         const subcategoriaId = getSubcategoriaId();
         
@@ -675,9 +671,7 @@ export default function Subcategoria({ productos: productosIniciales, marcas }) 
         <div>
             <Head title="Subcategoria" />
             <Header />
-            <Menu toggleMenu={toggleMenu} className="mt-10" />
-            <NavVertical isOpen={isOpen} onClose={toggleMenu} />
-            
+            <Menu className="mt-10" />
             {isFilterSidebarOpen && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"

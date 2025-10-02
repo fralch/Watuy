@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useTheme } from "../storage/ThemeContext";
 import Header from "../Components/home/Header";
 import Menu from "../Components/home/Menu";
-import NavVertical from "../Components/home/NavVertical";
 import ProductGrid from "../Components/store/ProductGrid";
 import Footer from "../Components/home/Footer";
 
@@ -12,7 +11,6 @@ const URL_API = import.meta.env.VITE_API_URL;
 export default function SubcategoriaMarcas({ productos: productosIniciales, marcaId }) {
     const { auth } = usePage().props;
     const { isDarkMode } = useTheme();
-    const [isOpen, setIsOpen] = useState(false);
     const [categoriasArray, setCategoriasArray] = useState([]);
     const [openCategories, setOpenCategories] = useState({});
     const [activeCategory, setActiveCategory] = useState(null);
@@ -117,17 +115,11 @@ export default function SubcategoriaMarcas({ productos: productosIniciales, marc
         setActiveCategory(categoriaNombre);
     };
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
     return (
         <div>
             <Head title="Subcategoria" />
             <Header />
-            <Menu toggleMenu={toggleMenu} className="mt-10" />
-            <NavVertical isOpen={isOpen} onClose={toggleMenu} />
-            
+            <Menu className="mt-10" />
             <div className={`w-full min-h-screen ${
                 isDarkMode 
                     ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' 

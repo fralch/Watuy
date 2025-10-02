@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useTheme } from "../storage/ThemeContext";
 import Header from "../Components/home/Header";
 import Menu from "../Components/home/Menu";
-import NavVertical from "../Components/home/NavVertical";
 import ProductGrid from "../Components/store/ProductGrid";
 import Footer from "../Components/home/Footer";
 const URL_API = import.meta.env.VITE_API_URL;
@@ -11,7 +10,6 @@ const URL_API = import.meta.env.VITE_API_URL;
 export default function Categoria({ productos, categoria, subcategorias, marcas, todasCategorias }) {
     const { auth } = usePage().props;
     const { isDarkMode } = useTheme();
-    const [isOpen, setIsOpen] = useState(false);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [categoriasArray, setCategoriasArray] = useState([]);
     const [mostrarProductos, setMostrarProductos] = useState(false);
@@ -70,10 +68,6 @@ export default function Categoria({ productos, categoria, subcategorias, marcas,
             console.log('Categoría prop recibida:', categoria);
         }
     }, [categoria])
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
 
     const handleMostrarProductos = () => {
         setMostrarProductos(true);
@@ -234,8 +228,7 @@ export default function Categoria({ productos, categoria, subcategorias, marcas,
         <div>
             <Head title="Categorias" />
             <Header />
-            <Menu toggleMenu={toggleMenu} className="mt-10" />
-            <NavVertical isOpen={isOpen} onClose={toggleMenu} />
+            <Menu className="mt-10" />
             <div className={`min-w-screen min-h-screen ${isDarkMode ? 'bg-gray-900' : 'bg-gray-200'} flex flex-col md:flex-row transition-colors duration-200`}>
                 {/* Botón para mostrar/ocultar sidebar en móviles */}
                 <button 

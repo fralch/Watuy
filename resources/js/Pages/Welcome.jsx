@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Slider from "@/Components/home/Slider";
 import Sectores from "@/Components/home/Sectores";
 import Categorias_cuadrado from "@/Components/home/Categorias_cuadrado";
-import NavVertical from "@/Components/home/NavVertical";
 import Menu from "@/Components/home/Menu";
 import ClientSlider from "@/Components/home/ClientSlider";
 import BrandSection from "@/Components/home/BrandSection";
@@ -19,23 +18,11 @@ import UserProfileModal from "@/Components/UserProfileModal";
 export default function Welcome() {
     const { auth } = usePage().props;
     const { isDarkMode } = useTheme();
-    const [showUIElements, setShowUIElements] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
     const [showUserMenu, setShowUserMenu] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            const categoryButton = document.getElementById("category-button");
-            const dropdown = document.getElementById("dropdown");
-            if (
-                categoryButton &&
-                !categoryButton.contains(event.target) &&
-                dropdown &&
-                !dropdown.contains(event.target)
-            ) {
-                setShowUIElements(false);
-            }
 
             const userButton = document.getElementById("user-menu-button");
             const userMenu = document.getElementById("user-menu");
@@ -53,15 +40,9 @@ export default function Welcome() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
     const handleLogout = () => {
         router.post("/logout");
     };
-
-    const shouldHideButton = isOpen;
 
     return (
         <>
@@ -71,7 +52,6 @@ export default function Welcome() {
                 <Header />
 
                 <AnimatePresence>
-                    {!shouldHideButton && (
                         <motion.div
                             id="user-menu-button"
                             className="fixed bottom-5 left-5 z-50"
@@ -154,7 +134,6 @@ export default function Welcome() {
                                 </Link>
                             )}
                         </motion.div>
-                    )}
                 </AnimatePresence>
 
                 <div
@@ -163,10 +142,7 @@ export default function Welcome() {
                     } transition-colors duration-300`}
                     style={{ marginTop: "-20px" }}
                 >
-                    <Menu toggleMenu={toggleMenu} />
-                    <ErrorBoundary>
-                        <NavVertical isOpen={isOpen} onClose={toggleMenu} />
-                    </ErrorBoundary>
+                    <Menu />
                     <main className="mt-0 w-full">
                         <ErrorBoundary>
                             <Slider />

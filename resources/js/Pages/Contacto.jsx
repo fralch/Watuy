@@ -4,7 +4,6 @@ import { Head, usePage } from '@inertiajs/react';
 import Header from "../Components/home/Header";
 import Footer from "../Components/home/Footer";
 import Menu from "../Components/home/Menu";
-import NavVertical from "../Components/home/NavVertical";
 import { useTheme } from '../storage/ThemeContext';
 
 // Componente de galería mejorado con dos filas
@@ -146,11 +145,6 @@ const GallerySection = ({ galleryImages, isDarkMode }) => {
 const ContactPage = () => {
   const { isDarkMode } = useTheme();
   const { auth } = usePage().props;
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   const galleryImages = [
     // Imágenes de talleres y maquinaria - Actualizar con las imágenes de Watuy
@@ -188,11 +182,7 @@ const ContactPage = () => {
       <Header />
       
       {/* Menu */}
-      <Menu toggleMenu={toggleMenu} className="mt-0" />
-      
-      {/* Navegación Vertical */}
-      <NavVertical isOpen={isOpen} onClose={toggleMenu} />
-
+      <Menu className="mt-0" />
       {/* Contenido Principal */}
       <div className="min-h-screen">
         {/* Hero Section */}

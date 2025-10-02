@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useTheme } from "../storage/ThemeContext";
 import Header from "../Components/home/Header";
 import Menu from "../Components/home/Menu";
-import NavVertical from "../Components/home/NavVertical";
 import ProductGrid from "../Components/store/ProductGrid";
 import Footer from "../Components/home/Footer";
 
@@ -71,7 +70,6 @@ const getEmbedUrl = (url) => {
     }
 };
 
-
 export default function Marcas({ marca, productos }) {
     const { isDarkMode } = useTheme();
     const { auth } = usePage().props;
@@ -80,7 +78,6 @@ export default function Marcas({ marca, productos }) {
     const [isUpdating, setIsUpdating] = useState(false);
     const [updateMessage, setUpdateMessage] = useState({ type: '', text: '' });
     const [videoPreview, setVideoPreview] = useState(null);
-    const [isOpen, setIsOpen] = useState(false);
     const [categoriasArray, setCategoriasArray] = useState([]);
     const [openCategories, setOpenCategories] = useState({});
     const [activeCategory, setActiveCategory] = useState(null);
@@ -205,10 +202,6 @@ export default function Marcas({ marca, productos }) {
         setActiveCategory(categoriaNombre);
     };
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
     // Initialize edit form when marca changes
     useEffect(() => {
         if (marca && marca.video_url) {
@@ -284,9 +277,7 @@ export default function Marcas({ marca, productos }) {
         <div className="min-h-screen">
             <Head title="Marca" />
             <Header />
-            <Menu toggleMenu={toggleMenu} className="mt-10" />
-            <NavVertical isOpen={isOpen} onClose={toggleMenu} />
-            
+            <Menu className="mt-10" />
             <div className={`w-full min-h-screen ${
                 isDarkMode 
                     ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' 

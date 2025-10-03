@@ -10,6 +10,9 @@ const BrandCard = ({ brand }) => {
   const [isSearching, setIsSearching] = useState(false);
   const cardRef = useRef(null);
 
+  // Debug log
+  console.log('BrandCard rendered:', brand);
+
   // Configurar Intersection Observer para detectar cuando la tarjeta es visible
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -58,12 +61,18 @@ const BrandCard = ({ brand }) => {
         {/* Imagen que solo carga cuando es visible */}
         {isVisible && (
           <img
-            src={brand.imagen}
+            src={brand.imagen?.startsWith('http') ? brand.imagen : `${window.location.origin}${brand.imagen}`}
             alt={brand.nombre}
             className={`object-contain w-32 h-32 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
             loading="lazy"
-            onLoad={() => setImageLoaded(true)}
-            onError={(e) => e.target.style.display = 'none'}
+            onLoad={() => {
+              console.log('Image loaded successfully:', brand.nombre);
+              setImageLoaded(true);
+            }}
+            onError={(e) => {
+              console.error('Image failed to load:', brand.nombre, 'Path:', brand.imagen, 'Full URL:', e.target.src);
+              e.target.style.display = 'none';
+            }}
           />
         )}
         
@@ -142,17 +151,22 @@ const BrandSection = () => {
   useEffect(() => {
     const loadBrands = async () => {
       try {
+        console.log('Fetching brands from API...');
         const response = await axios.get('/marca/all');
         const brandsData = response.data;
-        
+
+        console.log('Brands received:', brandsData);
+        console.log('Total brands:', brandsData?.length || 0);
+
         // Guardar en localStorage con timestamp para caché
         localStorage.setItem('brandsData', JSON.stringify(brandsData));
         localStorage.setItem('brandsDataTimestamp', Date.now().toString());
-        
+
         setBrands(brandsData);
         setLoading(false);
       } catch (error) {
         console.error('Error loading brands from API:', error);
+        console.error('Error details:', error.response?.data || error.message);
         setLoading(false);
       }
     };
@@ -161,12 +175,16 @@ const BrandSection = () => {
     const cachedBrands = localStorage.getItem('brandsData');
     const cachedTimestamp = localStorage.getItem('brandsDataTimestamp');
     const oneHour = 60 * 60 * 1000; // 1 hora en milisegundos
-    
+
     if (cachedBrands && cachedTimestamp && (Date.now() - parseInt(cachedTimestamp)) < oneHour) {
       // Usar datos en caché si son recientes (1 hora)
-      setBrands(JSON.parse(cachedBrands));
+      console.log('Using cached brands data');
+      const parsedBrands = JSON.parse(cachedBrands);
+      console.log('Cached brands:', parsedBrands);
+      setBrands(parsedBrands);
       setLoading(false);
     } else {
+      console.log('Cache expired or not found, fetching from API');
       // Configurar observer para cargar marcas solo cuando la sección es visible
       const observer = new IntersectionObserver(
         (entries) => {

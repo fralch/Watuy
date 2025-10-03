@@ -113,10 +113,16 @@ class MarcaController extends Controller
                          ->with('success', 'Marca actualizada exitosamente.');
     }
 
-    // obtener todos los marcas en json 
+    // obtener todos los marcas en json
     public function getMarcas ()
     {
         $marcas = Marca::all();
+
+        // Log para debugging
+        \Log::info('getMarcas called');
+        \Log::info('Total marcas: ' . $marcas->count());
+        \Log::info('Marcas data: ' . json_encode($marcas));
+
         return response()->json($marcas);
     }
 

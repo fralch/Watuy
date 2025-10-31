@@ -62,7 +62,7 @@ const LabEquipmentSection = () => {
     const goToNext = () => setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
 
     return (
-        <section className="flex flex-col lg:flex-row relative w-full">
+        <section className="flex flex-col lg:flex-row relative w-full my-8 md:my-12 lg:my-16">
             {/* Text + Navigation */}
             <div className="bg-[#006ba0] w-full lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col gap-4 mt-6 md:mt-8 lg:mt-10 text-white relative z-0">
                 <h3 className="text-lg md:text-xl lg:text-2xl font-bold pt-4 md:pt-8 lg:pt-12">

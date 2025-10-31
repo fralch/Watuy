@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Star, CheckCircle, Users, Award, MessageCircle, ChevronLeft, ChevronRight, Wrench, ShoppingCart } from 'lucide-react';
+import { Phone, Mail, MapPin, Star, CheckCircle, Users, Award, MessageCircle, ChevronLeft, ChevronRight, Wrench, ShoppingCart, Truck } from 'lucide-react';
 import { Head, usePage } from '@inertiajs/react';
 import Header from "../Components/home/Header";
 import Footer from "../Components/home/Footer";
@@ -271,8 +271,8 @@ const ContactPage = () => {
                     <Phone className="w-6 h-6 text-blue-500 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Teléfonos</h3>
-                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>01 123 4567</p>
-                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>+51 987 654 321</p>
+                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>932401713</p>
+                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>912996059</p>
                     </div>
                   </div>
 
@@ -280,15 +280,24 @@ const ContactPage = () => {
                     <Mail className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Correos</h3>
-                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>ventas@watuy.com</p>
-                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>info@watuy.com</p>
+                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>ventasrepuestosyservicios@watuyconstruction.com</p>
+                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>ventasalquileres@watuyconstruction.com</p>
+                    </div>
+                  </div>
+
+                  <div className={`flex items-start space-x-4 p-6 rounded-xl shadow-md ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                    <MapPin className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Dirección</h3>
+                      <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Mz B Lt2 Rinconada de Oquendo – Callao – Callao – Lima</p>
+                      <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>Horario: Lunes a Viernes 8:00 AM - 6:00 PM</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8">
                   <a 
-                    href="https://wa.me/51987654321" 
+                    href="https://wa.me/51932401713" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold transition-colors shadow-lg hover:shadow-xl"
@@ -317,56 +326,102 @@ const ContactPage = () => {
         </section>
 
         {/* Gallery Section - Usando el nuevo componente */}
-        {/* <GallerySection galleryImages={galleryImages} isDarkMode={isDarkMode} /> */}
+        <GallerySection galleryImages={galleryImages} isDarkMode={isDarkMode} />
 
         {/* Services Detail Section */}
         <section className={`py-16 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-200`}>
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className={`p-8 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+            <div className="max-w-7xl mx-auto">
+              {/* All Services in Grid Layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Service 1 */}
+                <div className={`p-6 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                   <div className="text-blue-600 mb-4">
-                    <Star className="w-12 h-12" />
+                    <Star className="w-10 h-10" />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Reparaciónn de maquinaria pesada</h3>
-                  <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Reparación de maquinaria pesada</h3>
+                  <p className={`text-sm mb-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     En Watuy ofrecemos servicios especializados de reparación para todo tipo de maquinaria pesada. 
                     Trabajamos con excavadoras, bulldozers, grúas, cargadores frontales y equipos de construcción.
                   </p>
-                  <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     Nuestros servicios están diseñados para devolver a sus equipos el máximo rendimiento. 
                     Garantizamos reparaciones duraderas con repuestos originales y de alta calidad.
                   </p>
                 </div>
 
-                <div className={`p-8 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                {/* Service 2 */}
+                <div className={`p-6 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                   <div className="text-green-600 mb-4">
-                    <CheckCircle className="w-12 h-12" />
+                    <CheckCircle className="w-10 h-10" />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Mantenimiento de maquinaria pesada</h3>
-                  <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Mantenimiento de maquinaria pesada</h3>
+                  <p className={`text-sm mb-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     En Watuy llevamos a cabo el mantenimiento preventivo y correctivo de maquinaria pesada de todo tipo.
                   </p>
-                  <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <p className={`text-sm mb-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     Nuestro servicio de mantenimiento preventivo está diseñado para evitar averías costosas y maximizar la vida útil de sus equipos.
                   </p>
-                  <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     Nuestro servicio de emergencia está disponible las 24 horas del día, los 7 días de la semana para atender cualquier falla crítica.
                   </p>
                 </div>
 
-                <div className={`p-8 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                {/* Service 3 */}
+                <div className={`p-6 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                   <div className="text-purple-600 mb-4">
-                    <Award className="w-12 h-12" />
+                    <Award className="w-10 h-10" />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Servicio Técnico Especializado</h3>
-                  <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Servicio Técnico Especializado</h3>
+                  <p className={`text-sm mb-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     En Watuy contamos con técnicos especializados en diagnóstico y reparación de sistemas hidráulicos, 
                     motores diesel, transmisiones y sistemas eléctricos.
                   </p>
-                  <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     Nuestro equipo técnico está certificado por las principales marcas de maquinaria pesada, 
                     lo que garantiza servicios de la más alta calidad y confiabilidad.
+                  </p>
+                </div>
+
+                {/* Service 4 */}
+                <div className={`p-6 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                  <div className="text-orange-600 mb-4">
+                    <Wrench className="w-10 h-10" />
+                  </div>
+                  <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Servicio de reparación en taller</h3>
+                  <p className={`text-sm mb-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                     Contamos con un taller especializado para reparaciones integrales y complejas de maquinaria pesada
+                  </p>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    Nuestro servicio incluye garantía soporte en obra bajo modalidad de alquiler dependiendo de la cantidad de equipos alquilados.
+                  </p>
+                </div>
+
+                {/* Service 5 */}
+                <div className={`p-6 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                  <div className="text-red-600 mb-4">
+                    <ShoppingCart className="w-10 h-10" />
+                  </div>
+                  <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-red-400' : 'text-red-600'}`}>Venta de repuestos multimarca</h3>
+                  <p className={`text-sm mb-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    Contamos con repuestos de distintas marcas y unidades de reparto de repuestos de todo tipo de maquinaria pesada en Lima y envíos a provincias
+                  </p>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    Garantizamos calidad, disponibilidad inmediata y precios competitivos para mantener tu equipo operativo al máximo rendimiento.
+                  </p>
+                </div>
+
+                {/* Service 6 - Nuevo Servicio de Alquiler */}
+                <div className={`p-6 rounded-xl shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                  <div className="text-amber-600 mb-4">
+                    <Truck className="w-10 h-10" />
+                  </div>
+                  <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-amber-400' : 'text-amber-600'}`}>Alquileres a nivel nacional de maquinaria pesada</h3>
+                  <p className={`text-sm mb-3 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    Contamos con excavadoras, cargadoras, retroexcavadoras, martillos hidráulicos, minicargadores, entre otros.
+                  </p>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    Nuestro servicio incluye constante soporte en obra bajo modalidad in house dependiendo de la cantidad de equipos alquilados.
                   </p>
                 </div>
               </div>

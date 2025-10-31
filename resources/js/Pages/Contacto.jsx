@@ -311,7 +311,7 @@ const ContactPage = () => {
               {/* Map */}
               <div className={`rounded-xl shadow-md overflow-hidden ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15610.137128397255!2d-77.0792346!3d-12.0066935!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf441e4b9bc3%3A0xe06a0030338de733!2sEQUINLAB%20SAC!5e0!3m2!1ses!2spe!4v1693919874450!5m2!1ses!2spe" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.234567890123!2d-77.1286245!3d-11.9599729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDU3JzM1LjkiUyA3N8KwMDcnNDMuMCJX!5e0!3m2!1ses!2spe!4v1693919874450!5m2!1ses!2spe" 
                   width="100%" 
                   height="400" 
                   style={{border: 0}} 

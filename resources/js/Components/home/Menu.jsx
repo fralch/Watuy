@@ -186,7 +186,7 @@ const Menu = ({ className = "" }) => {
                                     <path d={mdiWidgetsOutline} />
                                 </svg>
                             </span>
-                            <span>Ventas</span>
+                            <span>Venta de Repuestos</span>
                         </Link>
                     </li>
                     {auth?.user && (

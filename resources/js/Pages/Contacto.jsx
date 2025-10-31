@@ -188,16 +188,17 @@ const ContactPage = () => {
         {/* Hero Section */}
         <section className="bg-[#006ba0] text-white py-20">
           <div className="container mx-auto px-4 text-center">
+             <p className="text-xl md:text-2xl mb-8 text-blue-100">
+              Tú socio confiable en alquileres, venta, reparación y mantenimiento de maquinaria pesada multimarca
+            </p>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               WATUY
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Su socio confiable para la reparación y mantenimiento de maquinaria pesada
-            </p>
+           
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
               <div className="flex items-center">
                 <Users className="w-6 h-6 mr-2" />
-                <span>20+ años de experiencia</span>
+                <span>10 años de experiencia</span>
               </div>
               <div className="flex items-center">
                 <Award className="w-6 h-6 mr-2" />
@@ -213,7 +214,7 @@ const ContactPage = () => {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  WATUY es una empresa líder en la reparación, mantenimiento y servicio técnico 
+                  WATUY es una empresa líder en Alquiler, reparación, mantenimiento y servicio técnico 
                   de maquinaria pesada para construcción, minería y agricultura en Perú.
                 </p>
               </div>

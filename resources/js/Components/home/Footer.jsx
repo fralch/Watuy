@@ -55,19 +55,16 @@ const Footer = () => {
           <ul className="space-y-2">
             <li className="flex items-center">
               <Phone className="w-4 h-4 mr-2 text-green-400" />
-              +51 987 654 321
+              932401713
             </li>
             <li className="flex items-center">
-              <Mail className="w-4 h-4 mr-2 text-green-400" />
-              ventas@watuy.com
+                 <Phone className="w-4 h-4 mr-2 text-green-400" />
+              912996059
             </li>
+           
             <li className="flex items-center">
               <Mail className="w-4 h-4 mr-2 text-green-400" />
-              ventas1@watuy.com
-            </li>
-            <li className="flex items-center">
-              <Mail className="w-4 h-4 mr-2 text-green-400" />
-              operaciones@watuy.com
+              ventasalquileres@watuyconstruction.com 
             </li>
           </ul>
         </div>

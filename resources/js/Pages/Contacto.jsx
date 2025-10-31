@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Star, CheckCircle, Users, Award, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Star, CheckCircle, Users, Award, MessageCircle, ChevronLeft, ChevronRight, Wrench, ShoppingCart } from 'lucide-react';
 import { Head, usePage } from '@inertiajs/react';
 import Header from "../Components/home/Header";
 import Footer from "../Components/home/Footer";
@@ -158,6 +158,11 @@ const ContactPage = () => {
 
   const services = [
     {
+      title: "Alquileres a nivel nacional de maquinaria pesada",
+      description: "Contamos con excavadoras, cargadores, retroexcavadoras, martillos hidráulicos, minicargadores, entre otros.",
+      icon: <MapPin className="w-6 h-6" />
+    },
+    {
       title: "Reparación Especializada",
       description: "Reparación integral de excavadoras, bulldozers, grúas y toda maquinaria pesada",
       icon: <Star className="w-6 h-6" />
@@ -171,6 +176,16 @@ const ContactPage = () => {
       title: "Servicio en Campo",
       description: "Atención técnica directa en obra con unidades móviles completamente equipadas",
       icon: <Award className="w-6 h-6" />
+    },
+    {
+      title: "Servicio de reparación en taller",
+      description: "Contamos con un taller especializado para reparaciones integrales y complejas de maquinaria pesada",
+      icon: <Wrench className="w-6 h-6" />
+    },
+    {
+      title: "Venta de repuestos multimarca",
+      description: "Contamos con repuestos de distintas marcas y unidades de repuesto de todo tipo de maquinaria pesada en Lima y envíos a provincias",
+      icon: <ShoppingCart className="w-6 h-6" />
     }
   ];
 
@@ -313,7 +328,7 @@ const ContactPage = () => {
                   <div className="text-blue-600 mb-4">
                     <Star className="w-12 h-12" />
                   </div>
-                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Reparación de maquinaria pesada</h3>
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Reparaciónn de maquinaria pesada</h3>
                   <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     En Watuy ofrecemos servicios especializados de reparación para todo tipo de maquinaria pesada. 
                     Trabajamos con excavadoras, bulldozers, grúas, cargadores frontales y equipos de construcción.

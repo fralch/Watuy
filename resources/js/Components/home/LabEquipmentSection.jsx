@@ -113,7 +113,7 @@ const LabEquipmentSection = () => {
             </div>
 
             {/* Slider Imagenes - Centrado verticalmente */}
-            <div className="w-full md:w-full lg:w-7/12 relative lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-0 z-10 md:mt-4 lg:mt-0">
+            <div className="w-full md:w-full lg:w-6/12 xl:w-6/12 2xl:w-7/12 relative lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-0 z-10 md:mt-4 lg:mt-0">
                 <ImageCarousel
                     currentIndex={currentIndex}
                     goToPrevious={goToPrevious}

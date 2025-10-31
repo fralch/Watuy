@@ -68,7 +68,8 @@ const LabEquipmentSection = () => {
                 <h3 className="text-lg md:text-xl lg:text-2xl font-bold pt-4 md:pt-8 lg:pt-12">
                     10 AÑOS MOVIENDO EL PERÚ CON FUERZA  Y CONFIANZA
                 </h3>
-                <p className="text-xs md:text-sm lg:text-base pr-2 md:pr-8 lg:pr-36 pb-4 md:pb-8 lg:pb-12">
+                {/* Texto completo para móviles y pantallas grandes */}
+                <p className="text-xs md:hidden 2xl:block 2xl:text-base pr-2 2xl:pr-36 pb-4 2xl:pb-12">
                     Desde hace una década, nos hemos consolidado como una empresa líder en el <b>alquiler, reparación y mantenimiento de maquinaria pesada</b>, así 
                     como en la venta de repuestos originales y alternativos para las marcas más reconocidas del mercado: <b>John Deere, Caterpillar, Hidrokhan, Volvo</b>, entre otras.
                     Nuestro compromiso con la <b>calidad, la eficiencia y la atención personalizada</b> nos ha permitido acompañar proyectos de construcción, minería, agricultura e 
@@ -76,7 +77,14 @@ const LabEquipmentSection = () => {
                     Contamos con un equipo altamente calificado, infraestructura especializada y un catálogo completo de maquinaria y repuestos que se adapta a tus 
                     necesidades operativas, sin importar la magnitud del desafío.
                     <b>10 años no solo hablan de experiencia, sino de confianza construida con cada cliente, cada proyecto y cada máquina puesta en funcionamiento.</b>
+                </p>
 
+                {/* Texto resumido para laptops (md) */}
+                <p className="hidden lg:block 2xl:hidden text-sm pr-8 pb-8">
+                    Desde hace una década, somos líderes en <b>alquiler, reparación y mantenimiento de maquinaria pesada</b> y venta de repuestos para 
+                    <b> John Deere, Caterpillar, Hidrokhan, Volvo</b> y más. Nuestro compromiso con la <b>calidad y atención personalizada</b> nos ha permitido 
+                    acompañar proyectos en todo el <b>territorio peruano</b>.
+                    <b> 10 años de experiencia y confianza construida con cada cliente.</b>
                 </p>
 
                 {/* Navigation Buttons - Bottom right position */}

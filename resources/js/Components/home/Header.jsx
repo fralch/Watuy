@@ -242,7 +242,7 @@ const Header = () => {
                         >
                             {/* Facebook */}
                             <a 
-                                href="https://www.facebook.com/watuy.oficial" 
+                                href="#" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 aria-label="Facebook"
@@ -259,7 +259,7 @@ const Header = () => {
                             
                             {/* LinkedIn */}
                             <a 
-                                href="https://www.linkedin.com/company/mega-equipamiento-equimlab-s-a-c/" 
+                                href="#" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 aria-label="LinkedIn"
@@ -276,7 +276,7 @@ const Header = () => {
                             
                             {/* YouTube */}
                             <a 
-                                href="https://www.youtube.com/@watuy.oficial" 
+                                href="#" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 aria-label="YouTube"

@@ -208,7 +208,7 @@ const Menu = ({ className = "" }) => {
                     </li>
                 </ul>
                 <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto mt-5 md:mt-0">
-                    <div className="w-full md:w-28 xl:w-32">
+                    {/* <div className="w-full md:w-28 xl:w-32">
                         <select
                             name="moneda"
                             id="moneda"
@@ -221,9 +221,9 @@ const Menu = ({ className = "" }) => {
                             <option value="sol">Soles</option>
                             <option value="euro">Euros</option>
                         </select>
-                    </div>
+                    </div> */}
 
-                    <button
+                    {/* <button
                         onClick={openCompareModal}
                         className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg border w-full md:w-auto transition-all duration-200 hover:scale-105 relative ${
                             isDarkMode
@@ -259,7 +259,7 @@ const Menu = ({ className = "" }) => {
                                 {compareCount}
                             </span>
                         )}
-                    </button>
+                    </button> */}
                 </div>
             </div>
 

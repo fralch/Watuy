@@ -65,10 +65,10 @@ const LabEquipmentSection = () => {
         <section className="flex flex-col lg:flex-row relative w-full">
             {/* Text + Navigation */}
             <div className="bg-[#006ba0] w-full lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col gap-4 mt-6 md:mt-8 lg:mt-10 text-white relative z-0">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold pt-4 md:pt-8 lg:pt-12">
-                    10 AÑOS MOVIENDO EL PERÚ CON FUERZA <br /> Y CONFIANZA
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold pt-4 md:pt-8 lg:pt-12">
+                    10 AÑOS MOVIENDO EL PERÚ CON FUERZA  Y CONFIANZA
                 </h3>
-                <p className="text-sm md:text-base lg:text-xl pr-2 md:pr-8 lg:pr-36 pb-4 md:pb-8 lg:pb-12">
+                <p className="text-xs md:text-sm lg:text-base pr-2 md:pr-8 lg:pr-36 pb-4 md:pb-8 lg:pb-12">
                     Desde hace una década, nos hemos consolidado como una empresa líder en el <b>alquiler, reparación y mantenimiento de maquinaria pesada</b>, así 
                     como en la venta de repuestos originales y alternativos para las marcas más reconocidas del mercado: <b>John Deere, Caterpillar, Hidrokhan, Volvo</b>, entre otras.
                     Nuestro compromiso con la <b>calidad, la eficiencia y la atención personalizada</b> nos ha permitido acompañar proyectos de construcción, minería, agricultura e 

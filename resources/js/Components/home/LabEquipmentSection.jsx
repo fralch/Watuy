@@ -66,17 +66,17 @@ const LabEquipmentSection = () => {
             {/* Text + Navigation */}
             <div className="bg-[#006ba0] w-full lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col gap-4 mt-6 md:mt-8 lg:mt-10 text-white relative z-0">
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-bold pt-4 md:pt-8 lg:pt-12">
-                    Equipos de laboratorio
+                    10 AÑOS MOVIENDO EL PERÚ CON FUERZA <br /> Y CONFIANZA
                 </h3>
                 <p className="text-sm md:text-base lg:text-xl pr-2 md:pr-8 lg:pr-36 pb-4 md:pb-8 lg:pb-12">
-                    Los equipos de laboratorio son instrumentos utilizados para llevar a cabo experimentos,
-                    análisis y estudios en diferentes disciplinas científicas. Algunos equipos de laboratorio
-                    incluyen microscopios, espectrofotómetros, balanzas de laboratorio, centrífugas, autoclaves,
-                    agitadores magnéticos, incubadoras, pipetas, y sistemas de cromatografía, entre muchos otros.
-                    <span className="hidden xl:inline"> Cada equipo tiene su propia utilidad y está diseñado para manipular muestras y realizar
-                    mediciones con precisión. Estos instrumentos son esenciales para la investigación científica,
-                    el desarrollo de productos, el control de calidad y el análisis en una amplia gama de campos,
-                    como la biología, la química, la física, la medicina, la ingeniería y las ciencias ambientales.</span>
+                    Desde hace una década, nos hemos consolidado como una empresa líder en el <b>alquiler, reparación y mantenimiento de maquinaria pesada</b>, así 
+                    como en la venta de repuestos originales y alternativos para las marcas más reconocidas del mercado: <b>John Deere, Caterpillar, Hidrokhan, Volvo</b>, entre otras.
+                    Nuestro compromiso con la <b>calidad, la eficiencia y la atención personalizada</b> nos ha permitido acompañar proyectos de construcción, minería, agricultura e 
+                    industria en todo el <b>territorio peruano</b>, brindando soluciones técnicas que mantienen a nuestros clientes siempre en marcha.
+                    Contamos con un equipo altamente calificado, infraestructura especializada y un catálogo completo de maquinaria y repuestos que se adapta a tus 
+                    necesidades operativas, sin importar la magnitud del desafío.
+                    <b>10 años no solo hablan de experiencia, sino de confianza construida con cada cliente, cada proyecto y cada máquina puesta en funcionamiento.</b>
+
                 </p>
 
                 {/* Navigation Buttons - Bottom right position */}

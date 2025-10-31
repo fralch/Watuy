@@ -77,7 +77,7 @@ const Footer = () => {
           <h4 className="font-bold border-b border-white pb-2 mb-4">Ubícanos</h4>
           <iframe
             title="mapa"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5434744929966!2d-77.08142328503174!3d-12.006693491424473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf441e4b9bc3%3A0xe06a0030338de733!2sEQUINLAB%20SAC!5e0!3m2!1ses-419!2spe!4v1633084269747!5m2!1ses-419!2spe"
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5847982739944!2d-77.1286245!3d-11.9599729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d0a5e5e5e5e5%3A0x5e5e5e5e5e5e5e5e!2sMz%20B%20Lt2%20Rinconada%20de%20Oquendo%2C%20Callao%2C%20Peru!5e0!3m2!1ses!2spe!4v1693919874450!5m2!1ses!2spe" 
             className="w-full h-40 border-0 rounded"
             loading="lazy"
           ></iframe>

@@ -225,8 +225,8 @@ const ContactPage = () => {
 
         {/* About Section */}
         <section className={`py-16 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-200`}>
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+          <div className="mx-auto px-4 max-w-screen-2xl">
+            <div className="max-w-none mx-auto">
               <div className="text-center mb-12">
                 <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   WATUY es una empresa líder en Alquiler, reparación, mantenimiento y servicio técnico 
@@ -234,7 +234,7 @@ const ContactPage = () => {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 mb-12 w-full">
                 {services.map((service, index) => (
                   <div key={index} className={`p-6 rounded-xl hover:shadow-lg transition-shadow ${isDarkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
                     <div className="text-blue-600 mb-4">{service.icon}</div>

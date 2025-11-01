@@ -584,8 +584,9 @@ const Productos = ({ onSubmit }) => {
         console.log('Producto creado:', result);
         alert('¡Producto creado exitosamente!');
         setForm(initialForm);
-        setSelectedCategory('');
         setPreviewImage(null);
+        setPreviewImages([]);
+        setSelectedImages([]);
         setPorcentajeGanancia('');
       } else {
         console.error('Error al crear el producto:', response.statusText);
@@ -734,39 +735,6 @@ const Productos = ({ onSubmit }) => {
           />
         );
 
-      case 'tab8': // Otros
-        return (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <BrandSelect
-              marcas={marcas}
-              value={form.marca_id}
-              onChange={handleChange}
-            />
-            <div className="mb-4">
-              <label htmlFor="pais" className={`block text-sm font-medium transition-colors duration-300 ${
-                isDarkMode ? 'text-gray-300' : 'text-gray-700'
-              }`}>País</label>
-              <select
-                id="pais"
-                name="pais"
-                value={form.pais}
-                onChange={handleChange}
-                className={`mt-1 block w-full rounded-md shadow-sm transition-colors duration-300 ${
-                  isDarkMode 
-                    ? 'bg-gray-700 border-gray-600 text-white focus:border-indigo-400 focus:ring-indigo-400' 
-                    : 'bg-white border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500'
-                }`}
-                required
-              >
-                <option value="">Seleccione un país</option>
-                {countryOptions.map(option => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-        );
-
       default:
         return <div className={`p-4 transition-colors duration-300 ${
           isDarkMode ? 'text-gray-300' : 'text-gray-900'
@@ -827,6 +795,34 @@ const Productos = ({ onSubmit }) => {
                 placeholder="Ingrese el código SKU"
                 required
               />
+
+              <BrandSelect
+                marcas={marcas}
+                value={form.marca_id}
+                onChange={handleChange}
+              />
+
+              <div className="mb-4">
+                <label htmlFor="pais" className={`block text-sm font-medium transition-colors duration-300 ${
+                  isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>País</label>
+                <select
+                  id="pais"
+                  name="pais"
+                  value={form.pais}
+                  onChange={handleChange}
+                  className={`mt-1 block w-full rounded-md shadow-sm transition-colors duration-300 ${
+                    isDarkMode
+                      ? 'bg-gray-700 border-gray-600 text-white focus:border-indigo-400 focus:ring-indigo-400'
+                      : 'bg-white border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500'
+                  }`}
+                >
+                  <option value="">Seleccione un país</option>
+                  {countryOptions.map(option => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </div>
 
               {priceFields.map(field => {
                 if (field.name === 'porcentaje_ganancia') {

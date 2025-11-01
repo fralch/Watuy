@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useTheme } from '../../storage/ThemeContext';
 import ImageBankModal from './ImageBankModal';
 
+const URL_API = import.meta.env.VITE_API_URL;
+
 const Marcas = ({ onSubmit }) => {
   const { isDarkMode } = useTheme();
   // Add new state for modal
@@ -95,7 +97,7 @@ const Marcas = ({ onSubmit }) => {
 
   const fetchMarcas = async () => {
     try {
-      const response = await fetch('/marca/all');
+      const response = await fetch(`${URL_API}/marca/all`);
       if (!response.ok) {
         throw new Error('Error fetching marcas');
       }
@@ -127,7 +129,7 @@ const Marcas = ({ onSubmit }) => {
     }
 
     try {
-      const response = await fetch('/marca/create', {
+      const response = await fetch(`${URL_API}/marca/create`, {
         method: 'POST',
         headers: {
           'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -183,7 +185,7 @@ const Marcas = ({ onSubmit }) => {
 
       // Aunque la ruta es GET, usamos POST para enviar el token CSRF y seguir buenas prácticas para acciones destructivas.
       // Si prefieres usar GET, asegúrate de que tu backend lo maneje adecuadamente (puede requerir ajustes en la protección CSRF).
-      const response = await axios.post(`/marca/delete/${id}`, {}, {
+      const response = await axios.post(`${URL_API}/marca/delete/${id}`, {}, {
         headers: {
           'X-CSRF-TOKEN': csrfToken,
           // 'Content-Type': 'application/json' // No es necesario para una solicitud POST vacía

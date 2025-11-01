@@ -36,7 +36,7 @@ const Carrusel = () => {
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                         <div className="relative p-10">
                             <h2 className="text-4xl font-bold text-center mb-6">
-                                Manufactura
+                                ALQUILER DE MAQUINARIA
                             </h2> 
                             <ul className="space-y-4 text-xl">
                                 <li className="flex items-center">
@@ -54,7 +54,7 @@ const Carrusel = () => {
                                         />
                                     </svg>
                                     
-                                    Textil
+                                    Excavadoras
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -70,7 +70,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Quimica
+                                    Cargadores
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -86,7 +86,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Papelería
+                                    Retroexcavadoras
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -102,7 +102,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Pintura
+                                    Martillos hidráulicos
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -118,7 +118,71 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Metalurgia
+                                    Minicargadores
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Autohormigoneras
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Volquetes
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Generadores
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Entre otros
                                 </li>
                             </ul>
                             <div className="text-center mt-6">
@@ -144,7 +208,7 @@ const Carrusel = () => {
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                         <div className="relative p-10">
                             <h2 className="text-4xl font-bold text-center mb-6">
-                                Extracción
+                                VENTAS DE REPUESTOS ORIGINALES Y ALTERNATIVOS
                             </h2>
                             <ul className="space-y-4 text-xl">
                                 <li className="flex items-center">
@@ -162,7 +226,7 @@ const Carrusel = () => {
                                         />
                                     </svg>
                                     
-                                    Gas Natural
+                                    Volvo
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -178,7 +242,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Petróleo
+                                    Hyundai
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -194,7 +258,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Mineria
+                                    Doosan
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -210,7 +274,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Pesca
+                                    Jhon Deere
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -226,7 +290,71 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Agua
+                                    Hitachi
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Hidromaq
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Caterpillar
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Komatsu
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Entre otros
                                 </li>
                             </ul>
                             <div className="text-center mt-6">
@@ -252,7 +380,7 @@ const Carrusel = () => {
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                         <div className="relative p-10">
                             <h2 className="text-4xl font-bold text-center mb-6">
-                                Educación
+                                REPARACIONES GENERALES
                             </h2>
                             <ul className="space-y-4 text-xl">
                                 <li className="flex items-center">
@@ -269,7 +397,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Universidades
+                                    Cambio de pines y bocinas
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -285,7 +413,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Institutos
+                                    Cambio de cadenas
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -301,7 +429,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Colegios
+                                    Cambio de Sproket
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -317,7 +445,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Escuelas
+                                    Barrenado
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -333,7 +461,87 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Centros de investigación
+                                    Torno
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Planchado y pintura
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Reforzamiento de cucharones
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Fabricación de cucharones
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Fabricación de mangueras hidráulicas
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Entre otros
                                 </li>
                             </ul>
                             <div className="text-center mt-6">
@@ -359,7 +567,7 @@ const Carrusel = () => {
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
                         <div className="relative p-10">
                             <h2 className="text-4xl font-bold text-center mb-6">
-                                Ind. Alimentaria
+                                REPARACIONES ESPECIALES
                             </h2>
                             <ul className="space-y-4 text-xl">
                                 <li className="flex items-center">
@@ -376,7 +584,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Lacteos
+                                    Reparación de motor
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -392,7 +600,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Cárnicos
+                                    Reparación de cilindros hidráulicos
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -408,7 +616,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Aceites
+                                    Reparación de cajas de transmisión
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -424,7 +632,7 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Agroindustria
+                                    Reparación de sistemas eléctricos
                                 </li>
                                 <li className="flex items-center">
                                     <svg
@@ -440,7 +648,39 @@ const Carrusel = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Haria y derivados
+                                    Reparación de mandos finales
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Reparación de bombas hidráulicas
+                                </li>
+                                <li className="flex items-center">
+                                    <svg
+                                        className="w-6 h-6 text-green-500 mr-3"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm-1-13a1 1 0 112 0v6a1 1 0 11-2 0V7zm0 10a1 1 0 112 0v-4a1 1 0 11-2 0v4z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Entre otros
                                 </li>
                             </ul>
                             <div className="text-center mt-6">

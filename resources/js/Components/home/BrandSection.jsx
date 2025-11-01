@@ -54,16 +54,13 @@ const BrandCard = ({ brand }) => {
         isDarkMode ? 'text-white hover:bg-gray-700/30' : 'text-gray-900'
       }`}
     >
-      <div className={`w-36 h-36 flex items-center justify-center rounded-full border-2 overflow-hidden transition-colors duration-300 bg-white ${
-          isDarkMode ? 'border-blue-400' : 'border-blue-500'
-        }`}>
-      
+      <div className="w-36 flex items-center justify-center overflow-hidden transition-colors duration-300">
         {/* Imagen que solo carga cuando es visible */}
         {isVisible && (
           <img
             src={brand.imagen?.startsWith('http') ? brand.imagen : `${window.location.origin}${brand.imagen}`}
             alt={brand.nombre}
-            className={`object-contain w-32 h-32 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`object-contain w-36 max-h-32 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
             loading="lazy"
             onLoad={() => {
               console.log('Image loaded successfully:', brand.nombre);
@@ -77,7 +74,7 @@ const BrandCard = ({ brand }) => {
         )}
         
         {!imageLoaded && isVisible && (
-          <div className={`w-32 h-32 flex items-center justify-center text-4xl font-bold ${
+          <div className={`w-36 h-32 flex items-center justify-center text-4xl font-bold ${
             isDarkMode ? 'text-gray-400' : 'text-gray-600'
           }`}>
             {brand.nombre ? brand.nombre.charAt(0).toUpperCase() : '?'}

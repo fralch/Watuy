@@ -19,7 +19,6 @@ class Producto extends Model implements HasMedia
     protected $fillable = [
         'sku',
         'nombre',
-        'id_subcategoria',
         'marca_id',
         'pais',
         'precio_sin_ganancia',
@@ -51,11 +50,6 @@ class Producto extends Model implements HasMedia
     ];
 
     // Relaciones
-    public function subcategoria()
-    {
-        return $this->belongsTo(Subcategoria::class, 'id_subcategoria');
-    }
-
     public function marca()
     {
         return $this->belongsTo(Marca::class, 'marca_id');

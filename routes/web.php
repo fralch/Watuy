@@ -3,12 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\SubcategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\FiltroController;
 use App\Http\Controllers\TiposRelacionProductosController;
-use App\Http\Controllers\MarcaCategoriaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\BancoImagenesController;
@@ -26,8 +23,6 @@ Route::get('/carrito',function () { return Inertia::render('Carrito');})->name('
 
 // Rutas que retornan vistas
 Route::get('/', function () { return Inertia::render('Welcome'); })->name('welcome');
-Route::get('/categorias/{id_categoria?}', [CategoriaController::class, 'CategoriasWiew'])->name('categorias.view');
-Route::get('/subcategoria/{id}/{marca_id?}', [ProductoController::class, 'subCategoriaView'])->name('subcategoria.view');
 Route::get('/producto/{id}', [ProductoController::class, 'ProductView'])->name('producto.view');
 Route::get('/marcas/{id}', [ProductoController::class, 'ProductViewByMarca'])->name('marcas.view');
 Route::get('/contacto', function () { return Inertia::render('Contacto'); })->name('contacto.view');
@@ -47,11 +42,9 @@ Route::get('/product/all', [ProductoController::class, 'getProductos'])->name('p
 Route::get('/product/all-imagen', [ProductoController::class, 'getProductosImagen'])->name('product.all-imagen');
 Route::get('/product/show/{id}', [ProductoController::class, 'showProduct'])->name('product.show');
 Route::get('/product/image/{id}', [ProductoController::class, 'getImagenProducto'])->name('product.image');
-Route::get('/product/subcategoria/{id}', [ProductoController::class, 'getProductosSubcategoria'])->name('product.by-subcategoria');
 Route::post('/productos/buscar', [ProductoController::class, 'buscarPorIniciales'])->name('productos.buscar-iniciales');
 Route::post('/productos/actualizar-imagen', [ProductoController::class, 'updateProductImage']);
 Route::delete('/productos/{id}/imagen', [ProductoController::class, 'deleteProductImage'])->name('productos.eliminar-imagen');
-Route::post('/productos/actualizar-categoria', [ProductoController::class, 'updateProductCategory'])->name('productos.actualizar-categoria');
 Route::get('/productos/productos-marca/{marca_id}', [ProductoController::class, 'getProductosByMarca'])->name('productos.by-marca');
 // Rutas para relaciones de productos
 Route::post('/product/agregar-relacion', [ProductoController::class, 'agregarRelacion'])->name('product.agregar-relacion');
@@ -61,32 +54,6 @@ Route::post('/product/eliminar-relacion', [ProductoController::class, 'eliminarR
 
 // Rutas para usuarios
 Route::apiResource('usuarios', UsuarioController::class);
-
-// Rutas para categorías
-Route::get('/categorias-con-subcategorias', [CategoriaController::class, 'getCategoriasConSubcategorias'])->name('categorias.with-subcategorias');
-Route::get('/categorias-all', [CategoriaController::class, 'getCategorias'])->name('categorias.all');
-Route::get('/categorias-con-subcategorias-con-id', [CategoriaController::class, 'getCategoriasConSubcategoriasConId'])->name('categorias.with-subcategorias-id');
-Route::get('/categorias-completa', [CategoriaController::class, 'getCategoriasConSubcategoriasIds'])->name('categorias.complete');
-Route::get('/debug-category-images', [CategoriaController::class, 'debugCategoryImages'])->name('debug.category.images');
-Route::get('/categoria/{id}', [CategoriaController::class, 'getCategoriaById'])->name('categoria.show');
-Route::post('/categoria/create', [CategoriaController::class, 'store'])->name('categoria.create');
-Route::put('/categoria/update/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
-Route::post('/categoria/update/{id}', [CategoriaController::class, 'update'])->name('categoria.update.post');
-Route::delete('/categoria/delete/{id}', [CategoriaController::class, 'destroy'])->name('categoria.delete');
-Route::get('/categoria/{id}/subcategorias', [CategoriaController::class, 'getSubcategorias'])->name('categoria.subcategorias');
-
-// Rutas para subcategorías
-Route::post('/subcategoria/edit/{subcategoria}', [SubcategoriaController::class, 'update'])->name('subcategoria.update');
-Route::post('/subcategoria_post/create', [SubcategoriaController::class, 'store'])->name('subcategoria.create');
-
-
-Route::get('/subcategoria-all', [SubcategoriaController::class, 'getSubcategorias'])->name('subcategoria.all');
-Route::get('/subcategoria_get/categoria/{id}', [SubcategoriaController::class, 'getSubcategoriasCategoria'])->name('subcategoria.by-categoria');
-Route::get('/subcategoria_id/{id}', [SubcategoriaController::class, 'getSubcategoriaById'])->name('subcategoria.show');
-Route::get('/subcategoria_get/cat/{id}', [SubcategoriaController::class, 'getCatBySub'])->name('subcategoria.get-categoria');
-Route::get('/catsub_optimizadas/{marca_id?}', [SubcategoriaController::class, 'getCategoriasOptimizadasPorMarca'])->name('categorias.optimizadas-por-marca');
-Route::post('/subcategoria/delete/{id}', [SubcategoriaController::class, 'destroy'])->name('subcategoria.destroy');
-Route::post('/subcategorias/mover', [SubcategoriaController::class, 'moverSubcategorias'])->name('subcategorias.mover');
 
 // Rutas para marcas
 Route::post('/marca/create', [MarcaController::class, 'create'])->name('marca.create');
@@ -98,11 +65,10 @@ Route::post('/marca/buscar', [MarcaController::class, 'buscarPorNombre'])->name(
 // Rutas para filtros
 Route::prefix('filtros')->group(function () {
     // Rutas específicas primero
-    Route::get('/subcategoria/{subcategoriaId}', [FiltroController::class, 'getBySubcategoria'])->name('filtros.by-subcategoria');
     Route::put('/opcion/{id}', [FiltroController::class, 'updateOpcion'])->name('filtros.update-opcion');
     Route::delete('/opcion/{id}', [FiltroController::class, 'deleteOpcion'])->name('filtros.delete-opcion');
     Route::post('/filtrar-productos', [FiltroController::class, 'filtrarProductos'])->name('filtros.filtrar-productos');
-    
+
     // Rutas generales después
     Route::get('/', [FiltroController::class, 'index'])->name('filtros.index');
     Route::post('/', [FiltroController::class, 'store'])->name('filtros.store');
@@ -114,9 +80,6 @@ Route::prefix('filtros')->group(function () {
 // Rutas para tipos de relación de productos
 Route::get('/tipos-relacion-productos', [TiposRelacionProductosController::class, 'get_all'])->name('tipos-relacion-productos.all');
 Route::post('/tipos-relacion-productos', [TiposRelacionProductosController::class, 'store'])->name('tipos-relacion-productos.store');
-
-// Rutas para relación marca-categoría
-Route::post('/marca-categoria/create', [MarcaCategoriaController::class, 'store'])->name('marca-categoria.create');
 
 // Rutas para pedidos
 Route::post('/pedido/confirmar', [PedidoController::class, 'confirmarPedido'])->name('pedido.confirmar');

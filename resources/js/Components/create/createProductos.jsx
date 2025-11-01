@@ -10,7 +10,6 @@ const URL_API = import.meta.env.VITE_API_URL;
 const initialForm = {
   sku: "",
   nombre: "",
-  id_subcategoria: "",
   marca_id: "",
   pais: "",
   precio_sin_ganancia: "",
@@ -65,8 +64,7 @@ const tabs = [
   { id: 'tab4', label: 'Especificaciones Técnicas' },
   { id: 'tab5', label: 'Documentos/Descargas' },
   { id: 'tab6', label: 'Contenido de Envío' },
-  { id: 'tab7', label: 'Soporte Técnico' },
-  { id: 'tab8', label: 'Categorías' }
+  { id: 'tab7', label: 'Soporte Técnico' }
 ];
 
 const FormInput = ({ label, id, name, value, onChange, type = "text", placeholder, required = false, step, className = "", readOnly = false }) => {
@@ -139,63 +137,6 @@ const FormTextarea = ({ label, id, name, value, onChange, placeholder, rows = 4 
         }`}
         rows={rows}
       />
-    </div>
-  );
-};
-
-const CategorySelect = ({ categorias, selectedCategory, handleCategoryChange }) => {
-  const { isDarkMode } = useTheme();
-  
-  return (
-    <div className="mb-4">
-      <label htmlFor="categoria" className={`block text-sm font-medium transition-colors duration-300 ${
-        isDarkMode ? 'text-gray-300' : 'text-gray-700'
-      }`}>Categoría</label>
-      <select
-        id="categoria"
-        name="categoria"
-        value={selectedCategory}
-        onChange={handleCategoryChange}
-        className={`mt-1 block w-full rounded-md shadow-sm transition-colors duration-300 ${
-          isDarkMode 
-            ? 'bg-gray-700 border-gray-600 text-white focus:border-indigo-400 focus:ring-indigo-400' 
-            : 'bg-white border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500'
-        }`}
-      >
-        <option value="">Seleccione una categoría</option>
-        {categorias.map(({ id_categoria, nombre }) => (
-          <option key={id_categoria} value={id_categoria}>{nombre}</option>
-        ))}
-      </select>
-    </div>
-  );
-};
-
-const SubcategorySelect = ({ filteredSubcategorias, value, onChange }) => {
-  const { isDarkMode } = useTheme();
-  
-  return (
-    <div className="mb-4">
-      <label htmlFor="id_subcategoria" className={`block text-sm font-medium transition-colors duration-300 ${
-        isDarkMode ? 'text-gray-300' : 'text-gray-700'
-      }`}>Subcategoría</label>
-      <select
-        id="id_subcategoria"
-        name="id_subcategoria"
-        value={value}
-        onChange={onChange}
-        className={`mt-1 block w-full rounded-md shadow-sm transition-colors duration-300 ${
-          isDarkMode 
-            ? 'bg-gray-700 border-gray-600 text-white focus:border-indigo-400 focus:ring-indigo-400' 
-            : 'bg-white border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500'
-        }`}
-        required
-      >
-        <option value="">Seleccione una subcategoría</option>
-        {filteredSubcategorias.map(({ id_subcategoria, nombre }) => (
-          <option key={id_subcategoria} value={id_subcategoria}>{nombre}</option>
-        ))}
-      </select>
     </div>
   );
 };
@@ -406,10 +347,7 @@ const Productos = ({ onSubmit }) => {
   const { isDarkMode } = useTheme();
   const [activeTab, setActiveTab] = useState('tab1');
   const [form, setForm] = useState(initialForm);
-  const [categorias, setCategorias] = useState([]);
-  const [subcategorias, setSubcategorias] = useState([]);
   const [marcas, setMarcas] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [modalType, setModalType] = useState('');
   const [previewImage, setPreviewImage] = useState(null);
@@ -450,20 +388,8 @@ const Productos = ({ onSubmit }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [catRes, subRes, marRes] = await Promise.all([
-          fetch(`${URL_API}/categorias-all`),
-          fetch(`${URL_API}/subcategoria-all`),
-          fetch(`${URL_API}/marca/all`)
-        ]);
-        
-        const [categoriasData, subcategoriasData, marcasData] = await Promise.all([
-          catRes.json(),
-          subRes.json(),
-          marRes.json()
-        ]);
-        
-        setCategorias(categoriasData);
-        setSubcategorias(subcategoriasData);
+        const marRes = await fetch(`${URL_API}/marca/all`);
+        const marcasData = await marRes.json();
         setMarcas(marcasData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -609,11 +535,6 @@ const Productos = ({ onSubmit }) => {
     }
   }, [porcentajeGanancia, form.precio_sin_ganancia]);
 
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-    setForm(prev => ({ ...prev, id_subcategoria: "" }));
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -696,10 +617,6 @@ const Productos = ({ onSubmit }) => {
     }
     toggleModal();
   };
-
-  const filteredSubcategorias = subcategorias.filter(
-    sub => sub.id_categoria === parseInt(selectedCategory)
-  );
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -820,16 +737,6 @@ const Productos = ({ onSubmit }) => {
       case 'tab8': // Otros
         return (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <CategorySelect
-              categorias={categorias}
-              selectedCategory={selectedCategory}
-              handleCategoryChange={handleCategoryChange}
-            />
-            <SubcategorySelect
-              filteredSubcategorias={filteredSubcategorias}
-              value={form.id_subcategoria}
-              onChange={handleChange}
-            />
             <BrandSelect
               marcas={marcas}
               value={form.marca_id}

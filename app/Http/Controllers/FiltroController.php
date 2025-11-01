@@ -3,8 +3,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Filtro;
 use App\Models\OpcionFiltro;
-use App\Models\SubcategoriaFiltro;
-use App\Models\Subcategoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -14,7 +12,7 @@ class FiltroController extends Controller
 {
     public function index()
     {
-        $filtros = Filtro::with(['opciones', 'subcategorias'])
+        $filtros = Filtro::with(['opciones'])
             ->orderBy('orden')
             ->get();
         return response()->json($filtros);
@@ -36,9 +34,7 @@ class FiltroController extends Controller
                 'opciones.*.valor' => 'required_with:opciones|string|max:100',
                 'opciones.*.etiqueta' => 'required_with:opciones|string|max:100',
                 'opciones.*.color' => 'nullable|string|max:7',
-                'opciones.*.orden' => 'nullable|integer',
-                'subcategorias' => 'array',
-                'subcategorias.*' => 'exists:subcategorias,id_subcategoria'
+                'opciones.*.orden' => 'nullable|integer'
             ]);
 
             if (in_array($validatedData['tipo_input'], ['checkbox', 'select', 'radio'])) {
@@ -79,13 +75,9 @@ class FiltroController extends Controller
                 }
             }
 
-            if (isset($validatedData['subcategorias'])) {
-                $filtro->subcategorias()->attach($validatedData['subcategorias'], ['activo' => true]);
-            }
-
             DB::commit();
 
-            return response()->json($filtro->load(['opciones', 'subcategorias']), 201);
+            return response()->json($filtro->load(['opciones']), 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'error' => 'Error de validación',
@@ -99,7 +91,7 @@ class FiltroController extends Controller
 
     public function show($id)
     {
-        $filtro = Filtro::with(['opciones', 'subcategorias'])->findOrFail($id);
+        $filtro = Filtro::with(['opciones'])->findOrFail($id);
         return response()->json($filtro);
     }
 
@@ -121,9 +113,7 @@ class FiltroController extends Controller
             'opciones.*.valor' => 'required_with:opciones|string|max:100',
             'opciones.*.etiqueta' => 'required_with:opciones|string|max:100',
             'opciones.*.color' => 'nullable|string|max:7',
-            'opciones.*.orden' => 'nullable|integer',
-            'subcategorias' => 'array',
-            'subcategorias.*' => 'exists:subcategorias,id_subcategoria'
+            'opciones.*.orden' => 'nullable|integer'
         ]);
 
         try {
@@ -185,13 +175,9 @@ class FiltroController extends Controller
                 }
             }
 
-            if ($request->has('subcategorias')) {
-                $filtro->subcategorias()->sync($request->subcategorias);
-            }
-
             DB::commit();
 
-            return response()->json($filtro->load(['opciones', 'subcategorias']));
+            return response()->json($filtro->load(['opciones']));
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json(['error' => 'Error al actualizar el filtro'], 500);
@@ -207,16 +193,6 @@ class FiltroController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error al eliminar el filtro'], 500);
         }
-    }
-
-    public function getBySubcategoria($subcategoriaId)
-    {
-        $subcategoria = Subcategoria::findOrFail($subcategoriaId);
-        $filtros = $subcategoria->filtros()
-            ->with('opciones')
-            ->orderBy('orden')
-            ->get();
-        return response()->json($filtros);
     }
 
     public function updateOpcion(Request $request, $id)
@@ -243,12 +219,16 @@ class FiltroController extends Controller
     public function filtrarProductos(Request $request)
     {
         $request->validate([
-            'subcategoria_id' => 'required|exists:subcategorias,id_subcategoria',
-            'filtros' => 'array'
+            'filtros' => 'array',
+            'marca_id' => 'nullable|exists:marcas,id_marca'
         ]);
 
-        $subcategoriaId = $request->subcategoria_id;
-        $query = Producto::where('id_subcategoria', $subcategoriaId);
+        $query = Producto::query();
+
+        // Filtrar por marca si se proporciona
+        if ($request->has('marca_id') && $request->marca_id) {
+            $query->where('marca_id', $request->marca_id);
+        }
 
         // Si hay filtros seleccionados, aplicarlos a la consulta con OR
         if ($request->has('filtros') && !empty($request->filtros)) {

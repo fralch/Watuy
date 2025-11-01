@@ -17,11 +17,6 @@ const Menu = ({ className = "" }) => {
     const { compareCount } = useCompare();
     const [isCompareModalOpen, setIsCompareModalOpen] = useState(false);
     const [activeItem, setActiveItem] = useState("");
-    const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
-    const [categories, setCategories] = useState([]);
-    const [isLoadingCategories, setIsLoadingCategories] = useState(false);
-    const [categoriesError, setCategoriesError] = useState(null);
-    const categoryMenuRef = useRef(null);
 
     useEffect(() => {
         const path = url.pathname;
@@ -41,74 +36,6 @@ const Menu = ({ className = "" }) => {
             setActiveItem("");
         }
     }, [url.pathname]);
-
-    useEffect(() => {
-        if (!isCategoryMenuOpen) {
-            return;
-        }
-
-        const handleClickOutside = (event) => {
-            if (categoryMenuRef.current && !categoryMenuRef.current.contains(event.target)) {
-                setIsCategoryMenuOpen(false);
-            }
-        };
-
-        const handleEscape = (event) => {
-            if (event.key === "Escape") {
-                setIsCategoryMenuOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        document.addEventListener("keydown", handleEscape);
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-            document.removeEventListener("keydown", handleEscape);
-        };
-    }, [isCategoryMenuOpen]);
-
-    const fetchCategories = async () => {
-        if (!API_URL) {
-            setCategoriesError("Configura VITE_API_URL para cargar las categorías.");
-            return;
-        }
-
-        try {
-            setIsLoadingCategories(true);
-            setCategoriesError(null);
-            const response = await fetch(`${API_URL}/categorias-completa`);
-            if (!response.ok) {
-                throw new Error(`Solicitud fallida con estado ${response.status}`);
-            }
-
-            const data = await response.json();
-            const list = Array.isArray(data)
-                ? data
-                : Array.isArray(data?.data)
-                ? data.data
-                : [];
-
-            setCategories(list);
-        } catch (error) {
-            console.error("Error al cargar categorías", error);
-            setCategoriesError("No se pudieron cargar las categorías en este momento.");
-        } finally {
-            setIsLoadingCategories(false);
-        }
-    };
-
-    const handleCategoryToggle = () => {
-        const willOpen = !isCategoryMenuOpen;
-        setIsCategoryMenuOpen(willOpen);
-        if (willOpen && !isLoadingCategories && categories.length === 0) {
-            fetchCategories();
-        }
-    };
-
-    const handleCategorySelect = () => {
-        setIsCategoryMenuOpen(false);
-    };
 
     const openCompareModal = () => {
         setIsCompareModalOpen(true);
@@ -137,12 +64,6 @@ const Menu = ({ className = "" }) => {
     const containerClasses = `rounded px-5 py-3 shadow-xl pb-5 transition-colors duration-300 ${
         isDarkMode ? "bg-gray-800" : "bg-white"
     } ${className}`.trim();
-
-    const categoryPanelClasses = `absolute left-0 top-full mt-2 w-full md:w-96 rounded-xl shadow-2xl border ${
-        isDarkMode
-            ? "bg-gray-900 border-gray-700 text-gray-100"
-            : "bg-white border-gray-200 text-gray-800"
-    }`;
 
     return (
         <div className={containerClasses} id="menu">

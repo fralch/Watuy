@@ -133,31 +133,7 @@ const AdminProducts = () => {
                                 isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
                             }`}
                         >
-                            Crear Categoria
-                        </Link>
-                        <Link
-                            href="/crear"
-                            className={`w-full text-center block py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
-                            }`}
-                        >
-                            Crear Subcategoria
-                        </Link>
-                        <Link
-                            href="/crear"
-                            className={`w-full text-center block py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
-                            }`}
-                        >
                             Crear Marca
-                        </Link>
-                        <Link
-                            href="/crear"
-                            className={`w-full text-center block py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300'
-                            }`}
-                        >
-                            Mover Subcategorías
                         </Link>
                         <button
                             className={`w-full py-2 px-4 rounded-md font-medium transition-colors duration-300 ${

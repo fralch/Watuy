@@ -35,8 +35,6 @@ const ProductPage = ({ producto }) => {
     const { addRecentlyViewed, getRecentlyViewed } = useRecentlyViewed();
     const { dispatch } = useContext(CartContext);
     const { addToCompare, isInCompare, canAddMore } = useCompare();
-    const [categoriaCurrent, setCategoriaCurrent] = useState(null);
-    const [subcategoriaCurrent, setSubcategoriaCurrent] = useState(null);
     const [hoveredRecentProductId, setHoveredRecentProductId] = useState(null);
 
     // Agregar producto a la lista de vistos recientemente cuando se carga la página
@@ -61,19 +59,6 @@ const ProductPage = ({ producto }) => {
         }
     }, [producto]);
 
-    useEffect(() => {
-        const fetchCategoryData = async () => {
-            try {
-                const categoriaResponse = await axios.get('/subcategoria_get/cat/' + producto.id_subcategoria);
-                const subcategoriaResponse = await axios.get('/subcategoria_id/' + producto.id_subcategoria);
-                setCategoriaCurrent(categoriaResponse.data);
-                setSubcategoriaCurrent(subcategoriaResponse.data);
-            } catch (error) {
-                console.error('Error fetching category data:', error);
-            }
-        };
-        fetchCategoryData();
-    }, [producto.id_subcategoria]);
     const { auth } = usePage().props;
     const [activeTab, setActiveTab] = useState('descripcion');
     const [showModal, setShowModal] = useState(false);
@@ -517,7 +502,6 @@ const ProductPage = ({ producto }) => {
         { id: 'archivos_adicionales', label: 'Documentos/Descargas' },
         { id: 'envio', label: 'Contenido de Envío' },
         { id: 'soporte', label: 'Soporte Técnico' },
-        { id: 'categoria', label: 'Categorización' },
     ];
 
     useEffect(() => {
@@ -716,21 +700,6 @@ const ProductPage = ({ producto }) => {
                         handleInputChange={(value) => handleInputChange('descripcion', value)}
                         handleSave={() => handleSave('descripcion')}
                         toggleEditMode={() => toggleEditMode('descripcion')}
-                    />
-                );
-            case 'categoria':
-                return (
-                    <ProductCategoryEdit
-                        id_producto={productData.id_producto}
-                        id_subcategoria={productData.id_subcategoria}
-                        marcas={producto.marcas}
-                        countryCurrent={producto.countryOptions}
-                        productData={productData}
-                        editMode={editMode}
-                        tempInputs={tempInputs}
-                        handleInputChange={handleInputChange}
-                        handleSave={handleSave}
-                        toggleEditMode={toggleEditMode}
                     />
                 );
             case 'caracteristicas':
@@ -1146,7 +1115,7 @@ const ProductPage = ({ producto }) => {
                 <meta name="description" content={`${producto.descripcion?.substring(0, 145) || `Compra ${producto.nombre} ${producto.marca?.nombre ? `de ${producto.marca.nombre}` : ''} al mejor precio`}. SKU: ${producto.sku}. Precio desde ${formatPrice(producto.precio_ganancia)}.`} />
                 
                 {/* Meta tags básicos mejorados */}
-                <meta name="keywords" content={`${producto.nombre}, ${producto.marca?.nombre || ''}, ${producto.sku}, ${categoriaCurrent?.nombre_categoria || ''}, ${subcategoriaCurrent?.nombre || ''}, comprar online, precio, oferta, equipamiento`} />
+                <meta name="keywords" content={`${producto.nombre}, ${producto.marca?.nombre || ''}, ${producto.sku}, comprar online, precio, oferta, equipamiento`} />
                 <meta name="author" content="Mega Equipamiento" />
                 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
                 <meta name="googlebot" content="index, follow" />
@@ -1207,7 +1176,6 @@ const ProductPage = ({ producto }) => {
                             "@type": "Organization",
                             "name": producto.marca?.nombre || "Mega Equipamiento"
                         },
-                        "category": `${categoriaCurrent?.nombre_categoria || ''} > ${subcategoriaCurrent?.nombre || ''}`,
                         "offers": {
                             "@type": "Offer",
                             "url": `${window.location.origin}/producto/${producto.id_producto}`,
@@ -1267,18 +1235,6 @@ const ProductPage = ({ producto }) => {
                             {
                                 "@type": "ListItem",
                                 "position": 2,
-                                "name": categoriaCurrent?.nombre_categoria || "Categoría",
-                                "item": `${window.location.origin}/categorias/${categoriaCurrent?.id_categoria || ''}`
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 3,
-                                "name": subcategoriaCurrent?.nombre || "Subcategoría",
-                                "item": `${window.location.origin}/subcategoria/${producto.id_subcategoria}`
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 4,
                                 "name": producto.nombre,
                                 "item": `${window.location.origin}/producto/${producto.id_producto}`
                             }
@@ -1298,29 +1254,6 @@ const ProductPage = ({ producto }) => {
             </Head>
             <Header />
             <Menu className="mt-10" />
-            {categoriaCurrent && subcategoriaCurrent && (
-                <div className="flex items-center flex-wrap gap-1 px-4 md:px-6 py-3 ">
-                    <Link 
-                        href={`/categorias/${categoriaCurrent.id_categoria}`} 
-                        className={`hover:text-primary-600 transition-colors duration-200 text-base md:text-lg font-medium ${
-                            isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                        }`}
-                    >
-                        {categoriaCurrent.nombre_categoria}
-                    </Link>
-                    <span className={`mx-1 text-sm font-medium ${
-                        isDarkMode ? 'text-gray-500' : 'text-gray-400'
-                    }`}>/</span>
-                    <Link 
-                        href={`/subcategoria/${producto.id_subcategoria}`}
-                        className={`hover:text-primary-600 transition-colors duration-200 text-base md:text-lg font-medium ${
-                            isDarkMode ? 'text-gray-100' : 'text-gray-800'
-                        }`}
-                    >
-                        {subcategoriaCurrent.nombre}
-                    </Link>
-                </div>
-            )} 
 
             {/* Modal para características */}
             {showModal && (
@@ -1550,38 +1483,6 @@ const ProductPage = ({ producto }) => {
                                         }`}>
                                             <strong>Fabricante:</strong> {productData.marca?.nombre?.toUpperCase()}
                                         </p>
-                                    </div>
-                                    <div>
-                                        <div className={`transition-colors duration-300 ${
-                                            isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                                        }`}>
-                                            <strong>Categoría:</strong> 
-                                            {categoriaCurrent && (
-                                                <>
-                                                    <Link 
-                                                        href={`/categorias/${categoriaCurrent.id_categoria}`} 
-                                                        className={`hover:text-blue-600 transition-colors duration-200 ml-1 ${
-                                                            isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                                                        }`}
-                                                    >
-                                                        {categoriaCurrent.nombre_categoria}
-                                                    </Link>
-                                                    <span className={`mx-1 ${
-                                                        isDarkMode ? 'text-gray-500' : 'text-gray-400'
-                                                    }`}> - </span>
-                                                </>
-                                            )}
-                                            {subcategoriaCurrent && (
-                                                <Link 
-                                                    href={`/subcategoria/${producto.id_subcategoria}`}
-                                                    className={`hover:text-blue-600 transition-colors duration-200 ${
-                                                        isDarkMode ? 'text-gray-100' : 'text-gray-800'
-                                                    }`}
-                                                >
-                                                    {subcategoriaCurrent.nombre}
-                                                </Link>
-                                            )}
-                                        </div>
                                     </div>
                                     <p className={`transition-colors duration-300 ${
                                         isDarkMode ? 'text-gray-300' : 'text-gray-800'

@@ -38,12 +38,6 @@ class Marca extends Model
         'updated_at',
     ];
 
-    // Relación many-to-many con categorías
-    public function categorias()
-    {
-        return $this->belongsToMany(Categoria::class, 'marca_categoria', 'marca_id', 'categoria_id');
-    }
-
     // Relación one-to-many con productos
     public function productos()
     {

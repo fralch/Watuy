@@ -4,18 +4,12 @@ import { Head } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
 import { useTheme } from '../storage/ThemeContext';
 import Productos from "../Components/create/createProductos";
-import Categorias from "../Components/create/createCategoria";
-import Subcategorias from "../Components/create/createSubcategoria";
 import Marcas from "../Components/create/createMarca";
-import MoveSubcategories from "../Components/create/MoveSubcategories";
 
 const CrearProducto = () => {
     const { isDarkMode, toggleDarkMode } = useTheme();
     const [crearProducto, setCrearProducto] = useState(true);
-    const [crearCategoria, setCrearCategoria] = useState(false);
-    const [crearSubcategoria, setCrearSubcategoria] = useState(false);
     const [crearMarca, setCrearMarca] = useState(false);
-    const [moverSubcategorias, setMoverSubcategorias] = useState(false);
     const [sidebarVisible, setSidebarVisible] = useState(window.innerWidth >= 768);
     const [activeButton, setActiveButton] = useState('producto');
     
@@ -26,7 +20,6 @@ const CrearProducto = () => {
     const [form, setForm] = useState({
         sku: "",
         nombre: "",
-        id_subcategoria: "",
         marca_id: "",
         pais: "",
         precio_sin_ganancia: "",
@@ -85,47 +78,14 @@ const CrearProducto = () => {
 
     const handleCrearProductoClick = () => {
         setCrearProducto(true);
-        setCrearCategoria(false);
-        setCrearSubcategoria(false);
         setCrearMarca(false);
-        setMoverSubcategorias(false);
         setActiveButton('producto');
-    };
-
-    const handleCrearCategoriaClick = () => {
-        setCrearProducto(false);
-        setCrearCategoria(true);
-        setCrearSubcategoria(false);
-        setCrearMarca(false);
-        setMoverSubcategorias(false);
-        setActiveButton('categoria');
-    };
-
-    const handleCrearSubcategoriaClick = () => {
-        setCrearProducto(false);
-        setCrearCategoria(false);
-        setCrearSubcategoria(true);
-        setCrearMarca(false);
-        setMoverSubcategorias(false);
-        setActiveButton('subcategoria');
     };
 
     const handleCrearMarcaClick = () => {
         setCrearProducto(false);
-        setCrearCategoria(false);
-        setCrearSubcategoria(false);
         setCrearMarca(true);
-        setMoverSubcategorias(false);
         setActiveButton('marca');
-    };
-
-    const handleMoverSubcategoriasClick = () => {
-        setCrearProducto(false);
-        setCrearCategoria(false);
-        setCrearSubcategoria(false);
-        setCrearMarca(false);
-        setMoverSubcategorias(true);
-        setActiveButton('mover');
     };
 
     return (
@@ -202,26 +162,6 @@ const CrearProducto = () => {
                         </button>
                         <button
                             className={`w-full py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                activeButton === 'categoria'
-                                    ? (isDarkMode ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-primary-500 hover:bg-primary-600 text-white')
-                : (isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300')
-                            }`}
-                            onClick={handleCrearCategoriaClick}
-                        >
-                            Crear Categoria
-                        </button>
-                        <button
-                            className={`w-full py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                activeButton === 'subcategoria'
-                                    ? (isDarkMode ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-primary-500 hover:bg-primary-600 text-white')
-                : (isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300')
-                            }`}
-                            onClick={handleCrearSubcategoriaClick}
-                        >
-                            Crear Subcategoria
-                        </button>
-                        <button
-                            className={`w-full py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
                                 activeButton === 'marca'
                                     ? (isDarkMode ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-primary-500 hover:bg-primary-600 text-white')
                 : (isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300')
@@ -229,16 +169,6 @@ const CrearProducto = () => {
                             onClick={handleCrearMarcaClick}
                         >
                             Crear Marca
-                        </button>
-                        <button
-                            className={`w-full py-2 px-4 rounded-md font-medium transition-colors duration-300 ${
-                                activeButton === 'mover'
-                                    ? (isDarkMode ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-primary-500 hover:bg-primary-600 text-white')
-                : (isDarkMode ? 'bg-gray-700 text-primary-400 hover:bg-gray-600' : 'bg-primary-200 text-primary-600 hover:bg-primary-300')
-                            }`}
-                            onClick={handleMoverSubcategoriasClick}
-                        >
-                            Mover Subcategorías
                         </button>
                         <Link
                             href="/admin/products"
@@ -258,17 +188,8 @@ const CrearProducto = () => {
                     <div className={crearProducto ? "block" : "hidden"}>
                         <Productos onSubmit={handleSubmit} />
                     </div>
-                    <div className={crearCategoria ? "block" : "hidden"}>
-                        <Categorias onSubmit={handleSubmit} />
-                    </div>
-                    <div className={crearSubcategoria ? "block" : "hidden"}>
-                        <Subcategorias onSubmit={handleSubmit} />
-                    </div>
                     <div className={crearMarca ? "block" : "hidden"}>
                         <Marcas onSubmit={handleSubmit} />
-                    </div>
-                    <div className={moverSubcategorias ? "block" : "hidden"}>
-                        <MoveSubcategories />
                     </div>
                 </div>
             </div>

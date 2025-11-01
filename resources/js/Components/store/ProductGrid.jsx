@@ -148,7 +148,6 @@ const ProductGrid = ({ products: initialProducts }) => {
       soporte_tecnico: item.soporte_tecnico || '',
       archivos_adicionales: item.archivos_adicionales || [],
       especificaciones_tecnicas: item.especificaciones_tecnicas || {},
-      subcategoria_id: item.id_subcategoria || null,
       marca_id: item.marca_id || null
     };
   }, []);

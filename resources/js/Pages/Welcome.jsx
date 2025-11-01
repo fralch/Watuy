@@ -4,7 +4,6 @@ import { FiLogIn, FiUser, FiLogOut } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Slider from "@/Components/home/Slider";
 import Sectores from "@/Components/home/Sectores";
-import Categorias_cuadrado from "@/Components/home/Categorias_cuadrado";
 import Menu from "@/Components/home/Menu";
 import ClientSlider from "@/Components/home/ClientSlider";
 import BrandSection from "@/Components/home/BrandSection";

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-MegaEquipamiento is a Laravel 11 e-commerce application for laboratory equipment with React frontend using Inertia.js. The application features a comprehensive product catalog with categories, subcategories, brands, filtering capabilities, shopping cart, and multi-step checkout process.
+MegaEquipamiento is a Laravel 11 e-commerce application for laboratory equipment with React frontend using Inertia.js. The application features a comprehensive product catalog with brands, filtering capabilities, shopping cart, and multi-step checkout process.
 
 ## Development Commands
 
@@ -29,7 +29,6 @@ MegaEquipamiento is a Laravel 11 e-commerce application for laboratory equipment
 ### Backend Structure
 - **Models**: Eloquent models in `app/Models/` for core entities:
   - `Producto.php` - Main product model with specifications and relationships
-  - `Categoria.php`, `Subcategoria.php` - Product categorization
   - `Marca.php` - Product brands with video support
   - `CarritoCompra.php`, `DetalleCarrito.php` - Shopping cart system
   - `Pedido.php`, `DetallePedido.php` - Order management
@@ -38,7 +37,6 @@ MegaEquipamiento is a Laravel 11 e-commerce application for laboratory equipment
 
 - **Controllers**: RESTful controllers in `app/Http/Controllers/` handling:
   - Product CRUD operations and relationships
-  - Category/subcategory management with image uploads
   - Brand management with video URLs
   - Advanced filtering and search functionality
   - Shopping cart and checkout process
@@ -49,15 +47,14 @@ MegaEquipamiento is a Laravel 11 e-commerce application for laboratory equipment
 ### Frontend Structure
 - **Pages**: Main views in `resources/js/Pages/`
   - `Welcome.jsx` - Homepage with product showcase
-  - `Categoria.jsx` - Category listing with filtering
   - `Product.jsx` - Detailed product view with specifications
   - `Carrito.jsx` - Shopping cart management
-  - `Crear.jsx` - Admin product/category creation
+  - `Crear.jsx` - Admin product and brand creation
 
 - **Components**: Reusable components in `resources/js/Components/`
   - `checkout/` - Multi-step checkout process with tabs
   - `product/` - Product display, specifications, related products
-  - `home/` - Homepage sections (sliders, categories, brands)
+  - `home/` - Homepage sections (sliders, brands)
   - `filtros/` - Dynamic filtering system
   - `create/` - Admin creation forms
 
@@ -66,16 +63,16 @@ MegaEquipamiento is a Laravel 11 e-commerce application for laboratory equipment
   - `ThemeContext.jsx` - Theme management
 
 ### Database Design
-- **Product System**: Complex product relationships with technical specifications, categories, and dynamic filtering
+- **Product System**: Complex product relationships with technical specifications and dynamic filtering
 - **E-commerce Features**: Complete cart, checkout, and order management
-- **Media Management**: Image uploads for products/categories, video URLs for brands
-- **Dynamic Filtering**: Flexible filter system with subcategory-specific options
+- **Media Management**: Image uploads for products, video URLs for brands
+- **Dynamic Filtering**: Flexible filter system for product discovery
 
 ## Key Features
 - **Multi-step Checkout**: Tab-based checkout process with cart, shipping, payment, and confirmation steps
 - **Product Relationships**: Products can be related to each other with different relationship types
-- **Dynamic Filtering**: Subcategory-specific filters with multiple options
-- **Image Management**: Comprehensive image upload and management system
+- **Dynamic Filtering**: Advanced filter system with multiple options
+- **Image Management**: Comprehensive image upload and management system with image bank
 - **Brand Integration**: Brand pages with video content support
 - **Search & Discovery**: Advanced product search with initial letter filtering
 

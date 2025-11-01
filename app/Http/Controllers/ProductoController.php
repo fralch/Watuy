@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use  Inertia\Inertia;
 
 use App\Models\Producto;
-use App\Models\Subcategoria;
 use App\Models\Marca;
 
 class ProductoController extends Controller
@@ -20,55 +19,6 @@ class ProductoController extends Controller
         // Renderizar la vista con Inertia y pasar el producto
         return Inertia::render('Product', compact('producto'));
      }
-
-     /* vista de subcategoria */
-     public function subCategoriaView(Request $request, $subcategoria_id, $marca_id = null)
-    {
-        // Usar el ID de la subcategoría desde el parámetro de la ruta
-        $id = $subcategoria_id;
-        
-        // El ID de la marca viene como parámetro opcional de la ruta
-        // $marca_id ya está disponible como parámetro de la función
-
-        // Obtener la subcategoría por su ID
-        $subcategoria = Subcategoria::find($id);
-
-        if (!$subcategoria) {
-            return response()->json(['error' => 'Subcategoría no encontrada'], 404);
-        }
-
-        // Obtener solo las marcas que tienen productos en esta subcategoría específica
-        $marcas = Marca::whereHas('productos', function($query) use ($id) {
-            $query->where('id_subcategoria', $id);
-        })->get();
-
-        // Construir la consulta base para productos de la subcategoría
-        $query = Producto::with('marca')->where('id_subcategoria', $id);
-        
-        // Si se proporciona un ID de marca, agregar el filtro
-        if ($marca_id) {
-            $query->where('marca_id', $marca_id);
-        }
-        
-        // Ejecutar la consulta
-        $productos = $query->get();
-    
-        // Renderizar la vista con Inertia y pasar los productos
-        if ($marca_id) {
-            // Si hay marca_id, renderizar Subcategorias-marcas y pasar el marcaId
-            return Inertia::render('Subcategorias-marcas', [
-                'productos' => $productos,
-                'marcaId' => $marca_id,
-                'marcas' => $marcas
-            ]);
-        } else {
-            // Si no hay marca_id, renderizar la vista normal
-            return Inertia::render('Subcategorias', [
-                'productos' => $productos,
-                'marcas' => $marcas
-            ]);
-        }
-    }
 
     /* Vista de productos por marca view */
     public function ProductViewByMarca(Request $request, $marca_id)
@@ -94,7 +44,6 @@ class ProductoController extends Controller
         $request->validate([
             'sku' => 'required|max:100',
             'nombre' => 'required|max:100',
-            'id_subcategoria' => 'required|exists:subcategorias,id_subcategoria',
             'marca_id' => 'required|exists:marcas,id_marca',
             'pais' => 'nullable|max:100',
             'precio_sin_ganancia' => 'nullable|numeric',
@@ -243,18 +192,6 @@ class ProductoController extends Controller
     {
         return response()->json(['imagen' => $producto->imagen]);
     }
-
-    // Obtener producto por subcategoria id
-    public function getProductosSubcategoria($subcategoria_id)
-    {
-        // Obtener los productos de la subcategoría y cargar la relación 'marca'
-        $productos = Producto::with('marca')->where('id_subcategoria', $subcategoria_id)->get();
-
-        // Devolver los productos con los datos de la marca
-        return response()->json($productos);
-    }
-
-    
 
     /**
      * Buscar productos por iniciales
@@ -598,64 +535,6 @@ class ProductoController extends Controller
         return response()->json($productos);
     }
     
-    /**
-     * Actualizar categoría, subcategoría, marca y país de un producto
-     * 
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function updateProductCategory(Request $request)
-    {
-        // Validar los datos de entrada
-        $request->validate([
-            'id_producto' => 'required|exists:productos,id_producto',
-            'id_subcategoria' => 'nullable|exists:subcategorias,id_subcategoria',
-            'marca_id' => 'nullable',  // Asegúrate que esto coincida con el nombre de la columna en tu base de datos
-            'pais' => 'nullable|max:100',
-        ]);
-        
-        try {
-            // Buscar el producto por ID
-            $producto = Producto::find($request->id_producto);
-            
-            // Verificar si el producto existe
-            if (!$producto) {
-                return response()->json(['error' => 'Producto no encontrado'], 404);
-            }
-            
-            // Preparar los datos a actualizar
-            $dataToUpdate = [];
-            
-            // Solo incluir los campos que están presentes en la solicitud
-            if ($request->has('id_subcategoria')) {
-                $dataToUpdate['id_subcategoria'] = $request->id_subcategoria;
-            }
-            if ($request->has('marca_id')) {
-                $dataToUpdate['marca_id'] = $request->marca_id;
-            }
-            if ($request->has('pais')) {
-                $dataToUpdate['pais'] = $request->pais;
-            }
-            
-            // Actualizar solo los campos proporcionados
-            if (!empty($dataToUpdate)) {
-                $producto->update($dataToUpdate);
-            }
-            
-            
-            return response()->json($producto);
-        } catch (\Exception $e) {
-            // Registrar el error para depuración
-            \Log::error('Error al actualizar producto: ' . $e->getMessage());
-            
-            // Devolver una respuesta de error
-            return response()->json([
-                'error' => 'Error al actualizar el producto',
-                'details' => $e->getMessage()
-            ], 500);
-        }
-    }
-
     /* Crear una funcion que elimine un producto */
     public function deleteProduct(Request $request, $id_producto)
     {

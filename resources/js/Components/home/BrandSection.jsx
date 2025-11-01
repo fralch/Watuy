@@ -147,6 +147,24 @@ const BrandSection = () => {
   const [loading, setLoading] = useState(true);
   const sectionRef = useRef(null);
 
+  // Función para determinar las clases del grid según la cantidad de marcas
+  const getGridClasses = (brandCount) => {
+    if (brandCount === 1) {
+      return "grid grid-cols-1 place-items-center gap-6";
+    } else if (brandCount === 2) {
+      return "grid grid-cols-1 sm:grid-cols-2 place-items-center gap-6";
+    } else if (brandCount === 3) {
+      return "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 place-items-center gap-6";
+    } else if (brandCount === 4) {
+      return "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 place-items-center gap-6";
+    } else if (brandCount <= 5) {
+      return "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center gap-6";
+    } else {
+      // Para más de 5 marcas, usar el grid completo
+      return "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6";
+    }
+  };
+
   // Cargar información de marcas desde la API
   useEffect(() => {
     const loadBrands = async () => {
@@ -224,7 +242,7 @@ const BrandSection = () => {
           }`}></div>
         </div>
       ) : brands && brands.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        <div className={getGridClasses(Array.isArray(brands) ? brands.length : 1)}>
           {Array.isArray(brands) ? brands.map((brand) => (
             <BrandCard 
               key={brand.id_marca} 

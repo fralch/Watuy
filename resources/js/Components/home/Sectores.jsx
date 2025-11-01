@@ -30,7 +30,7 @@ const Carrusel = () => {
                         className="relative bg-cover bg-center text-white rounded-lg shadow-lg overflow-hidden h-[600px] flex flex-col"
                         style={{
                             backgroundImage:
-                                "url('https://megaequipamiento.com/wp-content/uploads/2023/09/MANUFACTURA-GIF-OF.gif')", // Reemplaza esta URL con la de tu imagen de fondo
+                                "url('https://multiserviciosprecisur.com/wp-content/uploads/2021/06/Alquiler-y-Venta-de-Maquinaria-Pesada-1.webp')", // Reemplaza esta URL con la de tu imagen de fondo
                         }}
                     >
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -200,7 +200,7 @@ const Carrusel = () => {
                         className="relative bg-cover bg-center text-white rounded-lg shadow-lg overflow-hidden h-[600px] flex flex-col"
                         style={{
                             backgroundImage:
-                                "url('https://megaequipamiento.com/wp-content/uploads/2023/09/MANUFACTURA-GIF-OF.gif')", // Reemplaza esta URL con la de tu imagen de fondo
+                                "url('https://st.depositphotos.com/2718273/3290/i/450/depositphotos_32906073-stock-photo-old-machine-parts-background.jpg')", // Reemplaza esta URL con la de tu imagen de fondo
                         }}
                     >
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -370,7 +370,7 @@ const Carrusel = () => {
                         className="relative bg-cover bg-center text-white rounded-lg shadow-lg overflow-hidden h-[600px] flex flex-col"
                         style={{
                             backgroundImage:
-                                "url('https://megaequipamiento.com/wp-content/uploads/2023/09/MANUFACTURA-GIF-OF.gif')", // Reemplaza esta URL con la de tu imagen de fondo
+                                "url('https://posada.pe/wp-content/uploads/2021/12/reparaciones-integrales-maquinarias.jpg')", // Reemplaza esta URL con la de tu imagen de fondo
                         }}
                     >
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -556,7 +556,7 @@ const Carrusel = () => {
                         className="relative bg-cover bg-center text-white rounded-lg shadow-lg overflow-hidden h-[600px] flex flex-col"
                         style={{
                             backgroundImage:
-                                "url('https://megaequipamiento.com/wp-content/uploads/2023/09/MANUFACTURA-GIF-OF.gif')", // Reemplaza esta URL con la de tu imagen de fondo
+                                "url('https://www.promp.com.pe/wp-content/uploads/2022/02/servicio-reparacion-cucharones-excavadoras.png')", // Reemplaza esta URL con la de tu imagen de fondo
                         }}
                     >
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -630,7 +630,7 @@ const Carrusel = () => {
                         className="relative bg-cover bg-center text-white rounded-lg shadow-lg overflow-hidden h-[600px] flex flex-col"
                         style={{
                             backgroundImage:
-                                "url('https://megaequipamiento.com/wp-content/uploads/2023/09/MANUFACTURA-GIF-OF.gif')", // Reemplaza esta URL con la de tu imagen de fondo
+                                "url('https://servimaqmcdelperusac.com/wp-content/uploads/2022/05/REPARACION-DE-MOTORES.jpg')", // Reemplaza esta URL con la de tu imagen de fondo
                         }}
                     >
                         <div className="absolute inset-0 bg-black bg-opacity-50"></div>

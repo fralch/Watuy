@@ -326,7 +326,7 @@ const ContactPage = () => {
         </section>
 
         {/* Gallery Section - Usando el nuevo componente */}
-        <GallerySection galleryImages={galleryImages} isDarkMode={isDarkMode} />
+        {/* <GallerySection galleryImages={galleryImages} isDarkMode={isDarkMode} /> */}
 
         {/* Services Detail Section */}
         <section className={`py-16 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-200`}>

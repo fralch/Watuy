@@ -212,15 +212,15 @@ export default function AlquilerEquipos() {
                                         <div className="space-y-3 mb-6">
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Excavadoras:</span>
-                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$450/día</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>S/ 450/día</span>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Bulldozers:</span>
-                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$380/día</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>S/ 380/día</span>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Cargadores:</span>
-                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$320/día</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>S/ 320/día</span>
                                             </div>
                                         </div>
                                         <div className="text-center">
@@ -251,15 +251,15 @@ export default function AlquilerEquipos() {
                                         <div className="space-y-3 mb-6">
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Excavadoras:</span>
-                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$8,500/mes</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>S/ 8,500/mes</span>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Bulldozers:</span>
-                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$7,200/mes</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>S/ 7,200/mes</span>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Cargadores:</span>
-                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$6,100/mes</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>S/ 6,100/mes</span>
                                             </div>
                                         </div>
                                         <div className="text-center">
@@ -290,11 +290,11 @@ export default function AlquilerEquipos() {
                                         <div className="space-y-3 mb-6">
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Grúas torre:</span>
-                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$1,200/día</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>S/ 1,200/día</span>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Excavadoras largas:</span>
-                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>$650/día</span>
+                                                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>S/ 650/día</span>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <span className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Equipos mineros:</span>
@@ -410,7 +410,7 @@ export default function AlquilerEquipos() {
                                 </motion.div>
 
                                 {/* Equipment Categories Section */}
-                                <motion.div
+                                {/* <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8 }}
@@ -498,7 +498,7 @@ export default function AlquilerEquipos() {
                                             </button>
                                         </motion.div>
                                     </div>
-                                </motion.div>
+                                </motion.div> */}
 
                                 {/* Calculator Section */}
                                 <motion.div

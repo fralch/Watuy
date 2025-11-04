@@ -230,7 +230,7 @@ export default function ServiciosReparacion() {
                                             </li>
                                         </ul>
                                         <div className="text-center">
-                                            <div className="text-lg font-bold text-orange-500 mb-2">Desde $2,500</div>
+                                           
                                             <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
                                                 Solicitar Servicio
                                             </button>
@@ -275,7 +275,7 @@ export default function ServiciosReparacion() {
                                             </li>
                                         </ul>
                                         <div className="text-center">
-                                            <div className="text-lg font-bold text-[#006ba0] mb-2">Desde $1,800</div>
+                                           
                                             <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
                                                 Solicitar Servicio
                                             </button>
@@ -320,7 +320,7 @@ export default function ServiciosReparacion() {
                                             </li>
                                         </ul>
                                         <div className="text-center">
-                                            <div className="text-lg font-bold text-green-500 mb-2">Desde $950</div>
+                                           
                                             <button className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
                                                 Solicitar Servicio
                                             </button>

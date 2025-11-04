@@ -150,7 +150,7 @@ export default function VentasEquipos() {
                                     <p className="text-xl md:text-2xl text-[#006ba0]/70 mb-8 max-w-3xl mx-auto">
                                         Maquinaria industrial nueva y usada certificada. Excavadoras, bulldozers, cargadores y más equipos para construcción y minería.
                                     </p>
-                                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
@@ -165,7 +165,7 @@ export default function VentasEquipos() {
                                         >
                                             Solicitar Cotización
                                         </motion.button>
-                                    </div>
+                                    </div> */}
                                 </motion.div>
                             </div>
                         </div>
@@ -204,7 +204,7 @@ export default function VentasEquipos() {
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                                 </svg>
                                             </div>
-                                             <div className="text-3xl font-bold text-[#006ba0] mb-2">$85,000</div>
+                                             <div className="text-3xl font-bold text-[#006ba0] mb-2">S/ 5,000</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -223,9 +223,9 @@ export default function VentasEquipos() {
                                                 <span className="font-semibold text-green-500">Excelente</span>
                                             </div>
                                         </div>
-                                             <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                             {/* <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
                                                  Ver Detalles
-                                             </button>
+                                             </button> */}
                                     </motion.div>
 
                                     <motion.div
@@ -240,7 +240,7 @@ export default function VentasEquipos() {
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                                 </svg>
                                             </div>
-                                            <div className="text-3xl font-bold text-[#006ba0] mb-2">$120,000</div>
+                                            <div className="text-3xl font-bold text-[#006ba0] mb-2">S/ 12,000</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -259,9 +259,9 @@ export default function VentasEquipos() {
                                                 <span className="font-semibold text-green-500">Excelente</span>
                                             </div>
                                         </div>
-                                        <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                        {/* <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
                                             Ver Detalles
-                                        </button>
+                                        </button> */}
                                     </motion.div>
 
                                     <motion.div
@@ -276,7 +276,7 @@ export default function VentasEquipos() {
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                                                 </svg>
                                             </div>
-                                             <div className="text-3xl font-bold text-[#006ba0] mb-2">$65,000</div>
+                                             <div className="text-3xl font-bold text-[#006ba0] mb-2">S/ 6,000</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -295,9 +295,9 @@ export default function VentasEquipos() {
                                                 <span className="font-semibold text-green-500">Nuevo</span>
                                             </div>
                                         </div>
-                                             <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                             {/* <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
                                                  Ver Detalles
-                                             </button>
+                                             </button> */}
                                     </motion.div>
                                 </div>
 

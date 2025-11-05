@@ -14,6 +14,29 @@ export default function ServiciosReparacion() {
     const { isDarkMode } = useTheme();
     const [showUserMenu, setShowUserMenu] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
+    // Galería de servicios (imágenes en carpeta pública)
+    const baseGalleryPath = "/img/IMAGENES_VENTAS%20DE%20SERVICIOS/";
+    const galleryFiles = [
+        "CAMBIO DE PINES Y BOCINAS.jpeg",
+        "INSTALACIÓN DE ACOPLES RAPIDOS.jpeg",
+        "PLANCHADO Y PINTADO DE EQUIPOS.jpeg",
+        "REFORZAMIENTO DE CUCHARONES.jpeg",
+        "REPARACIÓN DE APIZONADORES Y PLANCHAS COMPACTADORAS.jpeg",
+        "REPARACIÓN DE BOMBAS HIDRAULICAS.jpeg",
+        "REPARACIÓN DE CILINDROS HIDRAULICOS.jpeg",
+        "REPARACIÓN DE EMBRAGUES DE MOTOR.jpeg",
+        "REPARACIÓN DE MANDOS FINALES DE TREN DE CARRILERIA.jpeg",
+        "REPARACIÓN DE RUEDAS GUIAS.jpeg",
+        "REPARACIÓN DE SISTEMAS ELECTRICOS Y ELETRONICOS.jpeg",
+        "REPARACIÓN EN GENERAL DE MARTILLOS HIDRAULICOS.jpeg",
+    ];
+    const formatTitle = (name) => name.replace(/\.[^.]+$/, "");
+    const galleryImages = galleryFiles.map((name) => ({
+        title: formatTitle(name),
+        src: baseGalleryPath + encodeURI(name),
+    }));
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -32,6 +55,18 @@ export default function ServiciosReparacion() {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
+
+    // Navegación por teclado para el lightbox
+    useEffect(() => {
+        if (!lightboxOpen) return;
+        const handleKey = (e) => {
+            if (e.key === "Escape") setLightboxOpen(false);
+            if (e.key === "ArrowRight") setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
+            if (e.key === "ArrowLeft") setCurrentIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+        };
+        window.addEventListener("keydown", handleKey);
+        return () => window.removeEventListener("keydown", handleKey);
+    }, [lightboxOpen, galleryImages.length]);
 
     const toggleUserMenu = () => {
         setShowUserMenu(!showUserMenu);
@@ -425,6 +460,111 @@ export default function ServiciosReparacion() {
                                             </p>
                                         </motion.div>
                                     </div>
+                                </motion.div>
+
+                                {/* Gallery Section */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className={`p-12 rounded-2xl shadow-2xl mb-16 ${
+                                        isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
+                                    }`}
+                                >
+                                    <h2 className={`text-4xl font-bold mb-6 text-center ${
+                                        isDarkMode ? 'text-white' : 'text-gray-900'
+                                    }`}>Galería de Servicios Realizados</h2>
+                                    <p className={`text-center mb-10 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                                        Muestras reales de nuestro trabajo en campo: soldadura, hidráulica, pintura y más.
+                                    </p>
+
+                                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                                        {galleryImages.map((img, idx) => (
+                                            <motion.button
+                                                key={img.src}
+                                                type="button"
+                                                onClick={() => { setCurrentIndex(idx); setLightboxOpen(true); }}
+                                                className={`relative group rounded-xl overflow-hidden focus:outline-none focus:ring-2 ${
+                                                    isDarkMode ? 'focus:ring-[#006ba0]' : 'focus:ring-[#006ba0]'
+                                                }`}
+                                                initial={{ opacity: 0, scale: 0.98 }}
+                                                whileInView={{ opacity: 1, scale: 1 }}
+                                                transition={{ duration: 0.4 }}
+                                            >
+                                                <div className="aspect-[4/3] w-full">
+                                                    <img
+                                                        src={img.src}
+                                                        alt={img.title}
+                                                        loading="lazy"
+                                                        className="w-full h-full object-cover object-center select-none"
+                                                    />
+                                                </div>
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                                                    <div className={`inline-flex items-center rounded-lg px-3 py-1.5 text-xs sm:text-sm font-medium shadow-md ${
+                                                        isDarkMode ? 'bg-black/60 text-white' : 'bg-white/80 text-gray-900'
+                                                    }`}>
+                                                        <span className="truncate">{img.title}</span>
+                                                    </div>
+                                                </div>
+                                            </motion.button>
+                                        ))}
+                                    </div>
+
+                                    <AnimatePresence>
+                                        {lightboxOpen && (
+                                            <motion.div
+                                                className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                            >
+                                                <div className="absolute inset-0" onClick={() => setLightboxOpen(false)} aria-hidden="true"></div>
+                                                <div className="relative z-[61] w-full max-w-6xl px-4">
+                                                    <div className={`rounded-2xl overflow-hidden shadow-2xl ${
+                                                        isDarkMode ? 'bg-gray-900' : 'bg-white'
+                                                    }`}>
+                                                        <div className="p-2 sm:p-4 flex items-center justify-between">
+                                                            <div className={`text-sm sm:text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>{galleryImages[currentIndex]?.title}</div>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setLightboxOpen(false)}
+                                                                className={`rounded-full p-2 transition-colors ${isDarkMode ? 'hover:bg-gray-800 text-white' : 'hover:bg-gray-100 text-gray-700'}`}
+                                                                aria-label="Cerrar"
+                                                            >
+                                                                ✕
+                                                            </button>
+                                                        </div>
+                                                        <div className="max-h-[80vh] flex items-center justify-center bg-black/10">
+                                                            <img
+                                                                src={galleryImages[currentIndex]?.src}
+                                                                alt={galleryImages[currentIndex]?.title}
+                                                                className="max-h-[78vh] w-auto object-contain"
+                                                            />
+                                                        </div>
+                                                        <div className="p-3 sm:p-4 flex items-center justify-between">
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setCurrentIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
+                                                                className={`px-4 py-2 rounded-lg font-medium ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
+                                                                aria-label="Anterior"
+                                                            >
+                                                                ◀ Anterior
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setCurrentIndex((prev) => (prev + 1) % galleryImages.length)}
+                                                                className={`px-4 py-2 rounded-lg font-medium ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
+                                                                aria-label="Siguiente"
+                                                            >
+                                                                Siguiente ▶
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </motion.div>
 
                                 {/* Process Section */}

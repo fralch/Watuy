@@ -484,7 +484,7 @@ export default function ServiciosReparacion() {
                                                 key={img.src}
                                                 type="button"
                                                 onClick={() => { setCurrentIndex(idx); setLightboxOpen(true); }}
-                                                className={`relative group rounded-xl overflow-hidden focus:outline-none focus:ring-2 ${
+                                                className={`group rounded-xl overflow-hidden focus:outline-none focus:ring-2 ${
                                                     isDarkMode ? 'focus:ring-[#006ba0]' : 'focus:ring-[#006ba0]'
                                                 }`}
                                                 initial={{ opacity: 0, scale: 0.98 }}
@@ -499,12 +499,11 @@ export default function ServiciosReparacion() {
                                                         className="w-full h-full object-cover object-center select-none"
                                                     />
                                                 </div>
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                                                    <div className={`inline-flex items-center rounded-lg px-3 py-1.5 text-xs sm:text-sm font-medium shadow-md ${
-                                                        isDarkMode ? 'bg-black/60 text-white' : 'bg-white/80 text-gray-900'
-                                                    }`}>
-                                                        <span className="truncate">{img.title}</span>
+                                                <div className="p-3 sm:p-4">
+                                                    <div className={`w-full rounded-md px-3 py-2 text-xs sm:text-sm md:text-base font-medium shadow-md ${
+                                                        isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+                                                    } min-h-[56px] sm:min-h-[64px] overflow-hidden`}>
+                                                        <span className="block break-words whitespace-normal leading-snug">{img.title}</span>
                                                     </div>
                                                 </div>
                                             </motion.button>

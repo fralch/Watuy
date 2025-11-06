@@ -16,7 +16,7 @@ export default function VentasEquipos() {
     const [showUserMenu, setShowUserMenu] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
-    const [currentImage, setCurrentImage] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [currentGallery, setCurrentGallery] = useState("maquinaria");
 
     useEffect(() => {
@@ -51,7 +51,7 @@ export default function VentasEquipos() {
     };
 
     const openLightbox = (index, gallery) => {
-        setCurrentImage(index);
+        setCurrentIndex(index);
         setCurrentGallery(gallery);
         setLightboxOpen(true);
         document.body.style.overflow = 'hidden';
@@ -63,13 +63,13 @@ export default function VentasEquipos() {
     };
 
     const nextImage = () => {
-        const images = currentGallery === "maquinaria" ? maquinariaImages : repuestosImages;
-        setCurrentImage((prev) => (prev + 1) % images.length);
+        const list = currentGallery === "maquinaria" ? equiposVenta : repuestosVenta;
+        setCurrentIndex((prev) => (prev + 1) % list.length);
     };
 
     const prevImage = () => {
-        const images = currentGallery === "maquinaria" ? maquinariaImages : repuestosImages;
-        setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+        const list = currentGallery === "maquinaria" ? equiposVenta : repuestosVenta;
+        setCurrentIndex((prev) => (prev - 1 + list.length) % list.length);
     };
 
     useEffect(() => {
@@ -81,18 +81,20 @@ export default function VentasEquipos() {
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [lightboxOpen, currentImage, currentGallery]);
+    }, [lightboxOpen, currentIndex, currentGallery]);
 
-    // Directorios y listas de imágenes desde /public/img
-    const maquinariaDir = "/img/IMAGENES_VENTA_DE MAQUINARIA PESADA";
-    const repuestosDir = "/img/IMAGENES_VENTAS DE REPUESTOS";
+    // Directorios y datos de galerías desde /public/img (similar a AlquilerEquipos)
+    const GALERIA_MAQ_PATH = "/img/IMAGENES_VENTA_DE MAQUINARIA PESADA";
+    const GALERIA_REP_PATH = "/img/IMAGENES_VENTAS DE REPUESTOS";
 
-    const maquinariaImages = [
-        "VENTA_EXCAVADORA DOOSSAN 225 1de4.jpeg",
-        "VENTA_EXCAVADORA DOOSSAN 225 2de4.jpeg",
+    // Maquinaria en venta: usar objetos con nombre y archivo
+    const equiposVenta = [
+        { nombre: "Excavadora Doossan 225", archivo: "VENTA_EXCAVADORA DOOSSAN 225 1de4.jpeg", categoria: "Excavadora" },
+        { nombre: "Excavadora Doossan 225 (2)", archivo: "VENTA_EXCAVADORA DOOSSAN 225 2de4.jpeg", categoria: "Excavadora" },
     ];
 
-    const repuestosImages = [
+    // Repuestos en venta: derivar nombre legible del nombre de archivo
+    const repuestosArchivos = [
         "Adaptador de uñas.jpg",
         "CANTONERAS .png",
         "Cadenas_Excavadora.jpg",
@@ -105,9 +107,16 @@ export default function VentasEquipos() {
         "pines.jpeg",
     ];
 
-    const buildSrc = (dir, name) => encodeURI(`${dir}/${name}`);
     const formatTitle = (name) =>
         name.replace(/\.[^.]+$/, "").replace(/_/g, " ").replace(/\s+/g, " ").trim();
+
+    const repuestosVenta = repuestosArchivos.map((archivo) => ({
+        archivo,
+        nombre: formatTitle(archivo),
+        categoria: "Repuesto",
+    }));
+
+    const buildWaLink = (message) => `https://wa.me/51970714696?text=${encodeURIComponent(message)}`;
 
     const handleWhatsAppContact = (itemName, type = "maquinaria") => {
         const message = `Hola, estoy interesado en obtener más información sobre: ${itemName} (${type === "maquinaria" ? "Maquinaria Pesada" : "Repuesto"}). ¿Podrían proporcionarme detalles sobre disponibilidad y precio?`;
@@ -372,7 +381,7 @@ export default function VentasEquipos() {
 
                                 {/* Galería de Maquinaria Pesada */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                                    {maquinariaImages.map((name, idx) => (
+                                    {equiposVenta.map((item, idx) => (
                                         <motion.div
                                             key={`maq-${idx}`}
                                             whileHover={{ y: -8, scale: 1.02 }}
@@ -380,12 +389,12 @@ export default function VentasEquipos() {
                                                 isDarkMode ? 'bg-gray-800 border-2 border-gray-700 hover:border-[#006ba0]' : 'bg-white border-2 border-gray-200 hover:border-[#006ba0]'
                                             }`}
                                         >
-                                            <div className="relative aspect-[4/3] w-full cursor-pointer" onClick={() => openLightbox(idx, "maquinaria")}>
+                                            <div className="relative w-full pt-[70%] cursor-pointer" onClick={() => openLightbox(idx, "maquinaria")}>
                                                 <img
-                                                    src={buildSrc(maquinariaDir, name)}
-                                                    alt={formatTitle(name)}
+                                                    src={`${GALERIA_MAQ_PATH}/${item.archivo}`}
+                                                    alt={item.nombre}
                                                     loading="lazy"
-                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
@@ -394,21 +403,22 @@ export default function VentasEquipos() {
                                                     <FiMaximize2 className="w-5 h-5 text-[#006ba0]" />
                                                 </div>
 
-                                                {/* Title and WhatsApp Button */}
-                                                <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                                    <h3 className="text-lg font-bold text-white mb-3 drop-shadow-lg">{formatTitle(name)}</h3>
-                                                    <motion.button
-                                                        whileHover={{ scale: 1.05 }}
-                                                        whileTap={{ scale: 0.95 }}
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            handleWhatsAppContact(formatTitle(name), "maquinaria");
-                                                        }}
-                                                        className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100"
+                                                {/* Datos y CTA */}
+                                                <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
+                                                    <div>
+                                                        <div className="text-xs font-semibold text-white/80">{item.categoria}</div>
+                                                        <h3 className="text-lg font-bold text-white drop-shadow-lg">{item.nombre}</h3>
+                                                    </div>
+                                                    <a
+                                                        href={buildWaLink(`Hola, quiero cotizar el equipo ${item.nombre} (${item.categoria}).`)}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="ml-3 flex items-center gap-2 bg-[#006ba0] hover:bg-[#004d73] text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-lg transition-all duration-300"
+                                                        onClick={(e) => e.stopPropagation()}
                                                     >
                                                         <FaWhatsapp className="w-5 h-5" />
                                                         Cotizar
-                                                    </motion.button>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -430,7 +440,7 @@ export default function VentasEquipos() {
                                     </p>
                                 </motion.div>
                                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-16">
-                                    {repuestosImages.map((name, idx) => (
+                                    {repuestosVenta.map((item, idx) => (
                                         <motion.div
                                             key={`rep-${idx}`}
                                             whileHover={{ y: -6, scale: 1.03 }}
@@ -440,8 +450,8 @@ export default function VentasEquipos() {
                                         >
                                             <div className="relative aspect-square w-full cursor-pointer" onClick={() => openLightbox(idx, "repuestos")}>
                                                 <img
-                                                    src={buildSrc(repuestosDir, name)}
-                                                    alt={formatTitle(name)}
+                                                    src={`${GALERIA_REP_PATH}/${item.archivo}`}
+                                                    alt={item.nombre}
                                                     loading="lazy"
                                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                                 />
@@ -452,21 +462,20 @@ export default function VentasEquipos() {
                                                     <FiMaximize2 className="w-4 h-4 text-[#006ba0]" />
                                                 </div>
 
-                                                {/* Title and Button */}
+                                                {/* Datos y CTA */}
                                                 <div className="absolute bottom-0 left-0 right-0 p-3 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-                                                    <div className="text-sm font-bold text-white mb-2 drop-shadow-lg line-clamp-2">{formatTitle(name)}</div>
-                                                    <motion.button
-                                                        whileHover={{ scale: 1.05 }}
-                                                        whileTap={{ scale: 0.95 }}
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            handleWhatsAppContact(formatTitle(name), "repuesto");
-                                                        }}
-                                                        className="flex items-center gap-1.5 bg-green-500 hover:bg-green-600 text-white px-3 py-1.5 rounded-lg font-semibold text-xs shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 w-full justify-center"
+                                                    <div className="text-xs font-semibold text-white/80">{item.categoria}</div>
+                                                    <div className="text-sm font-bold text-white mb-2 drop-shadow-lg line-clamp-2">{item.nombre}</div>
+                                                    <a
+                                                        href={buildWaLink(`Hola, quiero consultar el repuesto ${item.nombre}.`)}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center gap-1.5 bg-[#006ba0] hover:bg-[#004d73] text-white px-3 py-1.5 rounded-lg font-semibold text-xs shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 w-full justify-center"
+                                                        onClick={(e) => e.stopPropagation()}
                                                     >
                                                         <FaWhatsapp className="w-4 h-4" />
                                                         Consultar
-                                                    </motion.button>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -748,13 +757,10 @@ export default function VentasEquipos() {
                                 className="relative max-w-7xl max-h-[90vh] w-full mx-4"
                             >
                                 <img
-                                    src={buildSrc(
-                                        currentGallery === "maquinaria" ? maquinariaDir : repuestosDir,
-                                        currentGallery === "maquinaria" ? maquinariaImages[currentImage] : repuestosImages[currentImage]
-                                    )}
-                                    alt={formatTitle(
-                                        currentGallery === "maquinaria" ? maquinariaImages[currentImage] : repuestosImages[currentImage]
-                                    )}
+                                    src={`${currentGallery === 'maquinaria' ? GALERIA_MAQ_PATH : GALERIA_REP_PATH}/${
+                                        currentGallery === 'maquinaria' ? equiposVenta[currentIndex].archivo : repuestosVenta[currentIndex].archivo
+                                    }`}
+                                    alt={currentGallery === 'maquinaria' ? equiposVenta[currentIndex].nombre : repuestosVenta[currentIndex].nombre}
                                     className="w-full h-full object-contain rounded-2xl shadow-2xl"
                                 />
 
@@ -768,26 +774,25 @@ export default function VentasEquipos() {
                                     <div className="flex items-center justify-between">
                                         <div>
                                             <h3 className="text-xl font-bold text-white mb-2">
-                                                {formatTitle(
-                                                    currentGallery === "maquinaria" ? maquinariaImages[currentImage] : repuestosImages[currentImage]
-                                                )}
+                                                {currentGallery === 'maquinaria' ? equiposVenta[currentIndex].nombre : repuestosVenta[currentIndex].nombre}
                                             </h3>
                                             <p className="text-sm text-gray-300">
-                                                {currentImage + 1} de {currentGallery === "maquinaria" ? maquinariaImages.length : repuestosImages.length}
+                                                {currentIndex + 1} de {currentGallery === 'maquinaria' ? equiposVenta.length : repuestosVenta.length}
                                             </p>
                                         </div>
-                                        <motion.button
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            onClick={() => handleWhatsAppContact(
-                                                formatTitle(currentGallery === "maquinaria" ? maquinariaImages[currentImage] : repuestosImages[currentImage]),
-                                                currentGallery === "maquinaria" ? "maquinaria" : "repuesto"
+                                        <a
+                                            href={buildWaLink(
+                                                `Hola, quiero cotizar el ${currentGallery === 'maquinaria' ? 'equipo' : 'repuesto'} ${
+                                                    currentGallery === 'maquinaria' ? equiposVenta[currentIndex].nombre : repuestosVenta[currentIndex].nombre
+                                                }.`
                                             )}
-                                            className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow-xl transition-all duration-300"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 bg-[#006ba0] hover:bg-[#004d73] text-white px-6 py-3 rounded-lg font-semibold shadow-xl transition-all duration-300"
                                         >
                                             <FaWhatsapp className="w-5 h-5" />
                                             Cotizar Ahora
-                                        </motion.button>
+                                        </a>
                                     </div>
                                 </motion.div>
                             </motion.div>

@@ -680,7 +680,7 @@ const Card = React.memo(({ product }) => {
         <h2 className={`text-lg font-semibold mb-2 transition-colors duration-300 ${
           isDarkMode ? 'text-gray-100' : 'text-gray-800'
         }`}>{product.title}</h2>
-        {summaryEntries.map(([key, value], index) => (
+        {summaryEntries.length > 0 && summaryEntries.map(([key, value], index) => (
           <p key={`${key}-${index}`} className={`text-sm transition-colors duration-300 ${
             isDarkMode ? 'text-gray-300' : 'text-gray-600'
           }`}>
@@ -691,7 +691,7 @@ const Card = React.memo(({ product }) => {
           <span className={`text-xl font-bold transition-colors duration-300 ${
             isDarkMode ? 'text-blue-400' : 'text-blue-600'
           }`}>
-            {formatPrice(product.priceWithProfit)}
+            {formatPrice(product.price)}
           </span>
         </div>
       </div>

@@ -186,22 +186,32 @@ export default function ServiciosReparacion() {
                                          Servicio técnico especializado para excavadoras, bulldozers, cargadores y toda la maquinaria pesada industrial
                                      </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                        <motion.button
+                                        <motion.a
+                                            href="https://wa.me/51932401713"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
                                             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 flex items-center gap-2 justify-center"
+                                            aria-label="Abrir WhatsApp para Servicio a Domicilio"
+                                            title="Abrir WhatsApp para Servicio a Domicilio"
                                         >
                                             <FiTruck size={20} aria-hidden="true" />
                                             <span>Servicio a Domicilio</span>
-                                        </motion.button>
-                                         <motion.button
+                                        </motion.a>
+                                         <motion.a
+                                             href="https://wa.me/51932401713"
+                                             target="_blank"
+                                             rel="noopener noreferrer"
                                              whileHover={{ scale: 1.05 }}
                                              whileTap={{ scale: 0.95 }}
                                              className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 flex items-center gap-2 justify-center"
+                                             aria-label="Abrir WhatsApp para Diagnóstico Gratuito"
+                                             title="Abrir WhatsApp para Diagnóstico Gratuito"
                                          >
                                              <FiSearch size={20} aria-hidden="true" />
                                              <span>Diagnóstico Gratuito</span>
-                                         </motion.button>
+                                         </motion.a>
                                     </div>
                                 </motion.div>
                             </div>
@@ -702,14 +712,17 @@ export default function ServiciosReparacion() {
                                              <div className="text-[#006ba0]/70">Días al año disponibles</div>
                                         </div>
                                     </div>
-                                    <motion.button
+                                    <motion.a
+                                        href="tel:932401713"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                              className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 flex items-center gap-2 justify-center"
+                                        aria-label="Llamar al número 932 401 713"
+                                        title="Llamar al número 932 401 713"
                                     >
                                         <FiAlertTriangle size={20} aria-hidden="true" />
                                         <span>LLAMAR EMERGENCIA</span>
-                                    </motion.button>
+                                    </motion.a>
                                 </motion.div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import { Head, usePage, Link, router } from "@inertiajs/react";
 import { useEffect, useState } from "react";
-import { FiLogIn, FiUser, FiLogOut } from "react-icons/fi";
+import { FiLogIn, FiUser, FiLogOut, FiSettings, FiTool, FiZap, FiDroplet, FiPhoneCall, FiSearch, FiCheckCircle, FiAlertTriangle, FiChevronLeft, FiChevronRight, FiTruck } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Menu from "@/Components/home/Menu";
 import Footer from "@/Components/home/Footer";
@@ -189,16 +189,18 @@ export default function ServiciosReparacion() {
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 flex items-center gap-2 justify-center"
                                         >
-                                            🚛 Servicio a Domicilio
+                                            <FiTruck size={20} aria-hidden="true" />
+                                            <span>Servicio a Domicilio</span>
                                         </motion.button>
                                          <motion.button
                                              whileHover={{ scale: 1.05 }}
                                              whileTap={{ scale: 0.95 }}
-                                             className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                             className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 flex items-center gap-2 justify-center"
                                          >
-                                             📞 Diagnóstico Gratuito
+                                             <FiSearch size={20} aria-hidden="true" />
+                                             <span>Diagnóstico Gratuito</span>
                                          </motion.button>
                                     </div>
                                 </motion.div>
@@ -234,12 +236,9 @@ export default function ServiciosReparacion() {
                                         }`}
                                     >
                                         <div className="text-center mb-6">
-                                             <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                                </svg>
+                                            <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                <FiSettings size={28} className="text-white" />
                                             </div>
-                                            <div className="text-2xl font-bold text-orange-500 mb-2">⚙️</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -279,12 +278,9 @@ export default function ServiciosReparacion() {
                                         }`}
                                     >
                                         <div className="text-center mb-6">
-                                            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                                                </svg>
+                                            <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                <FiDroplet size={28} className="text-white" />
                                             </div>
-                                            <div className="text-2xl font-bold text-[#006ba0] mb-2">🔧</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -324,12 +320,9 @@ export default function ServiciosReparacion() {
                                         }`}
                                     >
                                         <div className="text-center mb-6">
-                                            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                                                </svg>
+                                            <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                                <FiZap size={28} className="text-white" />
                                             </div>
-                                            <div className="text-2xl font-bold text-green-500 mb-2">⚡</div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -545,18 +538,20 @@ export default function ServiciosReparacion() {
                                                             <button
                                                                 type="button"
                                                                 onClick={() => setCurrentIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
-                                                                className={`px-4 py-2 rounded-lg font-medium ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
+                                                                className={`px-4 py-2 rounded-lg font-medium ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'} flex items-center gap-2`}
                                                                 aria-label="Anterior"
                                                             >
-                                                                ◀ Anterior
+                                                                <FiChevronLeft size={18} aria-hidden="true" />
+                                                                <span>Anterior</span>
                                                             </button>
                                                             <button
                                                                 type="button"
                                                                 onClick={() => setCurrentIndex((prev) => (prev + 1) % galleryImages.length)}
-                                                                className={`px-4 py-2 rounded-lg font-medium ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
+                                                                className={`px-4 py-2 rounded-lg font-medium ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'} flex items-center gap-2`}
                                                                 aria-label="Siguiente"
                                                             >
-                                                                Siguiente ▶
+                                                                <span>Siguiente</span>
+                                                                <FiChevronRight size={18} aria-hidden="true" />
                                                             </button>
                                                         </div>
                                                     </div>
@@ -590,7 +585,7 @@ export default function ServiciosReparacion() {
                                                      1
                                                  </div>
                                                 <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                                                    <span className="text-white text-sm font-bold">📱</span>
+                                                    <FiPhoneCall size={16} className="text-white" />
                                                 </div>
                                             </div>
                                             <h4 className={`text-xl font-bold mb-3 ${
@@ -614,7 +609,7 @@ export default function ServiciosReparacion() {
                                                     2
                                                 </div>
                                                 <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                                                    <span className="text-white text-sm font-bold">🔍</span>
+                                                    <FiSearch size={16} className="text-white" />
                                                 </div>
                                             </div>
                                             <h4 className={`text-xl font-bold mb-3 ${
@@ -638,7 +633,7 @@ export default function ServiciosReparacion() {
                                                      3
                                                  </div>
                                                 <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                                                    <span className="text-white text-sm font-bold">🛠️</span>
+                                                    <FiTool size={16} className="text-white" />
                                                 </div>
                                             </div>
                                             <h4 className={`text-xl font-bold mb-3 ${
@@ -662,7 +657,7 @@ export default function ServiciosReparacion() {
                                                     4
                                                 </div>
                                                 <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                                                    <span className="text-white text-sm font-bold">✅</span>
+                                                    <FiCheckCircle size={16} className="text-white" />
                                                 </div>
                                             </div>
                                             <h4 className={`text-xl font-bold mb-3 ${
@@ -686,7 +681,7 @@ export default function ServiciosReparacion() {
                                 >
                                     <div className="flex items-center justify-center mb-6">
                                         <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
-                                            <span className="text-red-600 text-2xl">🚨</span>
+                                            <FiAlertTriangle size={28} className="text-red-600" />
                                         </div>
                                         <h2 className="text-4xl font-bold">Servicio de Emergencia 24/7</h2>
                                     </div>
@@ -710,9 +705,10 @@ export default function ServiciosReparacion() {
                                     <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                             className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                             className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 flex items-center gap-2 justify-center"
                                     >
-                                        🚨 LLAMAR EMERGENCIA
+                                        <FiAlertTriangle size={20} aria-hidden="true" />
+                                        <span>LLAMAR EMERGENCIA</span>
                                     </motion.button>
                                 </motion.div>
                             </div>

@@ -1,6 +1,24 @@
 import { Head, usePage, Link, router } from "@inertiajs/react";
 import { useEffect, useState } from "react";
-import { FiLogIn, FiUser, FiLogOut } from "react-icons/fi";
+import {
+  FiLogIn,
+  FiUser,
+  FiLogOut,
+  FiFileText,
+  FiPhoneCall,
+  FiClock,
+  FiCalendar,
+  FiEye,
+  FiDollarSign,
+  FiSearch,
+  FiTool,
+  FiTruck,
+  FiCheckCircle,
+  FiChevronLeft,
+  FiChevronRight,
+  FiSettings,
+  FiMapPin,
+} from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Menu from "@/Components/home/Menu";
 import Footer from "@/Components/home/Footer";
@@ -196,9 +214,10 @@ export default function AlquilerEquipos() {
                                             rel="noopener noreferrer"
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 inline-flex items-center gap-2"
                                         >
-                                            📋 Ver Catálogo Completo
+                                            <FiFileText className="text-xl" />
+                                            <span>Ver Catálogo Completo</span>
                                         </motion.a>
                                         <motion.a
                                             href={buildWaLink("Hola, necesito una cotización inmediata para alquiler de maquinaria. ¿Pueden ayudarme?")}
@@ -206,9 +225,10 @@ export default function AlquilerEquipos() {
                                             rel="noopener noreferrer"
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 inline-flex items-center gap-2"
                                         >
-                                            📞 Cotización Inmediata
+                                            <FiPhoneCall className="text-xl" />
+                                            <span>Cotización Inmediata</span>
                                         </motion.a>
                                     </div>
                                 </motion.div>
@@ -245,11 +265,9 @@ export default function AlquilerEquipos() {
                                     >
                                         <div className="text-center mb-6">
                                             <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
+                                                <FiClock className="w-10 h-10 text-white" />
                                             </div>
-                                            <div className="text-2xl font-bold text-[#006ba0] mb-2">⏱️</div>
+                                            <div className="text-2xl font-bold text-[#006ba0] mb-2"><FiClock /></div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -274,9 +292,10 @@ export default function AlquilerEquipos() {
                                                 href={buildWaLink("Hola, quiero reservar maquinaria por día. ¿Disponibilidad y condiciones?")}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                                className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-flex items-center justify-center gap-2"
                                             >
-                                                Reservar Ahora
+                                                <FiCalendar className="text-xl" />
+                                                <span>Reservar Ahora</span>
                                             </a>
                                         </div>
                                     </motion.div>
@@ -289,11 +308,9 @@ export default function AlquilerEquipos() {
                                          >
                                         <div className="text-center mb-6">
                                              <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                                </svg>
+                                                <FiCalendar className="w-10 h-10 text-white" />
                                             </div>
-                                             <div className="text-2xl font-bold text-[#006ba0] mb-2">📅</div>
+                                             <div className="text-2xl font-bold text-[#006ba0] mb-2"><FiCalendar /></div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -318,9 +335,10 @@ export default function AlquilerEquipos() {
                                                  href={buildWaLink("Hola, quisiera una cotización mensual de maquinaria. ¿Detalles y precios?")}
                                                  target="_blank"
                                                  rel="noopener noreferrer"
-                                                 className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                                 className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-flex items-center justify-center gap-2"
                                              >
-                                                 Cotizar Mensual
+                                                 <FiDollarSign className="text-xl" />
+                                                 <span>Cotizar Mensual</span>
                                              </a>
                                         </div>
                                     </motion.div>
@@ -333,11 +351,9 @@ export default function AlquilerEquipos() {
                                     >
                                         <div className="text-center mb-6">
                                             <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                                </svg>
+                                                <FiSettings className="w-10 h-10 text-white" />
                                             </div>
-                                            <div className="text-2xl font-bold text-purple-500 mb-2">🚀</div>
+                                            <div className="text-2xl font-bold text-purple-500 mb-2"><FiSettings /></div>
                                         </div>
                                         <h3 className={`text-2xl font-bold mb-4 text-center ${
                                             isDarkMode ? 'text-white' : 'text-gray-900'
@@ -362,9 +378,10 @@ export default function AlquilerEquipos() {
                                                 href={buildWaLink("Hola, me interesa un proyecto especial de alquiler. ¿Podemos conversar detalles y opciones?")}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-flex items-center justify-center gap-2"
                                             >
-                                                Consultar Proyecto
+                                                <FiSearch className="text-xl" />
+                                                <span>Consultar Proyecto</span>
                                             </a>
                                         </div>
                                     </motion.div>
@@ -390,9 +407,7 @@ export default function AlquilerEquipos() {
                                              <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                                                  isDarkMode ? 'bg-[#006ba0] group-hover:bg-[#004d73]' : 'bg-[#006ba0] group-hover:bg-[#004d73]'
                                              }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
+                                                <FiDollarSign className="w-8 h-8 text-white" />
                                             </div>
                                             <h3 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -411,9 +426,7 @@ export default function AlquilerEquipos() {
                                             <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                                                 isDarkMode ? 'bg-[#006ba0] group-hover:bg-[#004d73]' : 'bg-[#006ba0] group-hover:bg-[#004d73]'
                                             }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                                </svg>
+                                                <FiTool className="w-8 h-8 text-white" />
                                             </div>
                                             <h3 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -432,9 +445,7 @@ export default function AlquilerEquipos() {
                                              <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                                                  isDarkMode ? 'bg-[#006ba0] group-hover:bg-[#004d73]' : 'bg-[#006ba0] group-hover:bg-[#004d73]'
                                              }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                                </svg>
+                                                <FiTruck className="w-8 h-8 text-white" />
                                             </div>
                                             <h3 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -453,9 +464,7 @@ export default function AlquilerEquipos() {
                                              <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                                                  isDarkMode ? 'bg-[#006ba0] group-hover:bg-[#004d73]' : 'bg-[#006ba0] group-hover:bg-[#004d73]'
                                              }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
+                                                <FiCheckCircle className="w-8 h-8 text-white" />
                                             </div>
                                             <h3 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -488,7 +497,7 @@ export default function AlquilerEquipos() {
                                                 isDarkMode ? 'border-gray-600 hover:border-orange-500 bg-gray-700' : 'border-gray-200 hover:border-orange-400 bg-gray-50'
                                             }`}
                                         >
-                                            <div className="text-4xl mb-4">🚜</div>
+                                            <div className="text-4xl mb-4"><FiTool /></div>
                                             <h4 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
                                             }`}>Excavadoras</h4>
@@ -500,9 +509,10 @@ export default function AlquilerEquipos() {
                                                 href={buildWaLink("Hola, quiero ver modelos disponibles de excavadoras para alquiler.")}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                                className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-flex items-center justify-center gap-2"
                                             >
-                                                Ver Modelos
+                                                <FiEye className="text-lg" />
+                                                <span>Ver Modelos</span>
                                             </a>
                                         </motion.div>
 
@@ -512,7 +522,7 @@ export default function AlquilerEquipos() {
                                                 isDarkMode ? 'border-gray-600 hover:border-[#006ba0] bg-gray-700' : 'border-gray-200 hover:border-[#006ba0] bg-gray-50'
                                             }`}
                                         >
-                                            <div className="text-4xl mb-4">🏗️</div>
+                                            <div className="text-4xl mb-4"><FiTool /></div>
                                             <h4 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
                                             }`}>Bulldozers</h4>
@@ -524,9 +534,10 @@ export default function AlquilerEquipos() {
                                                 href={buildWaLink("Hola, quiero ver modelos disponibles de bulldozers para alquiler.")}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                                className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-flex items-center justify-center gap-2"
                                             >
-                                                Ver Modelos
+                                                <FiEye className="text-lg" />
+                                                <span>Ver Modelos</span>
                                             </a>
                                         </motion.div>
 
@@ -536,7 +547,7 @@ export default function AlquilerEquipos() {
                                                 isDarkMode ? 'border-gray-600 hover:border-green-500 bg-gray-700' : 'border-gray-200 hover:border-green-400 bg-gray-50'
                                             }`}
                                         >
-                                            <div className="text-4xl mb-4">🛠️</div>
+                                            <div className="text-4xl mb-4"><FiTool /></div>
                                             <h4 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
                                             }`}>Cargadores Frontales</h4>
@@ -548,9 +559,10 @@ export default function AlquilerEquipos() {
                                                  href={buildWaLink("Hola, quiero ver modelos disponibles de cargadores frontales para alquiler.")}
                                                  target="_blank"
                                                  rel="noopener noreferrer"
-                                                 className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                                 className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-flex items-center justify-center gap-2"
                                              >
-                                                 Ver Modelos
+                                                 <FiEye className="text-lg" />
+                                                 <span>Ver Modelos</span>
                                              </a>
                                         </motion.div>
 
@@ -560,7 +572,7 @@ export default function AlquilerEquipos() {
                                                 isDarkMode ? 'border-gray-600 hover:border-purple-500 bg-gray-700' : 'border-gray-200 hover:border-purple-400 bg-gray-50'
                                             }`}
                                         >
-                                            <div className="text-4xl mb-4">🏗️</div>
+                                            <div className="text-4xl mb-4"><FiTool /></div>
                                             <h4 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
                                             }`}>Equipos Especializados</h4>
@@ -572,9 +584,10 @@ export default function AlquilerEquipos() {
                                                 href={buildWaLink("Hola, quiero consultar precios de equipos especializados (grúas, compactadores, martillos hidráulicos, minería).")}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-flex items-center justify-center gap-2"
                                             >
-                                                Consultar
+                                                <FiSearch className="text-lg" />
+                                                <span>Consultar</span>
                                             </a>
                                         </motion.div>
                                     </div>
@@ -620,9 +633,10 @@ export default function AlquilerEquipos() {
                                                             href={buildWaLink(`Hola, quiero cotizar el equipo ${item.nombre} (${item.categoria}).`)}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className="ml-3 bg-[#006ba0] hover:bg-[#004d73] text-white px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold shadow inline-block"
+                                                        className="ml-3 bg-[#006ba0] hover:bg-[#004d73] text-white px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold shadow inline-flex items-center gap-2"
                                                         >
-                                                            Cotizar
+                                                            <FiDollarSign className="text-sm" />
+                                                            <span>Cotizar</span>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -661,14 +675,14 @@ export default function AlquilerEquipos() {
                                                         className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white backdrop-blur px-3 py-2 rounded-full"
                                                         aria-label="Anterior"
                                                     >
-                                                        ‹
+                                                        <FiChevronLeft className="w-5 h-5" />
                                                     </button>
                                                     <button
                                                         onClick={nextImage}
                                                         className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white backdrop-blur px-3 py-2 rounded-full"
                                                         aria-label="Siguiente"
                                                     >
-                                                        ›
+                                                        <FiChevronRight className="w-5 h-5" />
                                                     </button>
                                                 </div>
                                                 <div className={`p-4 flex items-center justify-between ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -680,9 +694,10 @@ export default function AlquilerEquipos() {
                                                         href={buildWaLink(`Hola, quiero cotizar el equipo ${equiposAlquiler[currentIndex].nombre} (${equiposAlquiler[currentIndex].categoria}).`)}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="ml-3 bg-[#006ba0] hover:bg-[#004d73] text-white px-4 py-2 rounded-lg text-sm font-semibold shadow inline-block"
+                                                        className="ml-3 bg-[#006ba0] hover:bg-[#004d73] text-white px-4 py-2 rounded-lg text-sm font-semibold shadow inline-flex items-center gap-2"
                                                     >
-                                                        Cotizar
+                                                        <FiDollarSign className="text-sm" />
+                                                        <span>Cotizar</span>
                                                     </a>
                                                 </div>
                                             </motion.div>
@@ -709,17 +724,17 @@ export default function AlquilerEquipos() {
                                     </p>
                                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                                          <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                                             <div className="text-2xl mb-2">📅</div>
+                                             <div className="text-2xl mb-2"><FiCalendar /></div>
                                              <div className="text-lg font-bold mb-2">Duración del Proyecto</div>
                                              <div className="text-[#006ba0]/70">Desde 1 día hasta varios meses</div>
                                          </div>
                                          <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                                             <div className="text-2xl mb-2">⚙️</div>
+                                             <div className="text-2xl mb-2"><FiTool /></div>
                                              <div className="text-lg font-bold mb-2">Tipo de Equipo</div>
                                              <div className="text-[#006ba0]/70">Más de 50 modelos disponibles</div>
                                          </div>
                                          <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                                             <div className="text-2xl mb-2">📍</div>
+                                             <div className="text-2xl mb-2"><FiMapPin /></div>
                                              <div className="text-lg font-bold mb-2">Ubicación</div>
                                              <div className="text-[#006ba0]/70">Entrega a todo el país</div>
                                          </div>
@@ -730,9 +745,10 @@ export default function AlquilerEquipos() {
                                          rel="noopener noreferrer"
                                          whileHover={{ scale: 1.05 }}
                                          whileTap={{ scale: 0.95 }}
-                                         className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                         className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 inline-flex items-center gap-2"
                                      >
-                                         🧮 Calcular Presupuesto
+                                         <FiDollarSign className="text-xl" />
+                                         <span>Calcular Presupuesto</span>
                                      </motion.a>
                                 </motion.div>
                             </div>

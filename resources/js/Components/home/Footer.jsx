@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
     <footer className="relative bg-cover bg-center bg-no-repeat bg-primary-900 text-white p-6" style={{ 
-      backgroundImage: 'url("/img/footer-construction.svg")',
+
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
@@ -105,7 +105,7 @@ const Footer = () => {
     
     {/* Botón flotante de WhatsApp */}
     <a 
-      href="https://wa.me/51987654321" 
+      href="https://wa.me/51932401713" 
       target="_blank" 
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 animate-pulse hover:animate-none"

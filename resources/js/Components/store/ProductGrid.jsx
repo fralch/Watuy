@@ -623,7 +623,7 @@ const Card = React.memo(({ product }) => {
   return (
     <div
       ref={cardRef}
-      className={`w-full rounded-xl shadow-lg overflow-hidden border h-128 relative flex flex-col transition-all duration-300 hover:shadow-xl ${
+      className={`w-full rounded-xl shadow-lg overflow-hidden border h-auto relative flex flex-col transition-all duration-300 hover:shadow-xl ${
         isDarkMode 
           ? 'bg-gray-800 hover:bg-gray-750 shadow-gray-900/50 border-gray-700' 
           : 'bg-white hover:bg-gray-50 border-gray-200'
@@ -639,8 +639,8 @@ const Card = React.memo(({ product }) => {
         aria-label={`Ver detalles de ${product.title}`}
       />
 
-      {/* Área de imagen (60% del card) */}
-      <div className="flex items-center justify-center p-4 h-3/5">
+      {/* Área de imagen */}
+      <div className="flex items-center justify-center p-4 h-52">
         {isVisible && (
           <OptimizedImage
             src={product.image}
@@ -675,8 +675,8 @@ const Card = React.memo(({ product }) => {
         )}
       </div>
 
-      {/* Información del producto (40% restante) */}
-      <div className="p-4 flex-grow overflow-y-auto min-h-60">
+      {/* Información del producto */}
+      <div className="p-4">
         <h2 className={`text-lg font-semibold mb-2 transition-colors duration-300 ${
           isDarkMode ? 'text-gray-100' : 'text-gray-800'
         }`}>{product.title}</h2>

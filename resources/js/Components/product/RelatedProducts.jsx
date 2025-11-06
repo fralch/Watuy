@@ -590,25 +590,7 @@ const RelatedProducts = ({ productId }) => {
                             >
                                 Añadir al Carrito
                             </button>
-                            <button 
-                                onClick={(e) => handleCompare(e, product)}
-                                className={`w-full font-bold py-2 px-4 rounded-md transition-all duration-300 ${
-                                    isInCompare(product.id_producto)
-                                        ? isDarkMode 
-                                         ? 'bg-gray-00 hover:bg-gray-700 text-white hover:shadow-lg'  
-                                            : 'bg-gray-900 hover:bg-gray-900 text-white hover:shadow-lg'   
-                                          
-                                        : isDarkMode 
-                                          ? 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-lg' 
-                                            : 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-lg'
-                                           
-                                } ${
-                                    !canAddMore && !isInCompare(product.id_producto) ? 'opacity-50 cursor-not-allowed' : ''
-                                }`}
-                                disabled={!canAddMore && !isInCompare(product.id_producto)}
-                            >
-                                {isInCompare(product.id_producto) ? 'En Comparador' : 'Comparar'}
-                            </button>
+                           
                         </div>
                     </div>
                 )}

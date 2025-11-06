@@ -1501,23 +1501,7 @@ const ProductPage = ({ producto }) => {
                                 >
                                     Agregar al carrito
                                 </button>
-                                <button 
-                                    onClick={() => {
-                                        const productTabsSection = document.getElementById('product-tabs');
-                                        if (productTabsSection) {
-                                            productTabsSection.scrollIntoView({ 
-                                                behavior: 'smooth',
-                                                block: 'start'
-                                            });
-                                        }
-                                    }}
-                                    className={`w-full md:w-auto px-6 py-3 rounded-md shadow-md transition-colors duration-300 ${
-                                    isDarkMode 
-                                        ? 'bg-gray-700 text-gray-200 hover:bg-gray-600' 
-                                        : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                                }`}>
-                                    Selecciona tus accesorios
-                                </button>
+                               
                                 <button 
                                     onClick={() => {
                                         const productUrl = window.location.href;
@@ -1978,23 +1962,7 @@ const ProductPage = ({ producto }) => {
                                                             >
                                                                 Añadir al Carrito
                                                             </button>
-                                                            <button 
-                                                                onClick={(e) => handleCompareRecent(e, product)}
-                                                                className={`w-full font-bold py-2 px-4 rounded-md transition-all duration-300 ${
-                                                                    isInCompare(product.id)
-                                                                        ? isDarkMode 
-                                                                            ? 'bg-gray-600 hover:bg-gray-700 text-white hover:shadow-lg'  
-                                                                            : 'bg-gray-900 hover:bg-gray-900 text-white hover:shadow-lg'
-                                                                        : isDarkMode 
-                                                                            ? 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-lg' 
-                                                                            : 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-lg'
-                                                                } ${
-                                                                    !canAddMore && !isInCompare(product.id) ? 'opacity-50 cursor-not-allowed' : ''
-                                                                }`}
-                                                                disabled={!canAddMore && !isInCompare(product.id)}
-                                                            >
-                                                                {isInCompare(product.id) ? 'En Comparador' : 'Comparar'}
-                                                            </button>
+                                                          
                                                         </div>
                                                     </div>
                                                 )}
@@ -2017,24 +1985,7 @@ const ProductPage = ({ producto }) => {
                                                         Añadir al Carrito
                                                     </button>
                                                     
-                                                    {/* Botón de comparar - visible para todos */}
-                                                    <button 
-                                                        onClick={(e) => handleCompareRecent(e, product)}
-                                                        className={`w-full text-sm font-semibold py-2 px-4 rounded-lg transition-all duration-200 ${
-                                                            isInCompare(product.id)
-                                                                ? isDarkMode 
-                                                                    ? 'bg-blue-900 hover:bg-blue-900 text-white'
-                                                                    : 'bg-blue-900 hover:bg-blue-900 text-white'
-                                                                : isDarkMode 
-                                                                    ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                                                                    : 'bg-blue-600 hover:bg-blue-700 text-white'
-                                                        } ${
-                                                            !canAddMore && !isInCompare(product.id) ? 'opacity-50 cursor-not-allowed' : ''
-                                                        }`}
-                                                        disabled={!canAddMore && !isInCompare(product.id)}
-                                                    >
-                                                        {isInCompare(product.id) ? 'En Comparador' : 'Comparar'}
-                                                    </button>
+                                                   
                                                 </div>
                                                 
                                                 {/* CSS para el scrollbar personalizado */}

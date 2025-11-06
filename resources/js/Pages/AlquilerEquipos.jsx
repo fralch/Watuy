@@ -46,6 +46,19 @@ export default function AlquilerEquipos() {
         setShowProfileModal(false);
     };
 
+    // Base de imágenes de alquiler (ubicadas en public/img)
+    const GALERIA_BASE_PATH = "/img/IMAGENES_ALQUILER DE MAQUINARIA PESADA";
+    const equiposAlquiler = [
+        { nombre: "Excavadora Doossan 225", archivo: "Excavadora Doossan 225.jpg", categoria: "Excavadora" },
+        { nombre: "Excavadora Volvo EC380DL", archivo: "Excavadora Volvo EC380DL.jpg", categoria: "Excavadora" },
+        { nombre: "Minicargador CAT 246D3", archivo: "Minicargador_CAT_246D3.jpg", categoria: "Minicargador" },
+        { nombre: "Retroexcavadora JCB", archivo: "Retroexcavadora JCB.jpg", categoria: "Retroexcavadora" },
+        { nombre: "UG 400", archivo: "UG_400.jpg", categoria: "Generador" },
+        { nombre: "UG 1200", archivo: "UG_1200.jpg", categoria: "Generador" },
+        { nombre: "UG 2100", archivo: "UG_2100.jpg", categoria: "Generador" },
+        { nombre: "UG 3300", archivo: "UG_3300.jpg", categoria: "Generador" },
+    ];
+
     return (
         <>
             <Head title="Alquiler de Equipos - MegaEquipamiento" />
@@ -499,6 +512,57 @@ export default function AlquilerEquipos() {
                                         </motion.div>
                                     </div>
                                 </motion.div> */}
+
+                                {/* Galería de Equipos en Alquiler */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className={`p-6 sm:p-8 rounded-2xl shadow-2xl mb-16 ${
+                                        isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
+                                    }`}
+                                >
+                                    <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center ${
+                                        isDarkMode ? 'text-white' : 'text-gray-900'
+                                    }`}>Galería de Equipos en Alquiler</h2>
+
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {equiposAlquiler.map((item, idx) => (
+                                            <motion.div
+                                                key={idx}
+                                                whileHover={{ y: -4, scale: 1.01 }}
+                                                className={`group rounded-2xl overflow-hidden shadow-xl border ${
+                                                    isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
+                                                }`}
+                                            >
+                                                <div className="relative w-full pt-[70%]">
+                                                    <img
+                                                        src={`${GALERIA_BASE_PATH}/${item.archivo}`}
+                                                        alt={item.nombre}
+                                                        loading="lazy"
+                                                        className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                                                    />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                                                    <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between">
+                                                        <div>
+                                                            <div className="text-xs sm:text-sm font-semibold text-white/80">{item.categoria}</div>
+                                                            <div className="text-base sm:text-lg font-bold text-white">{item.nombre}</div>
+                                                        </div>
+                                                        <button className="ml-3 bg-[#006ba0] hover:bg-[#004d73] text-white px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold shadow">
+                                                            Cotizar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+
+                                    <div className="text-center mt-8">
+                                        <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                            Las imágenes corresponden a equipos disponibles para alquiler.
+                                        </p>
+                                    </div>
+                                </motion.div>
 
                                 {/* Calculator Section */}
                                 <motion.div

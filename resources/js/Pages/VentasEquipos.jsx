@@ -1,6 +1,6 @@
 import { Head, usePage, Link, router } from "@inertiajs/react";
 import { useEffect, useState } from "react";
-import { FiLogIn, FiUser, FiLogOut, FiX, FiChevronLeft, FiChevronRight, FiMaximize2 } from "react-icons/fi";
+import { FiLogIn, FiUser, FiLogOut, FiX, FiChevronLeft, FiChevronRight, FiMaximize2, FiPhoneCall, FiDollarSign, FiCheckCircle, FiTruck, FiLifeBuoy, FiStar, FiEye, FiSettings } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Menu from "@/Components/home/Menu";
@@ -278,9 +278,7 @@ export default function VentasEquipos() {
                                     >
                                         <div className="text-center mb-6">
                                              <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                                </svg>
+                                                <FiEye className="w-10 h-10 text-white" />
                                             </div>
                                              <div className="text-3xl font-bold text-[#006ba0] mb-2">S/ 5,000</div>
                                         </div>
@@ -314,9 +312,7 @@ export default function VentasEquipos() {
                                     >
                                         <div className="text-center mb-6">
                                             <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#006ba0] to-[#004d73] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                                                </svg>
+                                                <FiSettings className="w-10 h-10 text-white" />
                                             </div>
                                             <div className="text-3xl font-bold text-[#006ba0] mb-2">S/ 12,000</div>
                                         </div>
@@ -350,9 +346,7 @@ export default function VentasEquipos() {
                                     >
                                         <div className="text-center mb-6">
                                             <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                                                </svg>
+                                                <FiTruck className="w-10 h-10 text-white" />
                                             </div>
                                              <div className="text-3xl font-bold text-[#006ba0] mb-2">S/ 6,000</div>
                                         </div>
@@ -502,9 +496,7 @@ export default function VentasEquipos() {
                                             <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                                                 isDarkMode ? 'bg-[#006ba0] group-hover:bg-[#004d73]' : 'bg-[#006ba0] group-hover:bg-[#004d73]'
                                             }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
+                                                <FiCheckCircle className="w-8 h-8 text-white" />
                                             </div>
                                             <h3 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -523,9 +515,7 @@ export default function VentasEquipos() {
                                             <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                                                 isDarkMode ? 'bg-green-600 group-hover:bg-green-500' : 'bg-green-500 group-hover:bg-green-600'
                                             }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
+                                                <FiDollarSign className="w-8 h-8 text-white" />
                                             </div>
                                             <h3 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -544,9 +534,7 @@ export default function VentasEquipos() {
                                              <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                                                  isDarkMode ? 'bg-[#006ba0] group-hover:bg-[#004d73]' : 'bg-[#006ba0] group-hover:bg-[#004d73]'
                                              }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
+                                                <FiLifeBuoy className="w-8 h-8 text-white" />
                                             </div>
                                             <h3 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -565,9 +553,7 @@ export default function VentasEquipos() {
                                             <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                                                 isDarkMode ? 'bg-purple-600 group-hover:bg-purple-500' : 'bg-purple-500 group-hover:bg-purple-600'
                                             }`}>
-                                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                                </svg>
+                                                <FiTruck className="w-8 h-8 text-white" />
                                             </div>
                                             <h3 className={`text-xl font-bold mb-3 ${
                                                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -599,9 +585,7 @@ export default function VentasEquipos() {
                                         }`}>
                                             <div className="flex items-center mb-4">
                                                 {[...Array(5)].map((_, i) => (
-                                                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                    </svg>
+                                                    <FiStar key={i} className="w-5 h-5 text-yellow-400" />
                                                 ))}
                                             </div>
                                             <p className={`text-sm mb-4 italic ${
@@ -680,16 +664,19 @@ export default function VentasEquipos() {
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                             className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
+                                            className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 flex items-center gap-2 justify-center"
                                         >
-                                            📞 Llamar Ahora
+                                            <FiPhoneCall className="w-5 h-5" />
+                                            Llamar Ahora
                                         </motion.button>
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300"
+                                            className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center gap-2 justify-center"
+                                            onClick={() => window.open('https://wa.me/51970714696', '_blank')}
                                         >
-                                            💬 WhatsApp
+                                            <FaWhatsapp className="w-5 h-5" />
+                                            WhatsApp
                                         </motion.button>
                                     </div>
                                 </motion.div>

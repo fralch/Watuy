@@ -711,45 +711,63 @@ export default function AlquilerEquipos() {
                                     </div>
                                 </motion.div>
 
-                                {/* Calculator Section */}
+                                {/* Calculator Section (refactor UI) */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8 }}
-                                    className="text-center bg-gradient-to-r from-green-500 to-[#006ba0] rounded-2xl p-12 text-white shadow-2xl mb-16"
+                                    className="relative rounded-2xl p-[1px] bg-gradient-to-r from-emerald-500 to-[#006ba0] shadow-xl mb-16"
                                 >
-                                    <h2 className="text-4xl font-bold mb-6">Calcula tu Presupuesto</h2>
-                                    <p className="text-xl mb-8 max-w-3xl mx-auto">
-                                        Obtén una estimación precisa del costo de alquiler según tus necesidades específicas
-                                    </p>
-                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                                         <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                                             <div className="text-2xl mb-2"><FiCalendar /></div>
-                                             <div className="text-lg font-bold mb-2">Duración del Proyecto</div>
-                                             <div className="text-[#006ba0]/70">Desde 1 día hasta varios meses</div>
-                                         </div>
-                                         <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                                             <div className="text-2xl mb-2"><FiTool /></div>
-                                             <div className="text-lg font-bold mb-2">Tipo de Equipo</div>
-                                             <div className="text-[#006ba0]/70">Más de 50 modelos disponibles</div>
-                                         </div>
-                                         <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                                             <div className="text-2xl mb-2"><FiMapPin /></div>
-                                             <div className="text-lg font-bold mb-2">Ubicación</div>
-                                             <div className="text-[#006ba0]/70">Entrega a todo el país</div>
-                                         </div>
-                                     </div>
-                                     <motion.a
-                                         href={buildWaLink("Hola, quiero ayuda para calcular el presupuesto de alquiler según mi proyecto.")}
-                                         target="_blank"
-                                         rel="noopener noreferrer"
-                                         whileHover={{ scale: 1.05 }}
-                                         whileTap={{ scale: 0.95 }}
-                                         className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 inline-flex items-center gap-2"
-                                     >
-                                         <FiDollarSign className="text-xl" />
-                                         <span>Calcular Presupuesto</span>
-                                     </motion.a>
+                                    <div className="rounded-2xl bg-white/95 backdrop-blur-sm p-10 text-center">
+                                        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 mb-4">Calcula tu Presupuesto</h2>
+                                        <p className="text-base md:text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+                                            Obtén una estimación precisa del costo de alquiler según tus necesidades específicas
+                                        </p>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                            <div className="group rounded-xl border border-gray-200 bg-gray-50 p-6 ring-1 ring-black/5 hover:bg-white hover:border-[#006ba0]/30 transition-colors">
+                                                <div className="flex items-center gap-3 mb-3">
+                                                    <div className="h-10 w-10 grid place-items-center rounded-full bg-[#006ba0]/10 text-[#006ba0]">
+                                                        <FiCalendar className="text-xl" />
+                                                    </div>
+                                                    <div className="text-lg font-semibold text-gray-900">Duración del Proyecto</div>
+                                                </div>
+                                                <div className="text-sm text-gray-600">Desde 1 día hasta varios meses</div>
+                                            </div>
+
+                                            <div className="group rounded-xl border border-gray-200 bg-gray-50 p-6 ring-1 ring-black/5 hover:bg-white hover:border-[#006ba0]/30 transition-colors">
+                                                <div className="flex items-center gap-3 mb-3">
+                                                    <div className="h-10 w-10 grid place-items-center rounded-full bg-[#006ba0]/10 text-[#006ba0]">
+                                                        <FiTool className="text-xl" />
+                                                    </div>
+                                                    <div className="text-lg font-semibold text-gray-900">Tipo de Equipo</div>
+                                                </div>
+                                                <div className="text-sm text-gray-600">Más de 50 modelos disponibles</div>
+                                            </div>
+
+                                            <div className="group rounded-xl border border-gray-200 bg-gray-50 p-6 ring-1 ring-black/5 hover:bg-white hover:border-[#006ba0]/30 transition-colors">
+                                                <div className="flex items-center gap-3 mb-3">
+                                                    <div className="h-10 w-10 grid place-items-center rounded-full bg-[#006ba0]/10 text-[#006ba0]">
+                                                        <FiMapPin className="text-xl" />
+                                                    </div>
+                                                    <div className="text-lg font-semibold text-gray-900">Ubicación</div>
+                                                </div>
+                                                <div className="text-sm text-gray-600">Entrega a todo el país</div>
+                                            </div>
+                                        </div>
+
+                                        <motion.a
+                                            href={buildWaLink("Hola, quiero ayuda para calcular el presupuesto de alquiler según mi proyecto.")}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            whileHover={{ scale: 1.03 }}
+                                            whileTap={{ scale: 0.97 }}
+                                            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#006ba0] to-emerald-600 px-6 py-3 text-white font-medium shadow-md hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#006ba0] transition-all"
+                                        >
+                                            <FiDollarSign className="text-xl" />
+                                            <span>Calcular Presupuesto</span>
+                                        </motion.a>
+                                    </div>
                                 </motion.div>
                             </div>
                         </div>

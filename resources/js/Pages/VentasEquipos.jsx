@@ -1,6 +1,7 @@
 import { Head, usePage, Link, router } from "@inertiajs/react";
 import { useEffect, useState } from "react";
-import { FiLogIn, FiUser, FiLogOut } from "react-icons/fi";
+import { FiLogIn, FiUser, FiLogOut, FiX, FiChevronLeft, FiChevronRight, FiMaximize2 } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Menu from "@/Components/home/Menu";
 import Footer from "@/Components/home/Footer";
@@ -14,6 +15,9 @@ export default function VentasEquipos() {
     const { isDarkMode } = useTheme();
     const [showUserMenu, setShowUserMenu] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentImage, setCurrentImage] = useState(0);
+    const [currentGallery, setCurrentGallery] = useState("maquinaria");
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -46,6 +50,39 @@ export default function VentasEquipos() {
         setShowProfileModal(false);
     };
 
+    const openLightbox = (index, gallery) => {
+        setCurrentImage(index);
+        setCurrentGallery(gallery);
+        setLightboxOpen(true);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        setLightboxOpen(false);
+        document.body.style.overflow = 'unset';
+    };
+
+    const nextImage = () => {
+        const images = currentGallery === "maquinaria" ? maquinariaImages : repuestosImages;
+        setCurrentImage((prev) => (prev + 1) % images.length);
+    };
+
+    const prevImage = () => {
+        const images = currentGallery === "maquinaria" ? maquinariaImages : repuestosImages;
+        setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+    };
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (!lightboxOpen) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [lightboxOpen, currentImage, currentGallery]);
+
     // Directorios y listas de imágenes desde /public/img
     const maquinariaDir = "/img/IMAGENES_VENTA_DE MAQUINARIA PESADA";
     const repuestosDir = "/img/IMAGENES_VENTAS DE REPUESTOS";
@@ -71,6 +108,12 @@ export default function VentasEquipos() {
     const buildSrc = (dir, name) => encodeURI(`${dir}/${name}`);
     const formatTitle = (name) =>
         name.replace(/\.[^.]+$/, "").replace(/_/g, " ").replace(/\s+/g, " ").trim();
+
+    const handleWhatsAppContact = (itemName, type = "maquinaria") => {
+        const message = `Hola, estoy interesado en obtener más información sobre: ${itemName} (${type === "maquinaria" ? "Maquinaria Pesada" : "Repuesto"}). ¿Podrían proporcionarme detalles sobre disponibilidad y precio?`;
+        const whatsappUrl = `https://wa.me/51970714696?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    };
 
     return (
         <>
@@ -332,16 +375,40 @@ export default function VentasEquipos() {
                                     {maquinariaImages.map((name, idx) => (
                                         <motion.div
                                             key={`maq-${idx}`}
-                                            whileHover={{ y: -6 }}
+                                            whileHover={{ y: -8, scale: 1.02 }}
                                             className={`group rounded-2xl shadow-xl overflow-hidden transition-all duration-300 ${
-                                                isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
+                                                isDarkMode ? 'bg-gray-800 border-2 border-gray-700 hover:border-[#006ba0]' : 'bg-white border-2 border-gray-200 hover:border-[#006ba0]'
                                             }`}
                                         >
-                                            <div className="relative aspect-[4/3] w-full">
-                                                <img src={buildSrc(maquinariaDir, name)} alt={formatTitle(name)} loading="lazy" className="w-full h-full object-cover" />
-                                                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-                                                    <h3 className="text-lg font-semibold text-white">{formatTitle(name)}</h3>
+                                            <div className="relative aspect-[4/3] w-full cursor-pointer" onClick={() => openLightbox(idx, "maquinaria")}>
+                                                <img
+                                                    src={buildSrc(maquinariaDir, name)}
+                                                    alt={formatTitle(name)}
+                                                    loading="lazy"
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+
+                                                {/* Zoom Icon */}
+                                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110">
+                                                    <FiMaximize2 className="w-5 h-5 text-[#006ba0]" />
+                                                </div>
+
+                                                {/* Title and WhatsApp Button */}
+                                                <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                                    <h3 className="text-lg font-bold text-white mb-3 drop-shadow-lg">{formatTitle(name)}</h3>
+                                                    <motion.button
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleWhatsAppContact(formatTitle(name), "maquinaria");
+                                                        }}
+                                                        className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100"
+                                                    >
+                                                        <FaWhatsapp className="w-5 h-5" />
+                                                        Cotizar
+                                                    </motion.button>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -349,18 +416,57 @@ export default function VentasEquipos() {
                                 </div>
 
                                 {/* Galería de Repuestos */}
-                                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-10">
-                                    <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Repuestos en Venta</h2>
-                                    <p className={`text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Repuestos y accesorios para maquinaria pesada</p>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="text-center mb-12"
+                                >
+                                    <h2 className={`text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                                        Repuestos en Venta
+                                    </h2>
+                                    <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
+                                        Repuestos originales y compatibles de alta calidad para todo tipo de maquinaria pesada
+                                    </p>
                                 </motion.div>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-16">
                                     {repuestosImages.map((name, idx) => (
-                                        <motion.div key={`rep-${idx}`} whileHover={{ y: -4 }} className={`group rounded-xl shadow-md overflow-hidden transition-all duration-300 ${isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
-                                            <div className="relative aspect-square w-full">
-                                                <img src={buildSrc(repuestosDir, name)} alt={formatTitle(name)} loading="lazy" className="w-full h-full object-cover" />
-                                                <div className="absolute inset-0 bg-black/15 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-                                                    <div className="text-sm font-medium text-white">{formatTitle(name)}</div>
+                                        <motion.div
+                                            key={`rep-${idx}`}
+                                            whileHover={{ y: -6, scale: 1.03 }}
+                                            className={`group rounded-xl shadow-lg overflow-hidden transition-all duration-300 ${
+                                                isDarkMode ? 'bg-gray-800 border-2 border-gray-700 hover:border-[#006ba0]' : 'bg-white border-2 border-gray-200 hover:border-[#006ba0]'
+                                            }`}
+                                        >
+                                            <div className="relative aspect-square w-full cursor-pointer" onClick={() => openLightbox(idx, "repuestos")}>
+                                                <img
+                                                    src={buildSrc(repuestosDir, name)}
+                                                    alt={formatTitle(name)}
+                                                    loading="lazy"
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+
+                                                {/* Zoom Icon */}
+                                                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110">
+                                                    <FiMaximize2 className="w-4 h-4 text-[#006ba0]" />
+                                                </div>
+
+                                                {/* Title and Button */}
+                                                <div className="absolute bottom-0 left-0 right-0 p-3 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                                                    <div className="text-sm font-bold text-white mb-2 drop-shadow-lg line-clamp-2">{formatTitle(name)}</div>
+                                                    <motion.button
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleWhatsAppContact(formatTitle(name), "repuesto");
+                                                        }}
+                                                        className="flex items-center gap-1.5 bg-green-500 hover:bg-green-600 text-white px-3 py-1.5 rounded-lg font-semibold text-xs shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 w-full justify-center"
+                                                    >
+                                                        <FaWhatsapp className="w-4 h-4" />
+                                                        Consultar
+                                                    </motion.button>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -587,6 +693,107 @@ export default function VentasEquipos() {
                     </main>
                     <Footer />
                 </div>
+
+                {/* Lightbox Modal */}
+                <AnimatePresence>
+                    {lightboxOpen && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center"
+                            onClick={closeLightbox}
+                        >
+                            {/* Close Button */}
+                            <motion.button
+                                whileHover={{ scale: 1.1, rotate: 90 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={closeLightbox}
+                                className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full transition-all duration-300 z-10"
+                            >
+                                <FiX className="w-6 h-6 text-white" />
+                            </motion.button>
+
+                            {/* Navigation Buttons */}
+                            <motion.button
+                                whileHover={{ scale: 1.1, x: -5 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    prevImage();
+                                }}
+                                className="absolute left-6 p-4 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full transition-all duration-300 z-10"
+                            >
+                                <FiChevronLeft className="w-6 h-6 text-white" />
+                            </motion.button>
+
+                            <motion.button
+                                whileHover={{ scale: 1.1, x: 5 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    nextImage();
+                                }}
+                                className="absolute right-6 p-4 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full transition-all duration-300 z-10"
+                            >
+                                <FiChevronRight className="w-6 h-6 text-white" />
+                            </motion.button>
+
+                            {/* Image Container */}
+                            <motion.div
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.8, opacity: 0 }}
+                                onClick={(e) => e.stopPropagation()}
+                                className="relative max-w-7xl max-h-[90vh] w-full mx-4"
+                            >
+                                <img
+                                    src={buildSrc(
+                                        currentGallery === "maquinaria" ? maquinariaDir : repuestosDir,
+                                        currentGallery === "maquinaria" ? maquinariaImages[currentImage] : repuestosImages[currentImage]
+                                    )}
+                                    alt={formatTitle(
+                                        currentGallery === "maquinaria" ? maquinariaImages[currentImage] : repuestosImages[currentImage]
+                                    )}
+                                    className="w-full h-full object-contain rounded-2xl shadow-2xl"
+                                />
+
+                                {/* Image Info */}
+                                <motion.div
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: 0.2 }}
+                                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent rounded-b-2xl"
+                                >
+                                    <div className="flex items-center justify-between">
+                                        <div>
+                                            <h3 className="text-xl font-bold text-white mb-2">
+                                                {formatTitle(
+                                                    currentGallery === "maquinaria" ? maquinariaImages[currentImage] : repuestosImages[currentImage]
+                                                )}
+                                            </h3>
+                                            <p className="text-sm text-gray-300">
+                                                {currentImage + 1} de {currentGallery === "maquinaria" ? maquinariaImages.length : repuestosImages.length}
+                                            </p>
+                                        </div>
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            onClick={() => handleWhatsAppContact(
+                                                formatTitle(currentGallery === "maquinaria" ? maquinariaImages[currentImage] : repuestosImages[currentImage]),
+                                                currentGallery === "maquinaria" ? "maquinaria" : "repuesto"
+                                            )}
+                                            className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow-xl transition-all duration-300"
+                                        >
+                                            <FaWhatsapp className="w-5 h-5" />
+                                            Cotizar Ahora
+                                        </motion.button>
+                                    </div>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
                 {/* User Profile Modal */}
                 <UserProfileModal

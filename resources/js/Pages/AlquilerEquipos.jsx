@@ -14,6 +14,8 @@ export default function AlquilerEquipos() {
     const { isDarkMode } = useTheme();
     const [showUserMenu, setShowUserMenu] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -46,6 +48,27 @@ export default function AlquilerEquipos() {
         setShowProfileModal(false);
     };
 
+    // Lightbox handlers
+    const openLightbox = (index) => {
+        setCurrentIndex(index);
+        setLightboxOpen(true);
+    };
+
+    const closeLightbox = () => {
+        setLightboxOpen(false);
+    };
+
+    const prevImage = () => {
+        setCurrentIndex((prev) => (prev - 1 + equiposAlquiler.length) % equiposAlquiler.length);
+    };
+
+    const nextImage = () => {
+        setCurrentIndex((prev) => (prev + 1) % equiposAlquiler.length);
+    };
+
+    // Navegación por teclado para el lightbox (simplificada sin listeners globales)
+    // Nota: Puedes agregar navegación con teclado posteriormente si es necesario.
+
     // Base de imágenes de alquiler (ubicadas en public/img)
     const GALERIA_BASE_PATH = "/img/IMAGENES_ALQUILER DE MAQUINARIA PESADA";
     const equiposAlquiler = [
@@ -58,6 +81,9 @@ export default function AlquilerEquipos() {
         { nombre: "UG 2100", archivo: "UG_2100.jpg", categoria: "Generador" },
         { nombre: "UG 3300", archivo: "UG_3300.jpg", categoria: "Generador" },
     ];
+
+    // Helper para construir enlace de WhatsApp con mensaje
+    const buildWaLink = (message) => `https://wa.me/51932401713?text=${encodeURIComponent(message)}`;
 
     return (
         <>
@@ -164,20 +190,26 @@ export default function AlquilerEquipos() {
                                         Equipos certificados y mantenidos para construcción, minería e industria. Desde excavadoras hasta grúas industriales
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                        <motion.button
+                                        <motion.a
+                                            href={buildWaLink("Hola, quisiera ver el catálogo completo de alquiler de maquinaria pesada. ¿Podrías enviarme el catálogo?")}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
                                             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
                                         >
                                             📋 Ver Catálogo Completo
-                                        </motion.button>
-                                        <motion.button
+                                        </motion.a>
+                                        <motion.a
+                                            href={buildWaLink("Hola, necesito una cotización inmediata para alquiler de maquinaria. ¿Pueden ayudarme?")}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
                                             className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
                                         >
                                             📞 Cotización Inmediata
-                                        </motion.button>
+                                        </motion.a>
                                     </div>
                                 </motion.div>
                             </div>
@@ -238,9 +270,14 @@ export default function AlquilerEquipos() {
                                         </div>
                                         <div className="text-center">
                                             <div className="text-sm text-green-500 mb-3">Mínimo 3 días • Incluye operador</div>
-                                            <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                            <a
+                                                href={buildWaLink("Hola, quiero reservar maquinaria por día. ¿Disponibilidad y condiciones?")}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                            >
                                                 Reservar Ahora
-                                            </button>
+                                            </a>
                                         </div>
                                     </motion.div>
 
@@ -277,9 +314,14 @@ export default function AlquilerEquipos() {
                                         </div>
                                         <div className="text-center">
                                             <div className="text-sm text-green-500 mb-3">Descuento 25% • Mantenimiento incluido</div>
-                                             <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                             <a
+                                                 href={buildWaLink("Hola, quisiera una cotización mensual de maquinaria. ¿Detalles y precios?")}
+                                                 target="_blank"
+                                                 rel="noopener noreferrer"
+                                                 className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                             >
                                                  Cotizar Mensual
-                                             </button>
+                                             </a>
                                         </div>
                                     </motion.div>
 
@@ -316,9 +358,14 @@ export default function AlquilerEquipos() {
                                         </div>
                                         <div className="text-center">
                                              <div className="text-sm text-[#006ba0] mb-3">Proyectos personalizados • Equipos especializados</div>
-                                            <button className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                            <a
+                                                href={buildWaLink("Hola, me interesa un proyecto especial de alquiler. ¿Podemos conversar detalles y opciones?")}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                            >
                                                 Consultar Proyecto
-                                            </button>
+                                            </a>
                                         </div>
                                     </motion.div>
                                 </div>
@@ -449,9 +496,14 @@ export default function AlquilerEquipos() {
                                                 isDarkMode ? 'text-gray-300' : 'text-gray-600'
                                             }`}>Desde 20 hasta 50 toneladas. Ideales para movimientos de tierra y demolición</p>
                                             <div className="text-lg font-bold text-orange-500 mb-3">$450 - $850/día</div>
-                                            <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                            <a
+                                                href={buildWaLink("Hola, quiero ver modelos disponibles de excavadoras para alquiler.")}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                            >
                                                 Ver Modelos
-                                            </button>
+                                            </a>
                                         </motion.div>
 
                                         <motion.div
@@ -468,9 +520,14 @@ export default function AlquilerEquipos() {
                                                 isDarkMode ? 'text-gray-300' : 'text-gray-600'
                                             }`}>Potentes máquinas para nivelación y movimientos de tierra en grandes volúmenes</p>
                                             <div className="text-lg font-bold text-[#006ba0] mb-3">$380 - $650/día</div>
-                                            <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                            <a
+                                                href={buildWaLink("Hola, quiero ver modelos disponibles de bulldozers para alquiler.")}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                            >
                                                 Ver Modelos
-                                            </button>
+                                            </a>
                                         </motion.div>
 
                                         <motion.div
@@ -487,9 +544,14 @@ export default function AlquilerEquipos() {
                                                 isDarkMode ? 'text-gray-300' : 'text-gray-600'
                                             }`}>Para carga y transporte de materiales. Alta eficiencia en espacios reducidos</p>
                                              <div className="text-lg font-bold text-[#006ba0] mb-3">$320 - $550/día</div>
-                                             <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                             <a
+                                                 href={buildWaLink("Hola, quiero ver modelos disponibles de cargadores frontales para alquiler.")}
+                                                 target="_blank"
+                                                 rel="noopener noreferrer"
+                                                 className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                             >
                                                  Ver Modelos
-                                             </button>
+                                             </a>
                                         </motion.div>
 
                                         <motion.div
@@ -506,9 +568,14 @@ export default function AlquilerEquipos() {
                                                 isDarkMode ? 'text-gray-300' : 'text-gray-600'
                                             }`}>Grúas, compactadores, martillos hidráulicos y equipos para minería</p>
                                             <div className="text-lg font-bold text-purple-500 mb-3">Consultar precios</div>
-                                            <button className="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                            <a
+                                                href={buildWaLink("Hola, quiero consultar precios de equipos especializados (grúas, compactadores, martillos hidráulicos, minería).")}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg font-semibold transition-colors duration-300 text-center inline-block"
+                                            >
                                                 Consultar
-                                            </button>
+                                            </a>
                                         </motion.div>
                                     </div>
                                 </motion.div> */}
@@ -540,22 +607,87 @@ export default function AlquilerEquipos() {
                                                         src={`${GALERIA_BASE_PATH}/${item.archivo}`}
                                                         alt={item.nombre}
                                                         loading="lazy"
-                                                        className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                                                        className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105 cursor-zoom-in"
+                                                        onClick={() => openLightbox(idx)}
                                                     />
-                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none"></div>
                                                     <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between">
                                                         <div>
                                                             <div className="text-xs sm:text-sm font-semibold text-white/80">{item.categoria}</div>
                                                             <div className="text-base sm:text-lg font-bold text-white">{item.nombre}</div>
                                                         </div>
-                                                        <button className="ml-3 bg-[#006ba0] hover:bg-[#004d73] text-white px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold shadow">
+                                                        <a
+                                                            href={buildWaLink(`Hola, quiero cotizar el equipo ${item.nombre} (${item.categoria}).`)}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="ml-3 bg-[#006ba0] hover:bg-[#004d73] text-white px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold shadow inline-block"
+                                                        >
                                                             Cotizar
-                                                        </button>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </motion.div>
                                         ))}
                                     </div>
+
+                                    {lightboxOpen && (
+                                        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
+                                            <div className="absolute inset-0 bg-black/80" onClick={closeLightbox} aria-hidden="true"></div>
+                                            <motion.div
+                                                initial={{ opacity: 0, scale: 0.98 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                exit={{ opacity: 0, scale: 0.98 }}
+                                                className={`relative max-w-5xl w-full rounded-xl overflow-hidden shadow-2xl ${
+                                                    isDarkMode ? 'bg-gray-900' : 'bg-white'
+                                                }`}
+                                            >
+                                                <button
+                                                    onClick={closeLightbox}
+                                                    className={`absolute top-3 right-3 px-3 py-1 rounded-md text-sm font-semibold ${
+                                                        isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                                                    }`}
+                                                    aria-label="Cerrar"
+                                                >
+                                                    ×
+                                                </button>
+                                                <div className="relative w-full bg-black">
+                                                    <img
+                                                        src={`${GALERIA_BASE_PATH}/${equiposAlquiler[currentIndex].archivo}`}
+                                                        alt={equiposAlquiler[currentIndex].nombre}
+                                                        className="w-full h-auto max-h-[80vh] object-contain"
+                                                    />
+                                                    <button
+                                                        onClick={prevImage}
+                                                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white backdrop-blur px-3 py-2 rounded-full"
+                                                        aria-label="Anterior"
+                                                    >
+                                                        ‹
+                                                    </button>
+                                                    <button
+                                                        onClick={nextImage}
+                                                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white backdrop-blur px-3 py-2 rounded-full"
+                                                        aria-label="Siguiente"
+                                                    >
+                                                        ›
+                                                    </button>
+                                                </div>
+                                                <div className={`p-4 flex items-center justify-between ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                                                    <div>
+                                                        <div className="text-sm opacity-80">{equiposAlquiler[currentIndex].categoria}</div>
+                                                        <div className="text-lg font-bold">{equiposAlquiler[currentIndex].nombre}</div>
+                                                    </div>
+                                                    <a
+                                                        href={buildWaLink(`Hola, quiero cotizar el equipo ${equiposAlquiler[currentIndex].nombre} (${equiposAlquiler[currentIndex].categoria}).`)}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="ml-3 bg-[#006ba0] hover:bg-[#004d73] text-white px-4 py-2 rounded-lg text-sm font-semibold shadow inline-block"
+                                                    >
+                                                        Cotizar
+                                                    </a>
+                                                </div>
+                                            </motion.div>
+                                        </div>
+                                    )}
 
                                     <div className="text-center mt-8">
                                         <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -592,13 +724,16 @@ export default function AlquilerEquipos() {
                                              <div className="text-[#006ba0]/70">Entrega a todo el país</div>
                                          </div>
                                      </div>
-                                     <motion.button
+                                     <motion.a
+                                         href={buildWaLink("Hola, quiero ayuda para calcular el presupuesto de alquiler según mi proyecto.")}
+                                         target="_blank"
+                                         rel="noopener noreferrer"
                                          whileHover={{ scale: 1.05 }}
                                          whileTap={{ scale: 0.95 }}
                                          className="bg-white text-[#006ba0] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300"
                                      >
                                          🧮 Calcular Presupuesto
-                                     </motion.button>
+                                     </motion.a>
                                 </motion.div>
                             </div>
                         </div>

@@ -33,16 +33,16 @@ const ImageCarousel = ({ currentIndex, goToPrevious, goToNext, goToSlide, images
 const LabEquipmentSection = () => {
     const images = [
         {
-            src: "https://megaequipamiento.com/wp-content/uploads/2023/09/capacitaciion-y-asesorias-2.webp",
-            alt: "Capacitación y asesorías"
+            src: "/img/Slider/silder1.jpg",
+            alt: "Imagen 1"
         },
         {
-            src: "https://megaequipamiento.com/wp-content/uploads/2023/09/servicio-de-mantenimiento-y-calibracion-2.webp",
-            alt: "Servicio de mantenimiento y calibración"
+            src: "/img/Slider/slider2.jpg",
+            alt: "Imagen 2"
         },
         {
-            src: "https://megaequipamiento.com/wp-content/uploads/2023/09/desarrollo-de-proyectos-2.webp",
-            alt: "Desarrollo de proyectos"
+            src: "/img/Slider/silder3.jpg",
+            alt: "Imagen 3"
         }
     ];
 

@@ -763,18 +763,8 @@ const Card = React.memo(({ product }) => {
             >
               Añadir a carrito
             </button>
-            <button 
-              className={`text-sm py-1.5 px-3 rounded flex-1 transition ${
-                isInCompare(product.id)
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'bg-green-600 hover:bg-green-700 text-white'
-              } ${!canAddMore && !isInCompare(product.id) ? 'opacity-50 cursor-not-allowed' : ''}`}
-              onClick={handleCompare}
-              disabled={!canAddMore && !isInCompare(product.id)}
-            >
-              {isInCompare(product.id) ? 'En comparador' : 'Comparar'}
-            </button>
-                    </div>
+         
+          </div>
         </div>
       )}
       

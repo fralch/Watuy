@@ -275,9 +275,16 @@ export default function ServiciosReparacion() {
                                         </ul>
                                         <div className="text-center">
                                            
-                                            <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                            <a
+                                                href="https://wa.me/51932401713"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full inline-block text-center bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300"
+                                                aria-label="Solicitar Servicio por WhatsApp"
+                                                title="Solicitar Servicio por WhatsApp"
+                                            >
                                                 Solicitar Servicio
-                                            </button>
+                                            </a>
                                         </div>
                                     </motion.div>
 
@@ -317,9 +324,16 @@ export default function ServiciosReparacion() {
                                         </ul>
                                         <div className="text-center">
                                            
-                                            <button className="w-full bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                            <a
+                                                href="https://wa.me/51932401713"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full inline-block text-center bg-[#006ba0] hover:bg-[#004d73] text-white py-3 rounded-lg font-semibold transition-colors duration-300"
+                                                aria-label="Solicitar Servicio por WhatsApp"
+                                                title="Solicitar Servicio por WhatsApp"
+                                            >
                                                 Solicitar Servicio
-                                            </button>
+                                            </a>
                                         </div>
                                     </motion.div>
 
@@ -359,9 +373,16 @@ export default function ServiciosReparacion() {
                                         </ul>
                                         <div className="text-center">
                                            
-                                            <button className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                                            <a
+                                                href="https://wa.me/51932401713"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full inline-block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300"
+                                                aria-label="Solicitar Servicio por WhatsApp"
+                                                title="Solicitar Servicio por WhatsApp"
+                                            >
                                                 Solicitar Servicio
-                                            </button>
+                                            </a>
                                         </div>
                                     </motion.div>
                                 </div>

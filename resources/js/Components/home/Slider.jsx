@@ -360,7 +360,7 @@ const Slider = () => {
                             lineHeight: "1.2",
                         }}
                     >
-                        Equipos de Laboratorio
+                        Maquinaria Pesada
                     </h2>
                     <h3
                         style={{
@@ -458,7 +458,7 @@ const Slider = () => {
                                 marginTop: -20,
                             }}
                         >
-                            Laboratorio
+                            Maquinaria Pesada
                         </h2>
                         <h2
                             style={{

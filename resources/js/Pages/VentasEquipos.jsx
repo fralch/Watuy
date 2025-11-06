@@ -46,6 +46,32 @@ export default function VentasEquipos() {
         setShowProfileModal(false);
     };
 
+    // Directorios y listas de imágenes desde /public/img
+    const maquinariaDir = "/img/IMAGENES_VENTA_DE MAQUINARIA PESADA";
+    const repuestosDir = "/img/IMAGENES_VENTAS DE REPUESTOS";
+
+    const maquinariaImages = [
+        "VENTA_EXCAVADORA DOOSSAN 225 1de4.jpeg",
+        "VENTA_EXCAVADORA DOOSSAN 225 2de4.jpeg",
+    ];
+
+    const repuestosImages = [
+        "Adaptador de uñas.jpg",
+        "CANTONERAS .png",
+        "Cadenas_Excavadora.jpg",
+        "Esproker .jpg",
+        "KIT DE SELLOS.jpg",
+        "RUEDAS GUIA.png",
+        "Rodillos.png",
+        "UÑAS.jpg",
+        "bocina.jpg",
+        "pines.jpeg",
+    ];
+
+    const buildSrc = (dir, name) => encodeURI(`${dir}/${name}`);
+    const formatTitle = (name) =>
+        name.replace(/\.[^.]+$/, "").replace(/_/g, " ").replace(/\s+/g, " ").trim();
+
     return (
         <>
             <Head title="Ventas de Equipos - MegaEquipamiento" />
@@ -299,6 +325,46 @@ export default function VentasEquipos() {
                                                  Ver Detalles
                                              </button> */}
                                     </motion.div>
+                                </div>
+
+                                {/* Galería de Maquinaria Pesada */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                                    {maquinariaImages.map((name, idx) => (
+                                        <motion.div
+                                            key={`maq-${idx}`}
+                                            whileHover={{ y: -6 }}
+                                            className={`group rounded-2xl shadow-xl overflow-hidden transition-all duration-300 ${
+                                                isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
+                                            }`}
+                                        >
+                                            <div className="relative aspect-[4/3] w-full">
+                                                <img src={buildSrc(maquinariaDir, name)} alt={formatTitle(name)} loading="lazy" className="w-full h-full object-cover" />
+                                                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                                                    <h3 className="text-lg font-semibold text-white">{formatTitle(name)}</h3>
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+
+                                {/* Galería de Repuestos */}
+                                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-10">
+                                    <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Repuestos en Venta</h2>
+                                    <p className={`text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Repuestos y accesorios para maquinaria pesada</p>
+                                </motion.div>
+                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-4">
+                                    {repuestosImages.map((name, idx) => (
+                                        <motion.div key={`rep-${idx}`} whileHover={{ y: -4 }} className={`group rounded-xl shadow-md overflow-hidden transition-all duration-300 ${isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+                                            <div className="relative aspect-square w-full">
+                                                <img src={buildSrc(repuestosDir, name)} alt={formatTitle(name)} loading="lazy" className="w-full h-full object-cover" />
+                                                <div className="absolute inset-0 bg-black/15 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
+                                                    <div className="text-sm font-medium text-white">{formatTitle(name)}</div>
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    ))}
                                 </div>
 
                                 {/* Why Choose Us Section */}

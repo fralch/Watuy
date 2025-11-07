@@ -7,6 +7,11 @@ import ImageBankModal from './ImageBankModal';
 // Usar URL dinámica: en producción usa el dominio actual, en desarrollo usa VITE_API_URL
 const URL_API = import.meta.env.VITE_API_URL || window.location.origin;
 
+// DEBUG: Log para verificar la URL que se está usando
+console.log('[DEBUG] VITE_API_URL:', import.meta.env.VITE_API_URL);
+console.log('[DEBUG] window.location.origin:', window.location.origin);
+console.log('[DEBUG] URL_API final:', URL_API);
+
 const Marcas = ({ onSubmit }) => {
   const { isDarkMode } = useTheme();
   // Add new state for modal
@@ -98,25 +103,32 @@ const Marcas = ({ onSubmit }) => {
 
   const fetchMarcas = async () => {
     try {
-      const response = await fetch(`${URL_API}/marca/all`);
+      const url = `${URL_API}/marca/all`;
+      console.log('[DEBUG] Fetching marcas from URL:', url);
+
+      const response = await fetch(url);
+      console.log('[DEBUG] Response status:', response.status);
+      console.log('[DEBUG] Response ok:', response.ok);
+
       if (!response.ok) {
         throw new Error('Error fetching marcas');
       }
       const data = await response.json();
+      console.log('[DEBUG] Marcas fetched successfully:', data.length, 'marcas');
       setMarcas(data.reverse()); // Reverse the array to show newest first
     } catch (error) {
-      console.error('Error:', error);
+      console.error('[ERROR] Error fetching marcas:', error);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
     formData.append('nombre', form.nombre);
     formData.append('descripcion', form.descripcion);
     formData.append('video_url', form.video_url);
-    
+
     // Manejar imagen del banco vs archivo subido
     if (form.imagen) {
       if (form.imagen.isFromBank) {
@@ -130,7 +142,10 @@ const Marcas = ({ onSubmit }) => {
     }
 
     try {
-      const response = await fetch(`${URL_API}/marca/create`, {
+      const url = `${URL_API}/marca/create`;
+      console.log('[DEBUG] Creating marca at URL:', url);
+
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -138,11 +153,14 @@ const Marcas = ({ onSubmit }) => {
         body: formData,
       });
 
+      console.log('[DEBUG] Create marca response status:', response.status);
+
       if (!response.ok) {
         throw new Error('Error creating marca');
       }
 
       const data = await response.json();
+      console.log('[DEBUG] Marca created successfully:', data);
       
       // After successful creation, fetch all marcas again
       await fetchMarcas();
@@ -183,15 +201,19 @@ const Marcas = ({ onSubmit }) => {
 
     try {
       const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+      const url = `${URL_API}/marca/delete/${id}`;
+      console.log('[DEBUG] Deleting marca at URL:', url);
 
       // Aunque la ruta es GET, usamos POST para enviar el token CSRF y seguir buenas prácticas para acciones destructivas.
       // Si prefieres usar GET, asegúrate de que tu backend lo maneje adecuadamente (puede requerir ajustes en la protección CSRF).
-      const response = await axios.post(`${URL_API}/marca/delete/${id}`, {}, {
+      const response = await axios.post(url, {}, {
         headers: {
           'X-CSRF-TOKEN': csrfToken,
           // 'Content-Type': 'application/json' // No es necesario para una solicitud POST vacía
         }
       });
+
+      console.log('[DEBUG] Delete marca response status:', response.status);
 
       if (response.status === 200) {
         setMessage({ type: 'success', text: `Marca "${nombre}" eliminada correctamente.` });

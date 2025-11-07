@@ -11,6 +11,12 @@ class MarcaController extends Controller
    
     public function create(Request $request)
     {
+        // Log para debugging
+        \Log::info('====== create marca called ======');
+        \Log::info('Request method: ' . $request->method());
+        \Log::info('Request URL: ' . $request->fullUrl());
+        \Log::info('Request data: ' . json_encode($request->all()));
+
         $request->validate([
             'nombre' => 'required|max:100',
             'descripcion' => 'nullable|string|max:255',
@@ -63,7 +69,14 @@ class MarcaController extends Controller
      */
     public function destroy($id)
     {
+        // Log para debugging
+        \Log::info('====== destroy marca called ======');
+        \Log::info('Request method: ' . request()->method());
+        \Log::info('Marca ID: ' . $id);
+
         $marca = Marca::findOrFail($id);
+        \Log::info('Marca found: ' . json_encode($marca));
+
         // Verificar si existe una imagen asociada y eliminarla
         if ($marca->imagen) {
             $imagePath = public_path(ltrim($marca->imagen, '/'));
@@ -76,6 +89,8 @@ class MarcaController extends Controller
         }
         // Eliminar la marca
         $marca->delete();
+        \Log::info('Marca deleted successfully');
+        \Log::info('====== destroy marca finished ======');
         return response()->json(['message' => 'Marca eliminada correctamente']);
     }
    
@@ -116,12 +131,19 @@ class MarcaController extends Controller
     // obtener todos los marcas en json
     public function getMarcas ()
     {
+        // Log detallado para debugging
+        \Log::info('====== getMarcas called ======');
+        \Log::info('Request method: ' . request()->method());
+        \Log::info('Request URL: ' . request()->fullUrl());
+        \Log::info('Request origin: ' . request()->header('Origin'));
+        \Log::info('Request referer: ' . request()->header('Referer'));
+        \Log::info('Request IP: ' . request()->ip());
+
         $marcas = Marca::all();
 
-        // Log para debugging
-        \Log::info('getMarcas called');
         \Log::info('Total marcas: ' . $marcas->count());
         \Log::info('Marcas data: ' . json_encode($marcas));
+        \Log::info('====== getMarcas finished ======');
 
         return response()->json($marcas);
     }

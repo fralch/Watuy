@@ -6,7 +6,8 @@ import Menu from "../Components/home/Menu";
 import ProductGrid from "../Components/store/ProductGrid";
 import Footer from "../Components/home/Footer";
 
-const URL_API = import.meta.env.VITE_API_URL;
+// Usar URL dinámica: en producción usa el dominio actual, en desarrollo usa VITE_API_URL
+const URL_API = import.meta.env.VITE_API_URL || window.location.origin;
 
 // Función para convertir URLs de video al formato embed
 const getEmbedUrl = (url) => {

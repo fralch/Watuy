@@ -7,7 +7,8 @@ import { useCurrency } from "../../storage/CurrencyContext";
 import { useCompare } from "../../hooks/useCompare";
 import CompareModal from "../compare/CompareModal";
 
-const API_URL = import.meta.env.VITE_API_URL;
+// Usar URL dinámica: en producción usa el dominio actual, en desarrollo usa VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL || window.location.origin;
 
 const Menu = ({ className = "" }) => {
     const { auth } = usePage().props;

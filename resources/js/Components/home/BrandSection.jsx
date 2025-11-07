@@ -167,55 +167,88 @@ const BrandSection = () => {
   useEffect(() => {
     const loadBrands = async () => {
       try {
+        console.log('====== LOADING BRANDS START ======');
         console.log('Fetching brands from API...');
         const response = await axios.get('/marca/all');
+
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+        console.log('Raw response data:', response.data);
+        console.log('Response data type:', typeof response.data);
+        console.log('Is array?', Array.isArray(response.data));
+
         const brandsData = response.data;
 
         console.log('Brands received:', brandsData);
         console.log('Total brands:', brandsData?.length || 0);
 
+        if (Array.isArray(brandsData) && brandsData.length > 0) {
+          console.log('First brand:', brandsData[0]);
+          console.log('First brand keys:', Object.keys(brandsData[0]));
+        }
+
         // Guardar en localStorage con timestamp para caché
         localStorage.setItem('brandsData', JSON.stringify(brandsData));
         localStorage.setItem('brandsDataTimestamp', Date.now().toString());
 
+        console.log('Setting brands state with:', brandsData);
         setBrands(brandsData);
+        console.log('Brands state updated');
         setLoading(false);
+        console.log('====== LOADING BRANDS END ======');
       } catch (error) {
+        console.error('====== ERROR LOADING BRANDS ======');
         console.error('Error loading brands from API:', error);
         console.error('Error details:', error.response?.data || error.message);
+        console.error('Error status:', error.response?.status);
         setLoading(false);
       }
     };
     
     // Verificar si hay datos en caché
+    console.log('====== CHECKING CACHE ======');
     const cachedBrands = localStorage.getItem('brandsData');
     const cachedTimestamp = localStorage.getItem('brandsDataTimestamp');
     const oneHour = 60 * 60 * 1000; // 1 hora en milisegundos
 
+    console.log('Cached brands exists?', !!cachedBrands);
+    console.log('Cached timestamp exists?', !!cachedTimestamp);
+
     if (cachedBrands && cachedTimestamp && (Date.now() - parseInt(cachedTimestamp)) < oneHour) {
       // Usar datos en caché si son recientes (1 hora)
-      console.log('Using cached brands data');
+      console.log('Using cached brands data (less than 1 hour old)');
       const parsedBrands = JSON.parse(cachedBrands);
       console.log('Cached brands:', parsedBrands);
+      console.log('Cached brands length:', parsedBrands?.length);
+      console.log('Setting brands state from cache');
       setBrands(parsedBrands);
       setLoading(false);
+      console.log('====== CACHE LOADED ======');
     } else {
       console.log('Cache expired or not found, fetching from API');
+      // Limpiar cache antiguo si existe
+      if (cachedBrands || cachedTimestamp) {
+        console.log('Clearing old cache');
+        localStorage.removeItem('brandsData');
+        localStorage.removeItem('brandsDataTimestamp');
+      }
+
       // Configurar observer para cargar marcas solo cuando la sección es visible
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
+            console.log('Brand section is now visible, loading brands...');
             loadBrands();
             observer.disconnect();
           }
         },
         { threshold: 0.1 }
       );
-      
+
       if (sectionRef.current) {
         observer.observe(sectionRef.current);
       }
-      
+
       return () => {
         if (sectionRef.current) {
           observer.disconnect();

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../storage/ThemeContext';
+import { API_URL } from '../../config/api';
 
-// Usar URL dinámica: en producción usa el dominio actual, en desarrollo usa VITE_API_URL
-const URL_API = import.meta.env.VITE_API_URL || window.location.origin;
+const URL_API = API_URL;
 
 const ProductsView = () => {
   const { isDarkMode } = useTheme();

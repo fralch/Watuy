@@ -4,9 +4,9 @@ import { CartContext } from '../../storage/CartContext';
 import { useTheme } from '../../storage/ThemeContext';
 import { useCurrency } from '../../storage/CurrencyContext';
 import { useCompare } from '../../hooks/useCompare';
+import { API_URL } from '../../config/api';
 
-// Usar URL dinámica: en producción usa el dominio actual, en desarrollo usa VITE_API_URL
-const URL_API = import.meta.env.VITE_API_URL || window.location.origin;
+const URL_API = API_URL;
 const FALLBACK_IMAGE = '/img/LOGO-WATUY.png';
 const IMAGE_TIMEOUT = 3000; // 3 segundos timeout para imágenes
 

@@ -3,14 +3,9 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useTheme } from '../../storage/ThemeContext';
 import ImageBankModal from './ImageBankModal';
+import { API_URL } from '../../config/api';
 
-// Usar URL dinámica: en producción usa el dominio actual, en desarrollo usa VITE_API_URL
-const URL_API = import.meta.env.VITE_API_URL || window.location.origin;
-
-// DEBUG: Log para verificar la URL que se está usando
-console.log('[DEBUG] VITE_API_URL:', import.meta.env.VITE_API_URL);
-console.log('[DEBUG] window.location.origin:', window.location.origin);
-console.log('[DEBUG] URL_API final:', URL_API);
+const URL_API = API_URL;
 
 const Marcas = ({ onSubmit }) => {
   const { isDarkMode } = useTheme();
